@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 */
   
 // middleware
-//app.use(express.json()) // gets the request
+app.use(express.json()) // gets the request
 
 // routes
 app.use('/api/user', userRoutes) // register the router (routes)
