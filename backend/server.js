@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const mongoose = require('mongoose')
-const userRoutes = require('./routes/user.js')  // import the user router
+const userRoutes = require('./routes/user')  // import the user router
 
 // create an express app
 const app = express()

@@ -20,5 +20,4 @@ router.post('/login', loginUser)  // send data in a request
 // signup route
 router.post('/signup', signupUser)
 
-//deneme
 module.exports = router
