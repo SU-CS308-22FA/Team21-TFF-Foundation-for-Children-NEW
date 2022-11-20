@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const createToken = (_id) => { // after the tokens are created, 
 //they will be used in loginUser and signupUser controller functions.
 //_id will be a part of the payload of the token.
-  return jwt.sign({_id, role}, process.env.SECRET, { expiresIn: '3d' }) // user stays logged in for 3 days. then the token expires.
+  return jwt.sign({_id}, process.env.SECRET, { expiresIn: '3d' }) // user stays logged in for 3 days. then the token expires.
 }
 
 

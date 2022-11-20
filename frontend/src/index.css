@@ -236,7 +236,7 @@ body{
 .profileContainer{
    
     
-    margin-left: 85%;
+    margin-left: 82%;
     width: 15%;
     height: 25vh;
     
@@ -247,7 +247,7 @@ body{
     /*border-radius: 10%;*/
 }
 #userBox{
-    background-color: #644ebf ;
+    background-color: #1abc9c ;
     width: 100%;
     height: 33%;
     border-bottom: 2px solid;
@@ -258,7 +258,7 @@ body{
 
 }
 #profileBox{
-    background-color: #644ebf ;
+    background-color: #1abc9c ;
     width: 100%;
     height: 33%;
     border-bottom: 2px solid;
@@ -269,7 +269,7 @@ body{
 }
 
 #logoutBox{
-    background-color: #644ebf ;
+    background-color: #1abc9c ;
     width: 100%;
     height: 33%;
     display: grid;
@@ -290,9 +290,9 @@ body{
     color:crimson;
 }
 .personalDataBox{
-    width: 13%;
+    width: 15%;
     height: 25vh;
-
+    margin-left: -5%;
     /*margin-left: 70px;*/
     margin-top: 10%;
     display: flex;
@@ -302,7 +302,7 @@ body{
    
 }
 #announcementBox{
-    background-color: #644ebf ;
+    background-color: #1abc9c ;
     width: 100%;
     height: 33%;
     border-bottom: 2px solid;
@@ -312,7 +312,7 @@ body{
     align-items: center;
 }
 #eventBox{
-    background-color: #644ebf ;
+    background-color: #1abc9c ;
     width: 100%;
     height: 33%;
     border-bottom: 2px solid;
@@ -322,7 +322,7 @@ body{
     align-items: center;
 }
 #developmentBox{
-    background-color: #644ebf ;
+    background-color: #1abc9c ;
     width: 100%;
     height: 33%;
     display: grid;

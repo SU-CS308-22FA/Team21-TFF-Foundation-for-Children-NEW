@@ -52,7 +52,7 @@ const Student= () => {
                     <li className="next">&#10095;</li>
                     <li>
                         August<br/>
-                        <span style="font-size:18px">2021</span>
+                        <span>2021</span>
                     </li>
                     </ul>
                 </div>
