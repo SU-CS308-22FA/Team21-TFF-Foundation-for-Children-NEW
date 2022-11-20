@@ -21,3 +21,4 @@ router.post('/login', loginUser)  // send data in a request
 router.post('/signup', signupUser)
 
 module.exports = router
+
