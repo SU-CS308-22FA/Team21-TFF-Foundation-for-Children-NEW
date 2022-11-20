@@ -60,7 +60,8 @@ userSchema.statics.signup = async function(email, password, role) {  // create a
   const hash = await bcrypt.hash(password, salt)
 
   const user = await this.create({ email, password: hash, role }) // swap password and hashed password
-
+  console.log("user created", role)
+  console.log("with role, ",user.role)
   return user
 }
 
