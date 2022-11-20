@@ -37,11 +37,12 @@ const Signup = () => {
         onChange={(e)=>setRole(e.target.value)}
         value={role}
         type="role">
+        <option>Select</option>
         <option>Student</option>
         <option>Teacher</option>
       </select>
       <br /> <br />
-      <button disabled={isLoading} type="submit">Sign up</button>
+      <button disabled={isLoading}>Sign up</button>
       {error && <div className="error">{error}</div>}
     </form>
   )
