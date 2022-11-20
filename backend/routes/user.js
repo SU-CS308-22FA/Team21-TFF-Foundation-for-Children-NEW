@@ -20,4 +20,7 @@ router.post('/login', loginUser)  // send data in a request
 // signup route
 router.post('/signup', signupUser)
 
+//student page
+router.post('/student', )
+
 module.exports = router

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useAuthContext } from './useAuthContext'
+import Student from '../pages/Student'
 
 export const useLogin = () => {
   const [error, setError] = useState(null)
@@ -30,6 +31,7 @@ export const useLogin = () => {
 
       // update loading state
       setIsLoading(false)
+      Student()
     }
   }
 
