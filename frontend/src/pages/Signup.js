@@ -4,14 +4,16 @@ import { useSignup } from "../hooks/useSignup"
 const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [role, setRole] = useState('')
   const {signup, error, isLoading} = useSignup()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    await signup(email, password)
+    console.warn("all data",email,password,role)
+    await signup(email, password, role)
     setEmail("")
     setPassword("")
+    setRole("")
   }
 
   return (
@@ -30,8 +32,16 @@ const Signup = () => {
         onChange={(e) => setPassword(e.target.value)} 
         value={password} 
       />
-
-      <button disabled={isLoading}>Sign up</button>
+      <p>I am a</p>
+      <select 
+        onChange={(e)=>setRole(e.target.value)}
+        value={role}
+        type="role">
+        <option>Student</option>
+        <option>Teacher</option>
+      </select>
+      <br /> <br />
+      <button disabled={isLoading} type="submit">Sign up</button>
       {error && <div className="error">{error}</div>}
     </form>
   )

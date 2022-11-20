@@ -1,19 +1,21 @@
 import { useState } from 'react'
 import { useAuthContext } from './useAuthContext'
 
+
 export const useSignup = () => {
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(null)
   const { dispatch } = useAuthContext()
 
-  const signup = async (email, password) => {
+  const signup = async (email, password, role) => {
+    console.log("role:", role, "hata hook mu??")
     setIsLoading(true)
     setError(null)
 
     const response = await fetch('/api/user/signup', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ email, password, role })
     })
     const json = await response.json()
 

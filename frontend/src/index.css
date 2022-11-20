@@ -67,7 +67,7 @@ header a {
   color: #333;
 }
 
-/* new workout form */
+
 label, input {
   display: block;
 }
@@ -120,6 +120,11 @@ nav button {
   font-size: 1em;
 }
 
+.role_adjust select{
+  margin-left: 50px;
+
+}
+
 /* auth forms */
 form.signup, form.login {
   max-width: 400px;
@@ -128,3 +133,15 @@ form.signup, form.login {
   background: #fff;
   border-radius: 4px;
 }
+
+form.signup select {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+form.signup p {
+  display: inline-block;
+}
+
+
+
