@@ -28,7 +28,7 @@ export const useLogin = () => {
 
       // update the auth context
       dispatch({type: 'LOGIN', payload: json})
-
+      console.log("entered to login")
       // update loading state
       setIsLoading(false)
       Student()

@@ -20,7 +20,9 @@ const loginUser = async (req, res) => { // async function bc it will communicate
 
     res.status(200).json({email, token})
   } catch (error) {
-    res.status(400).json({error: error.message})
+    if (error.message != "role is not defined"){
+      res.status(400).json({error: error.message})
+    }
   }
 }
 
