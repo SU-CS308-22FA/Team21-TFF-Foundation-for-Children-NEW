@@ -19,7 +19,7 @@ app.use(express.json()) // gets the request
 
 // routes
 app.use('/api/user', userRoutes) // register the router (routes)
-app.use('/static',express.static(path.join(__dirname, "/frontend")));
+app.use(express.static(path.join(__dirname, "/frontend")));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/frontend/build', 'index.html'));
