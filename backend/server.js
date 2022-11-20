@@ -13,13 +13,17 @@ app.use((req, res, next) => {
     next()
   })
 */
-  
+const uri = process.env.MONGODB_URI;
 // middleware
 app.use(express.json()) // gets the request
 
 // routes
 app.use('/api/user', userRoutes) // register the router (routes)
+app.use(express.static(path.join(__dirname, "/frontend")));
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/frontend/build', 'index.html'));
+});
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
