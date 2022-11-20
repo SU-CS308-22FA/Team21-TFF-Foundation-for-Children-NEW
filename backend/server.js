@@ -1,5 +1,5 @@
 require('dotenv').config()
-import path from 'path';
+const path= require('path')
 const express = require('express')
 const mongoose = require('mongoose')
 const userRoutes = require('./routes/user')  // import the user router
