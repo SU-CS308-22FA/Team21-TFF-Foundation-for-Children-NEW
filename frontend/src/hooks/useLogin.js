@@ -1,12 +1,22 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAuthContext } from './useAuthContext'
-import { useNavigate } from 'react-router-dom';
-import { isAuthenticated } from '../helpers/auth';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 export const useLogin = () => {
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(null)
   const { dispatch } = useAuthContext()
+  let navigate = useNavigate();
+  let location = useLocation();
+
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem('user')) && JSON.parse(localStorage.getItem('user')).userrole === "Teacher") {
+      navigate('/Teacher');
+    } else if (JSON.parse(localStorage.getItem('user')) && JSON.parse(localStorage.getItem('user')).userrole === "Student") {
+      navigate('/Student');
+    }
+  }, [navigate]);
   const login = async (email, password) => {
+
     setIsLoading(true)
     setError(null)
 
@@ -29,14 +39,22 @@ export const useLogin = () => {
       console.log("entered to login")
       // update loading state
       setIsLoading(false)
-      if (JSON.parse(localStorage.getItem('user')).userrole === 'Student') {
+
+      const redirect = location.search.split('=')[1];
+
+      if (JSON.parse(localStorage.getItem('user')) && JSON.parse(localStorage.getItem('user')).userrole === 'Student') {
         console.log("33.satir: ", localStorage.getItem('user'))
         console.log('Redirecting to student dashboard')
+        navigate('/student');
       }
-      else {
-        console.log("33.satir: ", localStorage.getItem('user'))
-        console.log('Redirecting to teacher dashboard')
-      } 
+      else if (
+        JSON.parse(localStorage.getItem('user')) && 
+        JSON.parse(localStorage.getItem('user')).userrole === 'Teacher' && 
+        !redirect
+      ) {
+          console.log('Redirecting to teacher dashboard')
+          navigate('/teacher');
+        } 
     }
   }
 
