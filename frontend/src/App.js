@@ -5,6 +5,8 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
 import Student from './pages/Student'
+import Teacher from './pages/Teacher'
+
 function App() {
   return (
     <div className="App">
@@ -26,6 +28,10 @@ function App() {
               <Route 
                 path="/student" 
                 element={<Student />} 
+              />
+              <Route 
+                path="/teacher" 
+                element={<Teacher />} 
               />
 
 

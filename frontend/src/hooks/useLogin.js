@@ -5,6 +5,7 @@ export const useLogin = () => {
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(null)
   const { dispatch } = useAuthContext()
+  
   const navigate = useNavigate();
   const login = async (email, password) => {
     setIsLoading(true)
@@ -13,7 +14,7 @@ export const useLogin = () => {
     const response = await fetch('/api/user/login', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ email, password }) //careful with role!!!!!!!!!!
     })
     const json = await response.json()
 
@@ -30,6 +31,7 @@ export const useLogin = () => {
       console.log("entered to login")
       // update loading state
       setIsLoading(false)
+      
       navigate("/student")
     }
   }

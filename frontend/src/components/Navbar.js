@@ -7,7 +7,7 @@ const Navbar = () => {
   const { logout } = useLogout()
   const { user } = useAuthContext()
   
-  console.log(user, " type?")
+  console.log(user, " type")
 
   const handleClick = () => {
     logout()

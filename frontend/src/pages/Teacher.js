@@ -1,57 +1,37 @@
 import "../index.css"
 import React from "react"
 import logo from "../img/mt-0966-logo.png"
-import lifting from "../img/1370177783.jpg"
+import { Link } from 'react-router-dom'
 import one from "../img/1.jpg"
 import two from "../img/2.jpg"
 import three from "../img/3.jpg"
 import four from "../img/4.jpg"
 import five from "../img/5.jpg"
 import six from "../img/6.jpg"
-const Student= () => {
+const Teacher= () => {
 
 
     return(
         <div className="stuPage">
-
-
-
             <div className="introImage">
                         <div className="nav">
-                            <img src={logo} alt="" />
-                            <div id="home"> Home </div>
-                            <div id="about"> About </div>
-                            <div id="announcements">Announcements </div>
-                            <div id="events"> Events </div>
-                            <div id="development"> My Development </div>
+
+                        <Link to="/" id="link"> <img src={logo} alt="" /> </Link>
+                            
+                            <Link id="link"> Home </Link>
+                            
+                            <Link to="/" id="link">Add Announcement </Link>
+                            <Link to="/" id="link"> Add Event </Link>
+                            <Link to="/" id="link"> Student Development </Link>
+                            <Link to="/" id="link"> Change Student </Link>
+                            <Link to="/" id="link"> Add Training </Link>
                         </div>
                     </div>
-                    <div className="aboutDescription">
-                        
-                        <div className="infoBox">
-                            <h1> About Header 1 </h1> 
-                            <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi ducimus deleniti magnam cupiditate odit minus accusantium dignissimos velit quas. Accusantium, id voluptatibus assumenda adipisci aliquam ut? Commodi necessitatibus blanditiis error. </p>
-                        </div>
-                        <div className="infoBox">
-                            <h1> About Header 2 </h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt iure vero animi, possimus asperiores ipsa quasi fuga. Ab nemo esse aliquam autem! Veritatis dolores quia ex, est perferendis soluta quaerat!</p>
-                        </div>
-                        <div className="infoBox">
-                            <h1> About Header 3 </h1>
-                            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo fuga impedit dolorem commodi nisi. Illo ducimus nihil doloribus quasi facilis eaque tenetur maxime laboriosam ad, in, repellendus aliquam at obcaecati.</p>
-                        </div>
-                    </div>
-                    <div className="purposeDescription">
-                        <img src={lifting} alt="" />
-                        <div className="description">
-                            <h1> Purpose Header 1 </h1> 
-                            <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi ducimus deleniti magnam cupiditate odit minus accusantium dignissimos velit quas. Accusantium, id voluptatibus assumenda adipisci aliquam ut? Commodi necessitatibus blanditiis error. </p>
-                        </div>
-                    </div>
+                    
 
                     <div className="skillContainer">
                         <div className="skills">
-                            <h1>My Development</h1>
+                            <h1>Student Name's Skill Points</h1>
                             <div id="img1">
                                 <h3> Skill Name 1</h3>
                                 <img src={one} alt=""/>
@@ -79,9 +59,14 @@ const Student= () => {
                             
                         </div>
                     </div>
+                    <div id="space">
+                        <div className="link">
+                            <Link to="/" className="skillLink" id="link">Change Skills</Link>
+                        </div>
+                    </div>
                     
                     <div className="announcementsContainer">
-        
+                    
             
                     <div className="announcements">
                         <h1> Latest News </h1>
@@ -134,7 +119,14 @@ const Student= () => {
                         </div>
                     </div>
                 </div>
+                <div id="space">
+                        <div className="link">
+                            <Link to="/" className="skillLink" id="link">Change Announcement</Link>
+                        </div>
+                    </div>
+                
                 <div className="calendar">
+                    <h1> Student Name's Calendar </h1>
                 <div className="month">
                     <ul>
                         <li className="prev">&#10094;</li>
@@ -183,10 +175,12 @@ const Student= () => {
                         <li>28</li>
                         <li>29</li>
                         <li>30</li>
+
+
                         </ul>
 
                 </div>
-
+               
 
         </div>
 
@@ -196,4 +190,4 @@ const Student= () => {
     )
 }
 
-export default Student
+export default Teacher
