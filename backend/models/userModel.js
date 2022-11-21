@@ -7,23 +7,25 @@ const validator = require('validator')
 
 const Schema = mongoose.Schema
 
-const userSchema = new Schema({
-  email: {   // email is the primary key
-    type: String,
-    required: true,
-    unique: true
+const userSchema = new Schema(
+  {
+    email: {   // email is the primary key
+      type: String,
+      required: true,
+      unique: true
+    },
+    password: {  // different people can have the same password
+      type: String,
+      required: true
+    },
+    role: {
+      type: String,
+      default: "Student",
+      required: true,
+    },
   },
-  password: {  // different people can have the same password
-    type: String,
-    required: true
-  },
-  role: {
-    type: String,
-    default: "Student",
-    required: true,
-    enum: ['Student', 'Teacher']
-  }
-},);
+  { timestamps: true }
+);
 
 // make a model based on the schema
 // schema defines the stucture of a type of document inside our db.

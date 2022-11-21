@@ -5,6 +5,8 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
 import Student from './pages/Student'
+import Events from './pages/Events'
+
 function App() {
   return (
     <div className="App">
@@ -13,23 +15,22 @@ function App() {
         <div className="pages">
           <switch>
             <Routes>
-
               <Route 
                 path="/login" 
                 element={<Login />} 
               />
-
               <Route 
-                path="/signup" 
+                path="/signup"   // bak bu isim user.js'teki route ismi ile ayni. oraya middleware kurmuştuk zaten.
                 element={<Signup />} 
               />
               <Route 
                 path="/student" 
                 element={<Student />} 
               />
-
-
-
+              <Route 
+                path="/student/events" 
+                element={<Events />} 
+              />
             </Routes>
           </switch>
         </div>

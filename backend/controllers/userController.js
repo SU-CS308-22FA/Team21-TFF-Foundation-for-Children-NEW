@@ -14,11 +14,11 @@ const loginUser = async (req, res) => { // async function bc it will communicate
 
   try {
     const user = await User.login(email, password)
-
     // create a token
-    const token = createToken(user._id)
 
-    res.status(200).json({email, token})
+    const token = createToken(user._id)
+    const userrole = user.role
+    res.status(200).json({email, token, userrole})
   } catch (error) {
     if (error.message != "role is not defined"){
       res.status(400).json({error: error.message})

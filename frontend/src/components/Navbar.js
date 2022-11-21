@@ -6,8 +6,6 @@ import React from 'react'
 const Navbar = () => {
   const { logout } = useLogout()
   const { user } = useAuthContext()
-  
-  console.log(user, " type?")
 
   const handleClick = () => {
     logout()
