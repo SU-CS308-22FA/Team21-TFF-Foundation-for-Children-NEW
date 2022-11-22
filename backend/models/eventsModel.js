@@ -10,7 +10,7 @@ const eventsSchema = new Schema(
         unique: true
     },
     quota: {  // different people can have the same password
-        type: Number
+        type: String
     },
     location: {
         type: String,
@@ -21,6 +21,10 @@ const eventsSchema = new Schema(
         type: String,
         required: true
     },
+    date: {
+        type: String,
+        required: true
+    }
 
 
     }, { timestamps: true });
