@@ -1,9 +1,12 @@
 //import { useState } from 'react'
 //import { useAuthContext } from './useAuthContext'
 
+import { useState } from 'react';
+
+
 export const useEvents = () => {
   const events = () => {
-    <h3>Log In</h3>
+    
   }
   
   return { events }

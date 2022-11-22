@@ -7,7 +7,7 @@ import { useEvents } from "../hooks/useEvents"
 const Events = () =>  {
     const {events} = useEvents()
     return (
-        <h3>EVEEENTS</h3>
+        <h3>ALL EVENTS</h3>
 
     )
 

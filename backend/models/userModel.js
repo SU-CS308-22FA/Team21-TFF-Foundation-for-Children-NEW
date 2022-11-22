@@ -21,7 +21,7 @@ const userSchema = new Schema(
     role: {
       type: String,
       default: "Student",
-      required: true,
+      required: true
     },
   },
   { timestamps: true }
