@@ -9,6 +9,7 @@ import three from "../img/3.jpg"
 import four from "../img/4.jpg"
 import five from "../img/5.jpg"
 import six from "../img/6.jpg"
+import Events from './Events'
 const Student= () => {
 
 
@@ -22,7 +23,7 @@ const Student= () => {
                             
                             <Link to="/" id="link">About </Link>
                             <Link to="/" id="link">Announcements </Link>
-                            <Link to="/" id="link">Events </Link>
+                            <Link to="/student/events">Events</Link>
                             <Link to="/" id="link">My Development </Link>
                         </div>
                     </div>
@@ -195,5 +196,7 @@ const Student= () => {
 
     )
 }
+
+
 
 export default Student

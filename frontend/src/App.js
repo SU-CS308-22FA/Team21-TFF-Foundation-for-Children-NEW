@@ -7,7 +7,6 @@ import Navbar from './components/Navbar'
 import Student from './pages/Student'
 import Teacher from './pages/Teacher'
 import Events from './pages/Events'
-
 function App() {
   return (
     <div className="App">
@@ -33,6 +32,13 @@ function App() {
                 path="/teacher" 
                 element={<Teacher />} 
               />
+
+              <Route 
+                path="/student/events" 
+                element={<Events />} 
+              />
+
+
             
             </Routes>
           </switch>
