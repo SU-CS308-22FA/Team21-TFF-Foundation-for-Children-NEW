@@ -109,6 +109,86 @@ form.signup select {
   display: inline-block;
 }
 
+#h3{
+  width:100%;
+  height: 2%;
+  background-color: red;
+  text-align: center;
+}
+.eventPageContainer{
+  
+  width: 100%;
+  height: 500vh;
+  border: 4px solid;
+ 
+}
+.eventsContainer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  margin-top: 100px;
+}
+#eventLink{
+  font-size: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
+}
+.event{
+  height: 8%;
+  width: 100%;
+  background-color: #1abc9c;
+  text-align: left;
+  padding-top: 25px;
+  padding-left: 50px;
+  border: 2px solid;
+}
+.eventContent{
+  height: 10%;
+  width: 100%;
+  margin-top: 40%;
+  background-color: #fff;
+  font-size: 30px;
+  
+  
+ 
+  text-align: left;
+
+  display: grid;
+  grid-template-areas: 
+  "h3 img"
+  "content img";
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 2fr;
+
+}
+.eventContent .eventHeader{
+  grid-area:h3;
+  border: 2px solid blue;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 50px;
+  font-size: 35px;
+}
+.eventContent .eventContent2{
+  padding-top: 30px;
+  padding-left: 30px;
+  grid-area: content;
+  border:2px solid green ;
+  font-size: 25px;  
+}
+.eventContent .eventImage{
+ 
+  grid-area: img;
+  border: 2px solid red;
+}
+.eventImage img{
+  max-width: 100%;
+  height: 100%;
+}
+
 form.signup p {
   display: inline-block;
 }
