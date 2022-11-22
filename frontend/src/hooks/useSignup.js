@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useAuthContext } from './useAuthContext'
-
+import { useNavigate } from 'react-router-dom'
 
 export const useSignup = () => {
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(null)
   const { dispatch } = useAuthContext()
-
+  const navigate = useNavigate();
   const signup = async (email, password, role) => {
     console.log("role:", role, "hata hook mu??")
     setIsLoading(true)
@@ -32,6 +32,12 @@ export const useSignup = () => {
 
       // update loading state
       setIsLoading(false)
+      if(role==='Student'){
+        navigate("/student")
+      }
+      else if (role==='Teacher'){
+        navigate("/teacher")
+      }
     }
   }
 
