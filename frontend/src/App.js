@@ -7,14 +7,19 @@ import Navbar from './components/Navbar'
 import Student from './pages/Student'
 import Teacher from './pages/Teacher'
 import Events from './pages/Events'
+import Home from './pages/Home'
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        
         <div className="pages">
           <switch>
             <Routes>
+            <Route 
+                path="/" 
+                element={<Home />} 
+              />
               <Route 
                 path="/login" 
                 element={<Login />} 
