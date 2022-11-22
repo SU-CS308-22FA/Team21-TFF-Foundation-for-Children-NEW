@@ -14,7 +14,9 @@ const Teacher= () => {
     return(
         <div className="stuPage">
             <div className="introImage">
-                        <div className="nav">
+                
+                    </div>
+                    <div className="nav">
 
                         <Link to="/" id="link"> <img src={logo} alt="" /> </Link>
                             
@@ -26,8 +28,36 @@ const Teacher= () => {
                             <Link to="/" id="link"> Change Student </Link>
                             <Link to="/" id="link"> Add Training </Link>
                         </div>
+                        <div className="skillContainer">
+                        <div className="skills">
+                            <h1>Student Name's Skill Points</h1>
+                            <div id="img1">
+                                <h3> Skill Name 1</h3>
+                                <img src={one} alt=""/>
+                            </div>
+                            <div id="img2">
+                                <h3> Skill Name 2</h3>
+                                <img src={two} alt=""/>
+                            </div>
+                            <div id="img3">
+                                <h3> Skill Name 3</h3>
+                                <img src={three} alt=""/>
+                            </div>
+                            <div id="img4">
+                                <h3> Skill Name 4</h3>
+                                <img src={four} alt=""/>
+                            </div>
+                            <div id="img5">
+                                <h3> Skill Name 5</h3>
+                                <img src={five} alt=""/>
+                            </div>
+                            <div id="img6">
+                                <h3> Skill Name 6</h3>
+                                <img src={six} alt=""/>
+                            </div>
+                            
+                        </div>
                     </div>
-                    
 
                     <div className="skillContainer">
                         <div className="skills">

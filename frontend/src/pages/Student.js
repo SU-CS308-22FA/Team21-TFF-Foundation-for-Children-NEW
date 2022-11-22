@@ -1,7 +1,7 @@
 import "../index.css"
 import React from "react"
 import logo from "../img/mt-0966-logo.png"
-import lifting from "../img/1370177783.jpg"
+import '../index.css'
 import { Link } from 'react-router-dom'
 import one from "../img/1.jpg"
 import two from "../img/2.jpg"
@@ -9,26 +9,69 @@ import three from "../img/3.jpg"
 import four from "../img/4.jpg"
 import five from "../img/5.jpg"
 import six from "../img/6.jpg"
-import Events from './Events'
+
 const Student= () => {
-
-
+    
+   
+  
     return(
         <div className="stuPage">
-            <div className="introImage">
-                        <div className="nav">
+                    <div className="introImage">
+                        
+                       
+                    </div>
+                    <div className="nav">
                         <Link to="/" id="link"> <img src={logo} alt="" /> </Link>
                             
-                            <Link id="link"> Home </Link>
+                            <Link to="/" id="link"> Home </Link>
                             
                             <Link to="/" id="link">About </Link>
                             <Link to="/" id="link">Announcements </Link>
                             <Link to="/student/events">Events</Link>
                             <Link to="/" id="link">My Development </Link>
                         </div>
+                        <div className="welcome">
+                            <div id="welcomeMessage">
+                                Welcome To
+                            </div>
+                            <div id="projectName">
+                                TFF Foundation For Children
+                            </div>
+                            <div id="greetings">
+                            here you will find everything about the best game in the entire world. 
+                            Pure emotions, latest news, statisctics in details and much more.
+                            </div>
+                        </div>
+                    <div className="skillContainer">
+                        <div className="skills">
+                            <h1>My Development</h1>
+                            <div id="img1">
+                                <h3> Skill Name 1</h3>
+                                <img src={one} alt=""/>
+                            </div>
+                            <div id="img2">
+                                <h3> Skill Name 2</h3>
+                                <img src={two} alt=""/>
+                            </div>
+                            <div id="img3">
+                                <h3> Skill Name 3</h3>
+                                <img src={three} alt=""/>
+                            </div>
+                            <div id="img4">
+                                <h3> Skill Name 4</h3>
+                                <img src={four} alt=""/>
+                            </div>
+                            <div id="img5">
+                                <h3> Skill Name 5</h3>
+                                <img src={five} alt=""/>
+                            </div>
+                            <div id="img6">
+                                <h3> Skill Name 6</h3>
+                                <img src={six} alt=""/>
+                            </div>
+                            
+                        </div>
                     </div>
-                    
-
                     <div className="skillContainer">
                         <div className="skills">
                             <h1>My Development</h1>

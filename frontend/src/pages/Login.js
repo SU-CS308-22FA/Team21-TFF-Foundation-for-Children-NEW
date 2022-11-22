@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useLogin } from "../hooks/useLogin"
-import { Link, useNavigate } from 'react-router-dom';
 
+import Navbar from '../components/Navbar'
 import React from "react"
 
 const Login = () => {
@@ -15,7 +15,8 @@ const Login = () => {
     await login(email, password)
   }
 
-  return (
+  return (<div className="loginContainer">
+    <Navbar/>
     <form className="login" onSubmit={handleSubmit}>
       <h3>Log In</h3>
       
@@ -38,6 +39,7 @@ const Login = () => {
         
       {error && <div className="error">{error}</div>}
     </form>
+    </div>
   )
 }
 
