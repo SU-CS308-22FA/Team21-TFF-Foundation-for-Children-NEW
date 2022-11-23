@@ -25,16 +25,16 @@ const Events = () =>  {
             <div className="eventsContainer">
 
                 <div className="event">
-                    <Link to="/student/events" id="eventLink1" name="content1" onClick={handleClickScroll}> Event 1 </Link>
+                    <Link to="/student/events" id="eventLink1" name="content1" onClick={handleClickScroll}> Antalya Winter Camp 2023 </Link>
                 </div>
                 <div className="event">
-                    <Link to="/student/events" id="eventLink2" name="content2" onClick={handleClickScroll}> Event 2 </Link>
+                    <Link to="/student/events" id="eventLink2" name="content2" onClick={handleClickScroll}> Football Match after this Friday's training </Link>
                 </div>
                 <div className="event">
-                    <Link to="/student/events" id="eventLink3" name="content3" onClick={handleClickScroll}> Event 3 </Link>
+                    <Link to="/student/events" id="eventLink3" name="content3" onClick={handleClickScroll}> Meet Arda Güler </Link>
                 </div>
                 <div className="event">
-                    <Link to="/student/events" id="eventLink4" name="content4" onClick={handleClickScroll}> Event 4 </Link>
+                    <Link to="/student/events" id="eventLink4" name="content4" onClick={handleClickScroll}> Fenerbahçe-Galatasaray Derby </Link>
                 </div>
                 
                 
@@ -46,9 +46,10 @@ const Events = () =>  {
                       
                     </div>
                     <div className="eventContent2">
-                                        The Football Association of Ireland runs skills-based summer camps at many soccer clubs throughout 
-                                        the country during the summer period.
-                            
+                                        TFF Foundation For Children runs skills-based winter camp between 15th and 19th of October. 
+                                        Accomadation will be at "Rixos Premium Belek". You will be educated by Fenerbahçe players during the camp. 
+                                        If you want to join, please contact your teacher. 
+                                        The camp is for no charge.
                         
                     </div>
                     
@@ -61,13 +62,12 @@ const Events = () =>  {
             </div>
             <div className="eventContent" id="content2">
                     <div className="eventHeader">
-                  
-                            Antalya Winter Camp 2023
+                        Football Match after this Friday's training
                       
                     </div>
                     <div className="eventContent2">
-                                        The Football Association of Ireland runs skills-based summer camps at many soccer clubs throughout 
-                                        the country during the summer period.
+                    We will go to stadium after a not too much tiring training. 
+                    The first 22 of you who applied first, we be the first players. Be quick!
                             
                         
                     </div>
@@ -81,13 +81,12 @@ const Events = () =>  {
             </div>
             <div className="eventContent" id="content3">
                     <div className="eventHeader">
-                  
-                            Antalya Winter Camp 2023
+                        Meet Arda Güler
                       
                     </div>
                     <div className="eventContent2">
-                                        The Football Association of Ireland runs skills-based summer camps at many soccer clubs throughout 
-                                        the country during the summer period.
+                    The event is open for everybody in Football School. Participants will be informed later.
+                    Contact your teacher.
                             
                         
                     </div>
@@ -101,13 +100,11 @@ const Events = () =>  {
             </div>
             <div className="eventContent" id="content4">
                     <div className="eventHeader">
-                  
-                            Antalya Winter Camp 2023
+                        Fenerbahçe-Galatasaray Derby
                       
                     </div>
                     <div className="eventContent2">
-                                        The Football Association of Ireland runs skills-based summer camps at many soccer clubs throughout 
-                                        the country during the summer period.
+                        We will watch the derby in Şimbilli Çay Bahçesi. Get your snacks! It is on 8th of October.
                             
                         
                     </div>
