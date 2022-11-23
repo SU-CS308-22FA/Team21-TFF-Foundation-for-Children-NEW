@@ -112,7 +112,7 @@ form.signup select {
 #h3{
   width:100%;
   height: 2%;
-  background-color: red;
+  background-color: rgb(100, 194, 197);
   text-align: center;
 }
 .eventPageContainer{
@@ -138,7 +138,7 @@ form.signup select {
 .event{
   height: 8%;
   width: 100%;
-  background-color: #1abc9c;
+  background-color: #aedfd5;
   text-align: left;
   padding-top: 25px;
   padding-left: 50px;
