@@ -1,5 +1,4 @@
 import "../index.css"
-import React from "react"
 import logo from "../img/mt-0966-logo.png"
 import '../index.css'
 import { Link } from 'react-router-dom'
@@ -9,26 +8,61 @@ import three from "../img/3.jpg"
 import four from "../img/4.jpg"
 import five from "../img/5.jpg"
 import six from "../img/6.jpg"
-
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import { useAuthContext } from '../hooks/useAuthContext'
+function stringToColor(string) {
+    let hash = 0;
+    let i;
+  
+    /* eslint-disable no-bitwise */
+    for (i = 0; i < string.length; i += 1) {
+      hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    }
+  
+    let color = '#';
+  
+    for (i = 0; i < 3; i += 1) {
+      const value = (hash >> (i * 8)) & 0xff;
+      color += `00${value.toString(16)}`.slice(-2);
+    }
+    /* eslint-enable no-bitwise */
+  
+    return color;
+  }
+  
+  function stringAvatar(name) {
+    return {
+      sx: {
+        bgcolor: stringToColor(name),
+      },
+      children: `${name[0]}${name[1]}`,
+    };
+  }
 const Student= () => {
-    
+    const { user } = useAuthContext()
+    const email = user?.email.toString() || "su";
+
    
   
     return(
         <div className="stuPage">
+            
                     <div className="introImage">
                         
-                       
+
                     </div>
                     <div className="nav">
+                    <Avatar {...stringAvatar(email)} />
+
                         <Link to="/" id="link"> <img src={logo} alt="" /> </Link>
-                            
                             <Link to="/" id="link"> Home </Link>
-                            
                             <Link to="/" id="link">About </Link>
                             <Link to="/" id="link">Announcements </Link>
                             <Link to="/student/events">Events</Link>
                             <Link to="/" id="link">My Development </Link>
+                            
+
                         </div>
                         <div className="welcome">
                             <div id="welcomeMessage">
