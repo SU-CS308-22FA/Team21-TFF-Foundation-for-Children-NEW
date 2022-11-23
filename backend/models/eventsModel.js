@@ -1,35 +1,33 @@
-const mongoose = require('mongoose')  
+const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
 const eventsSchema = new Schema(
   {
-    title: {   // email is the primary key
-        type: String,
-        required: true,
-        unique: true
+    title: {
+      // email is the primary key
+      type: String,
+      required: true,
+      unique: true,
     },
-    quota: {  // different people can have the same password
-        type: String
+    quota: {
+      // different people can have the same password
+      type: String,
     },
     location: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     body: {
-
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     date: {
-        type: String,
-        required: true
-    }
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
 
-
-    }, { timestamps: true });
-
-
-
-
-module.exports = mongoose.model('Event', eventsSchema)
+module.exports = mongoose.model("Event", eventsSchema);

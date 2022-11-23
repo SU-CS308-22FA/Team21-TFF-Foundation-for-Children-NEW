@@ -1,24 +1,23 @@
 import {
-    setLocalStorage,
-    getLocalStorage,
-    deleteLocalStorage,
-} from './localStorage';
+  setLocalStorage,
+  getLocalStorage,
+  deleteLocalStorage,
+} from "./localStorage";
 
 export const setAuthentication = (user) => {
-    setLocalStorage('user', user);
+  setLocalStorage("user", user);
 };
 
 export const isAuthenticated = () => {
-    if (getLocalStorage('user')) {
-        return getLocalStorage('user');
-    } else {
-        return false;
-    }
+  if (getLocalStorage("user")) {
+    return getLocalStorage("user");
+  } else {
+    return false;
+  }
 };
 
 export const logout2 = (next) => {
-    deleteLocalStorage('user');
+  deleteLocalStorage("user");
 
-    next();
+  next();
 };
-
