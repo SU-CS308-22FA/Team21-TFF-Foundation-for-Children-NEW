@@ -46,27 +46,27 @@ const Student= () => {
                         <div className="skills">
                             <h1>My Development</h1>
                             <div id="img1">
-                                <h3> Skill Name 1</h3>
+                                <Link to="/Skills/skill1"> Skill Name 1</Link>
                                 <img src={one} alt=""/>
                             </div>
                             <div id="img2">
-                                <h3> Skill Name 2</h3>
+                                <Link to="/Skills/skill2"> Skill Name 2</Link>
                                 <img src={two} alt=""/>
                             </div>
                             <div id="img3">
-                                <h3> Skill Name 3</h3>
+                                <Link to="/Skills/skill3"> Skill Name 3</Link>
                                 <img src={three} alt=""/>
                             </div>
                             <div id="img4">
-                                <h3> Skill Name 4</h3>
+                                <Link to="/Skills/skill4"> Skill Name 4</Link>
                                 <img src={four} alt=""/>
                             </div>
                             <div id="img5">
-                                <h3> Skill Name 5</h3>
+                                <Link to="/Skills/skill5"> Skill Name 5</Link>
                                 <img src={five} alt=""/>
                             </div>
                             <div id="img6">
-                                <h3> Skill Name 6</h3>
+                                <Link to="/Skills/skill6"> Skill Name 6</Link>
                                 <img src={six} alt=""/>
                             </div>
                             
@@ -76,27 +76,27 @@ const Student= () => {
                         <div className="skills">
                             <h1>My Development</h1>
                             <div id="img1">
-                                <h3> Skill Name 1</h3>
+                                <Link to="/Skills/skill1"> Skill Name 1</Link>
                                 <img src={one} alt=""/>
                             </div>
                             <div id="img2">
-                                <h3> Skill Name 2</h3>
+                                <Link to="/Skills/skill2"> Skill Name 2</Link>
                                 <img src={two} alt=""/>
                             </div>
                             <div id="img3">
-                                <h3> Skill Name 3</h3>
+                                <Link to="/Skills/skill3"> Skill Name 3</Link>
                                 <img src={three} alt=""/>
                             </div>
                             <div id="img4">
-                                <h3> Skill Name 4</h3>
+                                <Link to="/Skills/skill4"> Skill Name 4</Link>
                                 <img src={four} alt=""/>
                             </div>
                             <div id="img5">
-                                <h3> Skill Name 5</h3>
+                                <Link to="/Skills/skill6"> Skill Name 5</Link>
                                 <img src={five} alt=""/>
                             </div>
                             <div id="img6">
-                                <h3> Skill Name 6</h3>
+                                <Link to="/Skills/skill6"> Skill Name 6</Link>
                                 <img src={six} alt=""/>
                             </div>
                             
