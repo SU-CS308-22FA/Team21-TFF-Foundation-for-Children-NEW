@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 const Announcements = () => {
   const [announcements, setAnnouncements] = useState([]);
   const getAnnouncements = () => {
-    fetch('/api/announcement')
+    fetch('https://backend-tfffc.herokuapp.com//api/announcement')
       .then((response) => response.json())
       .then((data) => {
         setAnnouncements(data);

@@ -10,7 +10,7 @@ const AnnouncementAdmin = () => {
   const { user } = useAuthContext();
   const addAnnouncement = (event) => {
     event.preventDefault();
-    fetch('/api/announcement', {
+    fetch('https://backend-tfffc.herokuapp.com//api/announcement', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, content }),
