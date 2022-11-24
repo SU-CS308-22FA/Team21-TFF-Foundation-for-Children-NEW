@@ -1,13 +1,14 @@
-import { createContext, useReducer } from "react";
-import React from "react";
+import { createContext, useReducer } from 'react';
+import React from 'react';
+import { getLocalStorage } from '../helpers/localStorage';
 
 export const AuthContext = createContext();
 
 export const authReducer = (state, action) => {
   switch (action.type) {
-    case "LOGIN":
+    case 'LOGIN':
       return { user: action.payload };
-    case "LOGOUT":
+    case 'LOGOUT':
       return { user: null };
     default:
       return state;
@@ -16,10 +17,10 @@ export const authReducer = (state, action) => {
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
-    user: null,
+    user: getLocalStorage('user') || null,
   });
 
-  console.log("AuthContext state:", state);
+  console.log('AuthContext state:', state);
 
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>

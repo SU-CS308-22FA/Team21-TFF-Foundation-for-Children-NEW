@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/user"); // import the user router
 const eventRoutes = require("./routes/event");
+const announcementRoutes = require("./routes/announcement")
 
 // create an express app
 const app = express();
@@ -14,7 +15,7 @@ app.use(express.json()); // gets the request
 // routes
 app.use("/api/user", userRoutes); // register the router (routes)
 app.use("/api/event", eventRoutes);
-app.use("/api/announcement");
+app.use("/api/announcement", announcementRoutes)
 // connect to db
 mongoose
   .connect(process.env.MONGO_URI)
