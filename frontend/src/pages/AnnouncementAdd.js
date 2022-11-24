@@ -1,8 +1,9 @@
 import Navbar from '../components/Navbar';
-
+import { Link } from "react-router-dom";
 import { useState } from 'react';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { Alert, Snackbar } from '@mui/material';
+
 const AnnouncementAdmin = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -64,6 +65,9 @@ const AnnouncementAdmin = () => {
           />
 
           <button>Add Announcement</button>
+       <Link to="/announcements" id="link">
+          Announcements{""}
+        </Link>
         </form>
       </div>
     );

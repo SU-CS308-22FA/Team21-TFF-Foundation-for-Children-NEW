@@ -60,7 +60,7 @@ const Student = () => {
         <Link to="/" id="link">
           About{" "}
         </Link>
-        <Link to="/" id="link">
+        <Link to="/announcements" id="link">
           Announcements{" "}
         </Link>
         <Link to="/student/events">Events</Link>

@@ -1,46 +1,84 @@
-import '../index.css';
-import React from 'react';
-import { useState } from 'react';
+import "../index.css"
+import React from "react"
+import lifting from "../img/lifting.jpg"
+import Navbar from "../components/Navbar"
+import c1 from "../img/c1.jpg"
+import c2 from "../img/c2.jpg"
+import c3 from "../img/c3.jpg"
+import c4 from "../img/c4.jpg"
 
-import lifting from '../img/lifting.jpg';
-import Navbar from '../components/Navbar';
-import c1 from '../img/c1.jpg';
-import c2 from '../img/c2.jpg';
-import c3 from '../img/c3.jpg';
-import c4 from '../img/c4.jpg';
-/*const response = await fetch('/api/announcement', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ email, password, role })
-})
-const json = await response.json()*/
+const Home= ()=> {
 
-const Home = () => {
-  const [title, setTitle] = useState('');
-  const [stuff, setStuff] = useState('');
 
-  const role = 'Teacher';
+    fetch()
+    .then(res => {
+        if (res.ok) {
+            console.log('SUCCESS')
+        } else {
+            console.log("Not Successful")
+        }
+    })
+    .then(data => console.log(data))
+    .catch(error => console.log('ERROR'))
 
-  if (role === 'Teacher') {
-    return (
-      <div className="homePage">
-        <Navbar />
-        <label>Title</label>
-        <input
-          type="title"
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-        />
-        <label>and stuff</label>
-        <input
-          type="stuff"
-          onChange={(e) => setStuff(e.target.value)}
-          value={stuff}
-        />
-      </div>
-    );
-  }
-  return null;
-};
 
-export default Home;
+
+return(
+                    <div className="homePage">
+                        <Navbar/>
+                        <div className="aboutDescription">
+                        
+                        <div className="infoBox">
+                            <h1> Follow Here For Courses </h1> 
+                            <p> Please keep reading for details. To be updated... </p>
+                        </div>
+                        <div className="infoBox">
+                            <h1> Our Motivation and Mission </h1>
+                            <p>Please keep reading for details. To be updated...</p>
+                        </div>
+                        <div className="infoBox">
+                            <h1> Follow Here For Our Gallery </h1>
+                            <p> Please keep reading for details. To be updated...</p>
+                        </div>
+                    </div>
+                    <div className="purposeDescription">
+                        <img src={lifting} alt="" />
+                        <div className="description">
+                            <h1> WHY US? </h1> 
+                            <p> Please keep reading for details. To be updated... </p>
+                        </div>
+                    </div>
+                    <div className="teacherContainer">
+                        <h1>Our Trainers</h1>
+                        <div className="coachContainer">
+                            <div className="coachInformation">
+                                <img src={c1}></img>
+                                <div className="coachName">Andrea Haywood</div>
+                                <div className="coachRole">Assistant coach</div>
+                                <div className="coachInfo">He is an assistant coach & goalie coach for the women's team</div>
+                            </div>
+                            <div className="coachInformation">
+                                <img src={c2}></img>
+                                <div className="coachName">Andy Collins</div>
+                                <div className="coachRole">Staff Coach</div>
+                                <div className="coachInfo">He started coaching with the U10 girls and now the U12 girls.</div>
+                            </div>
+                            <div className="coachInformation">
+                                <img src={c3}></img>
+                                <div className="coachName">Marilynn Smith</div>
+                                <div className="coachRole">Goalkeeper</div>
+                                <div className="coachInfo">Marilynn possess a Level 2 certificate from the NSCAA.</div>
+                            </div>
+                            <div className="coachInformation">
+                                <img src={c4}></img>
+                                <div className="coachName">Louis Ellis</div>
+                                <div className="coachRole">Head coach</div>
+                                <div className="coachInfo">Louis is a head coach of our club Soccer team since 2008</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+)
+}
+export default Home

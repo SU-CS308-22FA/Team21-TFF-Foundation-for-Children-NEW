@@ -20,8 +20,11 @@ const Teacher = () => {
 
         <Link id="link"> Home </Link>
 
-        <Link to="/" id="link">
+        <Link to="/announcementAdd" id="link">
           Add Announcement{" "}
+        </Link>
+        <Link to="/announcements" id="link">
+          Current Announcements{" "}
         </Link>
         <Link to="/" id="link">
           {" "}
