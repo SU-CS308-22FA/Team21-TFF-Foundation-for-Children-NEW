@@ -8,6 +8,7 @@ import Student from './pages/Student'
 import Teacher from './pages/Teacher'
 import Events from './pages/Events'
 import Home from './pages/Home'
+import Addevent from './pages/Addevent'
 function App() {
   return (
     <div className="App">
@@ -25,7 +26,7 @@ function App() {
                 element={<Login />} 
               />
                <Route 
-                path="/addTraining" 
+                path="/teacher/addTraining" 
                 element={<AddTraining />} 
               />
               <Route 
@@ -46,6 +47,12 @@ function App() {
                 path="/student/events" 
                 element={<Events />} 
               />
+
+              <Route 
+                path="/teacher/addevent" 
+                element={<Addevent />} 
+              />
+
 
 
             

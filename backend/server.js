@@ -14,6 +14,7 @@ app.use(express.json()) // gets the request
 // routes
 app.use('/api/user', userRoutes) // register the router (routes)
 app.use('/api/event', eventRoutes)
+
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {

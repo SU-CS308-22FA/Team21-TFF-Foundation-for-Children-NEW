@@ -1,6 +1,6 @@
 const Event = require('../models/eventsModel')
-const mongoose = require('mongoose')
 
+/*
 // get all events
 const getEvents = async (req, res) => {
     const events = await Event.find({}).sort({createdAt: -1})
@@ -87,10 +87,20 @@ const updateEvent = async (req, res) => {
 
 }
 
-module.exports = {
-    getEvents,
-    getEvent,
-    createEvent,
-    deleteEvent,
-    updateEvent
+*/
+const addStuEvent = async (req, res) => {
+  const {eventtitle,eventlocation,eventbody,eventquota} = req.body 
+
+  try {
+    console.log(eventtitle,eventlocation,eventbody,eventquota)
+    const event = await Event.create({eventtitle,eventlocation,eventbody,eventquota}) 
+
+    res.status(200).json({event})
+  } catch (error) { // error is coming from userModel.js. or if it is related to creating db, mongodb can also give an error message.
+    if (error.message){
+      res.status(400).json({error: error.message})
+    }
+  }
 }
+
+module.exports = {addStuEvent}

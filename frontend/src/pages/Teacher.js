@@ -23,10 +23,10 @@ const Teacher= () => {
                             <Link id="link"> Home </Link>
                             
                             <Link to="/" id="link">Add Announcement </Link>
-                            <Link to="/" id="link"> Add Event </Link>
+                            <Link to="/teacher/addevent" id="link"> Add Event </Link>
                             <Link to="/" id="link"> Student Development </Link>
                             <Link to="/" id="link"> Change Student </Link>
-                            <Link to="/addTraining" id="link"> Add Training </Link>
+                            <Link to="/teacher/addTraining" id="link"> Add Training </Link>
                         </div>
                         <div className="skillContainer">
                         <div className="skills">

@@ -1,8 +1,6 @@
-const Event = require('../models/eventsModel')
-
 const express = require('express')
 
-const { getEvents,getEvent,createEvent, deleteEvent, updateEvent } = require('../controllers/eventsController') // import the handler functions
+const { addStuEvent } = require('../controllers/eventsController') // import the handler functions
 //const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
@@ -11,6 +9,7 @@ const router = express.Router()
 //router.use(requireAuth)
 
 // GET all events
+/*
 router.get('/', getEvents)
 
 router.get('/add-event', (req, res) => {
@@ -42,6 +41,7 @@ router.delete('/:id', deleteEvent)
 
 // UPDATE a event
 router.patch('/:id', updateEvent)
-
+*/
+router.post('/teacher/addevent', addStuEvent)
 
 module.exports = router

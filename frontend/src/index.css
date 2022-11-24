@@ -120,7 +120,17 @@ form.signup select {
   width: 100%;
   height: 500vh;
   border: 4px solid;
+  
  
+}
+.addeventContainer{
+  width: 80%;
+  height: 100%;
+  margin-left: auto;
+  margin-right:auto;
+  font-family: "Poppins";
+  
+
 }
 .eventsContainer{
   display: flex;
