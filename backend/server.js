@@ -25,6 +25,10 @@ app.use(express.json()) // gets the request
 // routes
 app.use('/api/user', userRoutes) // register the router (routes)
 app.use('/api/event', eventRoutes)
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
@@ -36,3 +40,12 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((error) => {
     console.log(error)
   })
+<<<<<<< Updated upstream
+=======
+
+  const parentinfoSchema = mongoose.Schema({
+    parent_1: String,
+    phone : Number
+  });
+
+>>>>>>> Stashed changes
