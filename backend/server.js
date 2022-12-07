@@ -3,22 +3,17 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const userRoutes = require('./routes/user')  // import the user router
+const eventRoutes = require('./routes/event')
 
 // create an express app
 const app = express()
-
-/*// middleware
-app.use((req, res, next) => {
-    console.log(req.path, req.method)
-    next()
-  })
-*/
   
 // middleware
 app.use(express.json()) // gets the request
 
 // routes
 app.use('/api/user', userRoutes) // register the router (routes)
+app.use('/api/event', eventRoutes)
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
@@ -31,9 +26,3 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((error) => {
     console.log(error)
   })
-
-/*
-app.get('/', (req,res) => {
-    res.json({mssg: "Welcome"})
-})
-*/
