@@ -46,7 +46,7 @@ const Signup = () => {
         <option>Teacher</option>
       </select>
       <br /> <br />
-      <button disabled={isLoading} type="submit">Sign up</button>
+      <button disabled={isLoading}>Sign up</button>
       {error && <div className="error">{error}</div>}
     </form>
     </div>
