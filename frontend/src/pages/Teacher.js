@@ -21,7 +21,7 @@ const Teacher= () => {
                         <Link to="/" id="link"> <img src={logo} alt="" /> </Link>
                             
                             <Link id="link"> Home </Link>
-                            
+                            <Link to="/selection" id="link">Change Student</Link>
                             <Link to="/" id="link">Add Announcement </Link>
                             <Link to="/" id="link"> Add Event </Link>
                             <Link to="/" id="link"> Student Development </Link>

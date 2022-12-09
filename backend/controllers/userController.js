@@ -1,4 +1,5 @@
 const User = require('../models/userModel')
+
 const jwt = require('jsonwebtoken')
 
 
@@ -9,9 +10,17 @@ const createToken = (_id) => { // after the tokens are created,
 }
 
 
+const getUsers= async (req,res) => {
+  console.log("get Users girildi!")
+  const users= await User.find({})
+
+  res.status(200).json(users)
+
+}
+
 const loginUser = async (req, res) => { // async function bc it will communicate with the db
   const {email, password} = req.body
-
+  console.log("loginuser girildi")
   try {
     const user = await User.login(email, password)
     // create a token
@@ -29,14 +38,15 @@ const loginUser = async (req, res) => { // async function bc it will communicate
 // signup a user
 const signupUser = async (req, res) => {
   const {email, password, role} = req.body // pull the email and password and role of the user from req. and name them email and password
-
+  console.log("signup user girildi")
   try {
     console.log("role:", role )
+    
     const user = await User.signup(email, password, role)
 
     // create a token
     const token = createToken(user._id)
-
+    console.log(user._id)
     res.status(200).json({email, token})
   } catch (error) { // error is coming from userModel.js. or if it is related to creating db, mongodb can also give an error message.
     if (error.message != "role is not defined"){
@@ -46,4 +56,4 @@ const signupUser = async (req, res) => {
 }
 
 
-module.exports = { signupUser, loginUser }
+module.exports = { signupUser, loginUser, getUsers }

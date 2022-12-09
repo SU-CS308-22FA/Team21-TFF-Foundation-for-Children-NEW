@@ -40,7 +40,8 @@ const Signup = () => {
       <select 
         onChange={(e)=>setRole(e.target.value)}
         value={role}
-        type="role">
+        type="role"
+        >
         <option>Select</option>
         <option>Student</option>
         <option>Teacher</option>

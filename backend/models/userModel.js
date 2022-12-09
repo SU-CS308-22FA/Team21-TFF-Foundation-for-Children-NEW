@@ -23,6 +23,10 @@ const userSchema = new Schema(
       default: "Student",
       required: true
     },
+    assignedEmail:{
+      type:String,
+      required:false
+    }
   },
   { timestamps: true }
 );
