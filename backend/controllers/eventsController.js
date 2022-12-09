@@ -1,5 +1,4 @@
 const Event = require('../models/eventsModel')
-
 /*
 // get all events
 const getEvents = async (req, res) => {
@@ -88,14 +87,40 @@ const updateEvent = async (req, res) => {
 }
 
 */
+
+const { MongoClient } = require('mongodb');
+
+
+const getStuEvent = (req, res) => {
+  MongoClient.connect(
+    process.env.MONGO_URI,
+    { useUnifiedTopology: true },
+    (error, client) => {
+      if (error) {
+        return console.log('Could not connect to database');
+      }
+      const db = client.db('test');
+      db.collection('events')
+        .find({})
+        .toArray((error, result) => {
+          if (error) {
+            return console.log('Could not get connected to the events collection');
+          }
+          res.json(result);
+        });
+    }
+  );
+};
+
 const addStuEvent = async (req, res) => {
   const {eventtitle,eventlocation,eventbody,eventquota} = req.body 
+  console.log("titleli controller: ", eventtitle, eventlocation,eventbody,eventquota)
+  console.log("titlesiz controller: ", eventlocation,eventbody,eventquota)
+  console.log("controller body:", req.body)
 
   try {
-    console.log(eventtitle,eventlocation,eventbody,eventquota)
-    const event = await Event.create({eventtitle,eventlocation,eventbody,eventquota}) 
-
-    res.status(200).json({event})
+    const event = await Event.addevent({eventtitle,eventlocation,eventbody,eventquota}) 
+    res.status(200).json({eventtitle})
   } catch (error) { // error is coming from userModel.js. or if it is related to creating db, mongodb can also give an error message.
     if (error.message){
       res.status(400).json({error: error.message})
@@ -103,4 +128,7 @@ const addStuEvent = async (req, res) => {
   }
 }
 
-module.exports = {addStuEvent}
+
+
+
+module.exports = {addStuEvent,getStuEvent}
