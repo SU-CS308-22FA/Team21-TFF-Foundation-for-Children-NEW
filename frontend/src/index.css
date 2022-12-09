@@ -96,7 +96,7 @@ nav button {
 }
 
 /* auth forms */
-form.signup, form.login, form.addTraining{
+form.signup, form.login{
   max-width: 400px;
   margin: 40px auto;
   padding: 20px;

@@ -3,7 +3,6 @@ import React from 'react'
 // pages & components
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-import AddTraining from './pages/AddTraining'
 import Student from './pages/Student'
 import Teacher from './pages/Teacher'
 import Events from './pages/Events'
@@ -25,10 +24,6 @@ function App() {
                 path="/login" 
                 element={<Login />} 
               />
-               <Route 
-                path="/teacher/addTraining" 
-                element={<AddTraining />} 
-              />
               <Route 
                 path="/signup"   // bak bu isim user.js'teki route ismi ile ayni. oraya middleware kurmuştuk zaten.
                 element={<Signup />} 
@@ -49,6 +44,7 @@ function App() {
               />
 
               <Route 
+                //path="/teacher/addeventto" 
                 path="/teacher/addevent" 
                 element={<Addevent />} 
               />

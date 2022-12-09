@@ -1,4 +1,5 @@
 const Event = require('../models/eventsModel')
+const mongoose = require('mongoose')
 /*
 // get all events
 const getEvents = async (req, res) => {
@@ -113,22 +114,43 @@ const getStuEvent = (req, res) => {
 };
 
 const addStuEvent = async (req, res) => {
+  console.log("fonksiyon cagrildi!!")
   const {eventtitle,eventlocation,eventbody,eventquota} = req.body 
-  console.log("titleli controller: ", eventtitle, eventlocation,eventbody,eventquota)
-  console.log("titlesiz controller: ", eventlocation,eventbody,eventquota)
-  console.log("controller body:", req.body)
+  console.log(eventtitle)
+  let emptyFields = []
 
+  if(!eventtitle) {
+    emptyFields.push('eventtitle')
+  }
+  if(!eventlocation) {
+    emptyFields.push('eventlocation')
+  }
+  if(!eventbody) {
+    emptyFields.push('eventbody')
+  }
+  if(!eventquota) {
+    emptyFields.push('eventquota')
+  }
+
+  if(emptyFields.length > 0) {
+    return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
+  }
+  console.log(emptyFields)
+  // add doc to db
   try {
-    const event = await Event.addevent({eventtitle,eventlocation,eventbody,eventquota}) 
-    res.status(200).json({eventtitle})
-  } catch (error) { // error is coming from userModel.js. or if it is related to creating db, mongodb can also give an error message.
-    if (error.message){
-      res.status(400).json({error: error.message})
-    }
+    //const user_id = req.user._id
+    const event = await Event.create({eventtitle,eventlocation,eventbody,eventquota})
+    // const event = await Event.create({eventtitle,eventlocation,eventbody,eventquota, user_id})
+    res.status(200).json(event)
+  } catch (error) {
+    res.status(400).json({error: error.message})
   }
 }
 
 
 
 
-module.exports = {addStuEvent,getStuEvent}
+module.exports = {
+  getStuEvent,
+  addStuEvent,
+}

@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import { useEvents } from "../hooks/useEvents"
+//import { useEvents } from "../hooks/useEvents"
 import one from "../img/1.jpg"
 import two from "../img/2.jpg"
 import three from "../img/3.jpg"
 const Events = () =>  {
-    const {events} = useEvents()
+    //const {events} = useEvents()
     const handleClickScroll = (event) => {
         const element = document.getElementById(event.target.name);
         console.log(event.target.name)

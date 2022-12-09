@@ -1,7 +1,7 @@
 const express = require('express')
-const { getStuEvent } = require('../controllers/eventsController')
-const { addStuEvent } = require('../controllers/eventsController') // import the handler functions
-
+const { getStuEvent,
+    addStuEvent
+} = require('../controllers/eventsController') // import the handler functions
 const router = express.Router()
 
 // require auth for all event routes
