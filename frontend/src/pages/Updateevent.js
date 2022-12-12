@@ -1,12 +1,18 @@
-/*
-import Navbar from "../components/Navbar"
-import { useState } from "react";
+/*import { useState } from "react";
 import { useEventContext } from "../hooks/useEventContext"
 import { Link } from 'react-router-dom'
-//import { useAuthContext } from '../hooks/useAuthContext'
-const Updateevent = () =>{
+import { useAuthContext } from '../hooks/useAuthContext'
+
+const EventDetails = ({ event }) => {
+
+    const handleClick = async () => {
+      if (!user) {
+        return
+      }
+    }
+const Updateevent = ({event}) =>{
     const { dispatch } = useEventContext()
-    //const { user } = useAuthContext()
+    const { user } = useAuthContext()
     const[eventtitle, seteventtitle] = useState('');
     const[eventlocation, seteventlocation] = useState('');
     const[eventbody, seteventbody] = useState('');
@@ -27,7 +33,8 @@ const Updateevent = () =>{
             method: 'POST',
             body: JSON.stringify(stuevent),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
 
@@ -96,6 +103,5 @@ const Updateevent = () =>{
 
 
 }
-
 export default Addevent
 */

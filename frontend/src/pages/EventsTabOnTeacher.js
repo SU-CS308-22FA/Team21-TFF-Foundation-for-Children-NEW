@@ -12,7 +12,7 @@ const EventsTabOnTeacher = () =>{
 
     useEffect(() => {  // useEffect hook fires a function when the EventsTabOnTeacher component is rendered.
         const fetchEvents= async () =>{
-          const response= await fetch('/api/event/getevent', {
+          const response= await fetch('/api/event/getevents', {
             headers: {'Authorization': `Bearer ${user.token}`},
           })
           const json= await response.json() // json contains an array of event objects.

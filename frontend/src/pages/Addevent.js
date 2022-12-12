@@ -14,7 +14,7 @@ const Addevent = () =>{
     const [emptyFields, setEmptyFields] = useState([])
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault() // prevent to take action when the page was refreshed.
         if (!user) {
             setError('You must be logged in')
             return

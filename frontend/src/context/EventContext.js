@@ -16,7 +16,8 @@ export const eventReducer = (state, action) => {
       }
     case 'DELETE_EVENT': 
       return {
-        events: state.events.filter((e) => e._id !== action.payload._id)
+        events: state.events.filter((e) => e._id !== action.payload._id) // filter the events: check all the events if they are the event that is going to be deleted.
+        // if an event is not the event that is going to be delete, add this event to the "events" array.
       }
     case 'VIEW_EVENT': // in this case, the dispatch function has the name "VIEW EVENT"
       return {

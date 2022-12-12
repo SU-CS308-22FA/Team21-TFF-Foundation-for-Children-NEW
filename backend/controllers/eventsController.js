@@ -1,10 +1,10 @@
 const Event = require('../models/eventsModel')
 const mongoose = require('mongoose')
-/*
+
 
 
 // get a single event
-const getEvent = async (req, res) => {
+const getStuEvent = async (req, res) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -20,6 +20,7 @@ const getEvent = async (req, res) => {
     res.status(200).json(event)
 }
 
+/*
 // create a new event and add the document to db
 const createEvent = async (req, res) => {
     const {title, quota, location, body } = req.body
@@ -43,10 +44,12 @@ const createEvent = async (req, res) => {
 		});
 	}
 }
+*/
 
 // delete an event
-const deleteEvent = async (req, res) => {
+const deleteStuEvent = async (req, res) => {
     const { id } = req.params
+    console.log("id:" , id)
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(404).json({error: 'No such event'})
@@ -62,6 +65,7 @@ const deleteEvent = async (req, res) => {
 
 }
 
+/*
 // update an event
 const updateEvent = async (req, res) => {
     const { id } = req.params
@@ -84,10 +88,8 @@ const updateEvent = async (req, res) => {
 
 */
 
-const { MongoClient } = require('mongodb');
 
-
-const getStuEvent = async (req, res) => {
+const getStuEvents = async (req, res) => {
   const events = await Event.find({}).sort({createdAt: -1})
 
   res.status(200).json(events)
@@ -132,5 +134,7 @@ const addStuEvent = async (req, res) => {
 
 module.exports = {
   getStuEvent,
+  getStuEvents,
   addStuEvent,
+  deleteStuEvent
 }

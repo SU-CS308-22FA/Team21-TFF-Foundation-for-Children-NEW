@@ -200,27 +200,29 @@ form.signup select {
   color: var(--primary);
 }
 
-.workout-details p {
-  margin: 0;
-  font-size: 0.9em;
-  color: #555;
-}
-
 #updateEventButton{
-  background: var(--primary);
-  border: 0;
-  color: #fff;
-  padding: 1em;
-  font-family: "Poppins";
-  border-radius: 4px;
+  position: absolute;
+  top: 20px;
+  right: 90px;
   cursor: pointer;
-  width: 6em;
-  margin-left: 130em;
-  display: inline;
-  font-weight: 500;
-  position: relative;
+  background: var(--primary);
+  padding: 6px;
+  border-radius: 50%;
+  color: rgb(253, 249, 249);
+}
+
+#deleteEventButton{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: var(--primary);
+  padding: 6px;
+  border-radius: 50%;
+  color: rgb(253, 249, 249);
 
 }
+
 
 
 #addEventButtononEventTab{
@@ -257,25 +259,6 @@ form.signup select {
 
 .plus::before {
   content: "+";
-}
-
-#deleteEventButton{
-  background: var(--primary);
-  border: 0;
-  color: #fff;
-  padding: 1em;
-  font-family: "Poppins";
-  border-radius: 4px;
-  cursor: pointer;
-  width: 6em;
-  margin-top: 2em;
-  margin-left: 130em;
-
-  display: inline;
-  
-  font-weight: 500;
-  position: relative;
-
 }
 
 .eventContent .eventHeader{
