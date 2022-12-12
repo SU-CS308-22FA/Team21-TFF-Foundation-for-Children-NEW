@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
 import Navbar from "../components/Navbar";
 const Signup = () => {
+  const [userName, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
@@ -11,8 +12,9 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.warn("all data", email, password, role);
-    await signup(email, password, role);
+    console.warn("all data", userName, email, password, role);
+    await signup(userName, email, password, role);
+    setUsername("");
     setEmail("");
     setPassword("");
     setRole("");
@@ -23,6 +25,12 @@ const Signup = () => {
       <Navbar />
       <form className="signup" onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
+        <label>User name:</label>
+        <input
+          type="username"
+          onChange={(e) => setUsername(e.target.value)}
+          value={userName}
+        />
         <label>Email address:</label>
         <input
           type="email"

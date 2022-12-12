@@ -20,7 +20,7 @@ const AnnouncementAdmin = () => {
       setContent('');
     });
   };
-
+ 
   const [showAlert, setShowAlert] = useState(false);
 
   const handleCloseAlert = () => {

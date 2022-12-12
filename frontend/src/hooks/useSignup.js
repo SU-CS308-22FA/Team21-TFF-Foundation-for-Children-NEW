@@ -7,7 +7,7 @@ export const useSignup = () => {
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
   const navigate = useNavigate();
-  const signup = async (email, password, role) => {
+  const signup = async (userName, email, password, role) => {
     console.log("role:", role, "hata hook mu??");
     setIsLoading(true);
     setError(null);
@@ -15,7 +15,7 @@ export const useSignup = () => {
     const response = await fetch("/api/user/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password, role }),
+      body: JSON.stringify({ userName, email, password, role }),
     });
     const json = await response.json();
 

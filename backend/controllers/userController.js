@@ -18,7 +18,8 @@ const loginUser = async (req, res) => {
 
     const token = createToken(user._id);
     const userrole = user.role;
-    res.status(200).json({ email, token, userrole });
+    const userName = user.userName;
+    res.status(200).json({ userName, email, token, userrole });
   } catch (error) {
     if (error.message != "role is not defined") {
       res.status(400).json({ error: error.message });
@@ -28,12 +29,12 @@ const loginUser = async (req, res) => {
 
 // signup a user
 const signupUser = async (req, res) => {
-  const { email, password, role } = req.body; // pull the email and password and role of the user from req. and name them email and password
+  const { userName, email, password, role } = req.body; // pull the email and password and role of the user from req. and name them email and password
 
   try {
     console.log("role:", role);
-    const user = await User.signup(email, password, role);
-
+    const user = await User.signup(userName, email, password, role);
+    
     // create a token
     const token = createToken(user._id);
 

@@ -6,10 +6,13 @@ import c1 from "../img/c1.jpg"
 import c2 from "../img/c2.jpg"
 import c3 from "../img/c3.jpg"
 import c4 from "../img/c4.jpg"
-import Announcements from "./Announcements"
+
+import { useAuthContext } from "../hooks/useAuthContext";
+
 
 const Home= ()=> {
-
+    const { user } = useAuthContext();
+    const userName = user?.userName.toString() || "";
     fetch()
     .then(res => {
         if (res.ok) {
@@ -18,8 +21,10 @@ const Home= ()=> {
             console.log("Not Successful")
         }
     })
+
     .then(data => console.log(data))
     .catch(error => console.log('ERROR'))
+
 
 
 
@@ -28,6 +33,7 @@ return(
 
                         <Navbar/>
                         <div className="aboutDescription">
+                            <h1>Welcome {userName}</h1>
                             <h2>ANNOUNCEMENTS</h2>
                         <iframe src="/Announcements" title="W3Schools Free Online Web Tutorials"></iframe>
 
