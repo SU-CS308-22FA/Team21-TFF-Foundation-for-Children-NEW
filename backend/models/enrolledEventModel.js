@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')  
+/*const mongoose = require('mongoose')  
 
 const Schema = mongoose.Schema
 
-const eventSchema = new Schema(
+const enrolledEventSchema = new Schema(
   {
     eventtitle: {   // email is the primary key
         type: String,
@@ -16,7 +16,6 @@ const eventSchema = new Schema(
     eventbody: {
         type: String,
         required: true
-    },
     eventquota: {  // different people can have the same password
         type: String,
         required: true
@@ -25,3 +24,4 @@ const eventSchema = new Schema(
 
 
 module.exports = mongoose.model('Event', eventSchema)
+*/

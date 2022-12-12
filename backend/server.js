@@ -15,6 +15,7 @@ app.use(express.json()) // gets the request
 app.use('/api/calendar', calendarRoutes)
 app.use('/api/user', userRoutes) // register the router (routes)
 app.use('/api/event', eventRoutes)
+
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
@@ -26,3 +27,4 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((error) => {
     console.log(error)
   })
+

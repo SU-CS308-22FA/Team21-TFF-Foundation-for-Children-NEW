@@ -1,15 +1,10 @@
 const Event = require('../models/eventsModel')
 const mongoose = require('mongoose')
 
-// get all events
-const getEvents = async (req, res) => {
-    const events = await Event.find({}).sort({createdAt: -1})
 
-    res.status(200).json(events)
-}
 
 // get a single event
-const getEvent = async (req, res) => {
+const getStuEvent = async (req, res) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -25,6 +20,7 @@ const getEvent = async (req, res) => {
     res.status(200).json(event)
 }
 
+/*
 // create a new event and add the document to db
 const createEvent = async (req, res) => {
     const {title, quota, location, body } = req.body
@@ -48,10 +44,12 @@ const createEvent = async (req, res) => {
 		});
 	}
 }
+*/
 
 // delete an event
-const deleteEvent = async (req, res) => {
+const deleteStuEvent = async (req, res) => {
     const { id } = req.params
+    console.log("id:" , id)
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(404).json({error: 'No such event'})
@@ -67,6 +65,7 @@ const deleteEvent = async (req, res) => {
 
 }
 
+/*
 // update an event
 const updateEvent = async (req, res) => {
     const { id } = req.params
@@ -87,10 +86,55 @@ const updateEvent = async (req, res) => {
 
 }
 
+*/
+
+
+const getStuEvents = async (req, res) => {
+  const events = await Event.find({}).sort({createdAt: -1})
+
+  res.status(200).json(events)
+
+}
+
+const addStuEvent = async (req, res) => {
+  const {eventtitle,eventlocation,eventbody,eventquota} = req.body 
+  console.log(eventtitle)
+  let emptyFields = []
+
+  if(!eventtitle) {
+    emptyFields.push('eventtitle')
+  }
+  if(!eventlocation) {
+    emptyFields.push('eventlocation')
+  }
+  if(!eventbody) {
+    emptyFields.push('eventbody')
+  }
+  if(!eventquota) {
+    emptyFields.push('eventquota')
+  }
+
+  if(emptyFields.length > 0) {
+    return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
+  }
+  console.log(emptyFields)
+  // add doc to db
+  try {
+    //const user_id = req.user._id
+    const event = await Event.create({eventtitle,eventlocation,eventbody,eventquota})
+    // const event = await Event.create({eventtitle,eventlocation,eventbody,eventquota, user_id})
+    res.status(200).json(event)
+  } catch (error) {
+    res.status(400).json({error: error.message})
+  }
+}
+
+
+
+
 module.exports = {
-    getEvents,
-    getEvent,
-    createEvent,
-    deleteEvent,
-    updateEvent
+  getStuEvent,
+  getStuEvents,
+  addStuEvent,
+  deleteStuEvent
 }

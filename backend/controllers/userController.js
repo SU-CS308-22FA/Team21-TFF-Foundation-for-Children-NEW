@@ -1,7 +1,7 @@
 const User = require('../models/userModel')
 
 const jwt = require('jsonwebtoken')
-
+console.log(User, " in userController")
 
 const createToken = (_id) => { // after the tokens are created, 
 //they will be used in loginUser and signupUser controller functions.
@@ -62,9 +62,8 @@ const signupUser = async (req, res) => {
     console.log(user._id)
     res.status(200).json({email, token})
   } catch (error) { // error is coming from userModel.js. or if it is related to creating db, mongodb can also give an error message.
-    if (error.message != "role is not defined"){
       res.status(400).json({error: error.message})
-    }
+    
   }
 }
 

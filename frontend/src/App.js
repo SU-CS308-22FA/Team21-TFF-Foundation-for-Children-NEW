@@ -6,9 +6,11 @@ import Signup from './pages/Signup'
 import Training from './pages/Training'
 import Student from './pages/Student'
 import Teacher from './pages/Teacher'
-import Events from './pages/Events'
 import Home from './pages/Home'
 import Selection from './pages/Selection'
+import Addevent from './pages/Addevent'
+import EventsTabOnTeacher from './pages/EventsTabOnTeacher'
+import EventsTabOnStudent from './pages/StudentEventsTab'
 function App() {
   return (
     <div className="App">
@@ -47,10 +49,21 @@ function App() {
                 element={<Teacher />} 
               />
 
-              <Route 
-                path="/student/events" 
-                element={<Events />} 
+              <Route
+                path = "/teacher/events"
+                element= {<EventsTabOnTeacher />}
               />
+
+              <Route 
+                path="/teacher/events/addevent" 
+                element={<Addevent />} 
+              />
+
+              <Route
+                path = "/student/events"
+                element= {<EventsTabOnStudent />}
+              />
+
 
 
             
