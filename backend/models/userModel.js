@@ -23,6 +23,10 @@ const userSchema = new Schema(
       default: "Student",
       required: true
     },
+    assignedemail:{
+      type:String,
+      required:true
+    }
   },
   { timestamps: true }
 );
@@ -37,7 +41,7 @@ A static method (or static function) is a method defined as a member of an objec
 but is accessible directly from an API object's constructor, 
 rather than from an object instance created via the constructor.
 */
-userSchema.statics.signup = async function(email, password, role) {  // create a function name with signup 
+userSchema.statics.signup = async function(email, password, role, assignedemail) {  // create a function name with signup 
 // bc we are using this keyword, we cannot use arrow func. we need to use asyncrh. regular function.
 
   // validation
@@ -61,9 +65,8 @@ userSchema.statics.signup = async function(email, password, role) {  // create a
   const salt = await bcrypt.genSalt(10) //in order to add additional characters to the passwords for security purposes.
   const hash = await bcrypt.hash(password, salt)
 
-  const user = await this.create({ email, password: hash, role }) // swap password and hashed password
-  console.log("user created", role)
-  console.log("with role, ",user.role)
+  const user = await this.create({ email, password: hash, role,assignedemail }) // swap password and hashed password
+
   return user
 }
 

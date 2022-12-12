@@ -1061,3 +1061,61 @@ body{
   padding-top: 10px;
 
 }
+
+.selection{
+
+  display: flex;
+  flex-direction: column;
+
+}
+
+.userContainer{
+  width: 50%;
+  background-color: white;
+ 
+  height: 8rem;
+  margin-top: 2em;
+  margin-left: 2em;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding-left: 3em;
+  font-weight: 400;
+  
+  justify-content: space-around;
+}
+#infoText{
+  color: #c7c1c1;
+}
+#selectButton{
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 1em;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  width: 6em;
+  margin-left: 40em;
+  display: inline;
+  
+  font-weight: 500;
+  position: relative;
+}
+#selectButton:hover{
+  color: red;
+}
+#selectionHeader1Container{
+  width: 35%;
+  height: 10%;
+  background:var(--primary);
+  margin: auto;
+  border-radius: 5px;
+}
+
+#selectionHeader1{
+  text-align: center;
+  margin-top: 1em;
+  font-family: 'Times New Roman', Times, serif;
+  color: #fff;
+}
