@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 const Announcements = () => {
   const [announcements, setAnnouncements] = useState([]);
   const getAnnouncements = () => {
-    fetch('https://backend-tfffc.herokuapp.com//api/announcement')
+    fetch('/api/announcement')
       .then((response) => response.json())
       .then((data) => {
         setAnnouncements(data);
@@ -19,7 +19,7 @@ const Announcements = () => {
 
   return (
     <div className="loginContainer">
-      <Navbar />
+    
       <div className="announcement">
         {announcements.map((ann) => {
           return (
