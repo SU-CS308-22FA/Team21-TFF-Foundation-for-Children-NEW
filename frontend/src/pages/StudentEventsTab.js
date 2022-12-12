@@ -1,11 +1,10 @@
-//components
-import EventDetails from '../components/EventDetails'
+import EventDetailsStu from '../components/EventDtlsStu'
 //import Updateevent from '.../components/Updateevent'
 import { useEffect } from "react";
 import { useEventContext } from "../hooks/useEventContext"
 import { useAuthContext } from '../hooks/useAuthContext'
 import { Link } from 'react-router-dom'
-const EventsTabOnTeacher = () =>{
+const EventsTabOnStudent = () =>{
 
     const { events, dispatch } = useEventContext() // events will be changed with 
     const {user} = useAuthContext()
@@ -25,13 +24,12 @@ const EventsTabOnTeacher = () =>{
         }
     }, [dispatch, user])  //make sure that the useEffect hook runs only once, by adding a dependency tree
     return(
-        <div className="EventsTabOnTeacherContainer">
+        <div className="EventsTabOnStudentContainer">
             <div className="events">
             <h1> Events </h1>
-            <Link to="addevent" id="addEventButtononEventTab">Add event</Link>
-            {events && events.map((event) => (<EventDetails key={event._id} event = {event} />))}
+            {events && events.map((event) => (<EventDetailsStu key={event._id} event = {event} />))}
             </div>
         </div> 
     )
 }
-export default EventsTabOnTeacher
+export default EventsTabOnStudent

@@ -35,7 +35,7 @@ const EventDetails = ({ event }) => {
         <p><strong>Location: </strong>{event.eventlocation}</p>
         <p><strong>Details: </strong>{event.eventbody}</p>
         <p><strong>Quota: </strong>{event.eventquota}</p>
-        <span className="material-symbols-outlined" id="updateEventButton" onClick={handleClick}>update</span>
+        <span className="material-symbols-outlined" id="updateEventButton">update</span>
         <span className="material-symbols-outlined" id="deleteEventButton"onClick={handleClick}>delete</span>
       </div>
     )

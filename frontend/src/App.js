@@ -8,6 +8,7 @@ import Teacher from './pages/Teacher'
 import Home from './pages/Home'
 import Addevent from './pages/Addevent'
 import EventsTabOnTeacher from './pages/EventsTabOnTeacher'
+import EventsTabOnStudent from './pages/StudentEventsTab'
 function App() {
   return (
     <div className="App">
@@ -46,6 +47,11 @@ function App() {
               <Route 
                 path="/teacher/events/addevent" 
                 element={<Addevent />} 
+              />
+
+              <Route
+                path = "/student/events"
+                element= {<EventsTabOnStudent />}
               />
 
 
