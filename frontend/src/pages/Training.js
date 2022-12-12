@@ -5,7 +5,7 @@ import { useEffect ,useState } from "react";
 
 
 const Training= ()=>{
-
+    
     const [calendar, setCalendar]= useState(null)
     useEffect(() => {
       const fetchCalendar= async () =>{

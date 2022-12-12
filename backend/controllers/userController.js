@@ -18,6 +18,18 @@ const getUsers= async (req,res) => {
 
 }
 
+const updateUser= async (req,res) =>{
+  console.log("ok")
+  const { studentEmail, teacheremail } =req.body
+  console.log("in updateUser ", studentEmail, teacheremail)
+  const query= { email:teacheremail }
+  const newvalues= { $set:{assignedemail:studentEmail}}
+
+  const user= await User.findOneAndUpdate(query, newvalues)
+  res.status(200).json(user)
+
+}
+
 const loginUser = async (req, res) => { // async function bc it will communicate with the db
   const {email, password} = req.body
   console.log("loginuser girildi")
@@ -37,13 +49,14 @@ const loginUser = async (req, res) => { // async function bc it will communicate
 
 // signup a user
 const signupUser = async (req, res) => {
-  const {email, password, role} = req.body // pull the email and password and role of the user from req. and name them email and password
+  const {email, password, role, assignedemail} = req.body // pull the email and password and role of the user from req. and name them email and password
   console.log("signup user girildi")
+  console.log(assignedemail)
   try {
     console.log("role:", role )
-    
-    const user = await User.signup(email, password, role)
-
+    console.log("debug1")
+    const user = await User.signup(email, password, role, assignedemail)
+    console.log("debug1")
     // create a token
     const token = createToken(user._id)
     console.log(user._id)
@@ -56,4 +69,4 @@ const signupUser = async (req, res) => {
 }
 
 
-module.exports = { signupUser, loginUser, getUsers }
+module.exports = { signupUser, loginUser, getUsers, updateUser }

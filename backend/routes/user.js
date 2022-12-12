@@ -2,7 +2,7 @@ const express = require('express')
 
 
 // controller functions
-const { loginUser, signupUser, getUsers } = require('../controllers/userController') // import the handler functions
+const { loginUser, signupUser, getUsers, updateUser } = require('../controllers/userController') // import the handler functions
 
 
 const router = express.Router()
@@ -15,7 +15,8 @@ router.get('/', (req,res) => {
 
 //get user route
 router.get('/getusers', getUsers)
-
+//update user
+router.patch('/update', updateUser)
 // login route
 router.post('/login', loginUser)  // send data in a request
 // loginUser is the request handler function

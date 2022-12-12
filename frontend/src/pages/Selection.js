@@ -1,11 +1,16 @@
+
 import { useState, useEffect } from "react";
+
+
+
+
 
 import Navbar from '../components/Navbar'
 import { useAuthContext } from '../hooks/useAuthContext'
 console.log("selection page is called!")
 
 
-const Selection= () => {
+const Selection=  () => {
     const { user } = useAuthContext()
     const [users, setUsers] = useState(null);
     useEffect(() => {
@@ -22,12 +27,18 @@ const Selection= () => {
         fetchUsers()
       }, [])
 
+    
+    const assignStudent= async (studentEmail) => { 
+        const teacheremail= user.email
+        const data= {studentEmail, teacheremail}
+        await fetch('/api/user/update',{
+        method:'PATCH',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    })
 
-    const assignStudent= (studentEmail) => {
-        user.assignedEmail=studentEmail
-        
-        console.log(user.assignedEmail)
-        
     }
 
     return (
@@ -36,11 +47,12 @@ const Selection= () => {
             <div id="selectionHeader1Container">
               <h1 id="selectionHeader1"> STUDENT ACCOUNT DATABASE </h1>
             </div>
-            {users && users.map((user) =>(
+            {users && users.map((user2) =>(
                 <div className="userContainer">
                     <h3> Student Information </h3>
-                    <p key= {user._id}><strong> Email: </strong> <span id="infoText"> {user.email} </span> </p>
-                    <button id="selectButton" name="email" onClick={() => assignStudent(user.email)}> Choose </button>
+                    <p key= {user2._id}><strong> Email: </strong> <span id="infoText"> {user2.email} </span> </p>
+                    
+                    <button id="selectButton" name="email" onClick={() => assignStudent(user2.email)}> Choose </button>
                 </div>
             ))}
               

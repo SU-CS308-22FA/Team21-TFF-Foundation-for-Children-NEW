@@ -3,16 +3,20 @@ import React from "react"
 import { useState } from "react"
 import { useSignup } from "../hooks/useSignup"
 import Navbar from '../components/Navbar'
+
 const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [role, setRole] = useState('')
   const {signup, error, isLoading} = useSignup()
-
+  const [assignedemail, setAssignedemail]= useState('')
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
+    
     console.warn("all data",email,password,role)
-    await signup(email, password, role)
+    console.log("in signup: ", assignedemail)
+    await signup(email, password, role, assignedemail)
     setEmail("")
     setPassword("")
     setRole("")
@@ -35,6 +39,12 @@ const Signup = () => {
         type="password" 
         onChange={(e) => setPassword(e.target.value)} 
         value={password} 
+      />
+      <label>assignedEmail enter none:</label>
+      <input 
+        type="text" 
+        onChange={(e) => setAssignedemail(e.target.value)} 
+        value={assignedemail} 
       />
       <p>I am a</p>
       <select 

@@ -8,12 +8,17 @@ const AddTraining = () =>{
     const [error, setError]= useState(null)
     const [trainingname, settrainingname] = useState('');
     const [datenumber, setdatenumber] = useState('');
+    const [teacheremail, setTeacheremail]= useState('')
     const add= async (event) =>{
         event.preventDefault();
+        
+        //teachers email is here
+        
+        
         const training= {trainingname, datenumber}
         //console.log(training.trainingname, training.datenumber)
-        console.log("in form: ", training)
-
+        
+        
         const response= await fetch('/api/calendar/addtraining',{
           method: 'POST',
           body: JSON.stringify(training),
@@ -35,7 +40,8 @@ const AddTraining = () =>{
           setError(null)
           setdatenumber('')
           settrainingname('')
-          console.log('new training is added', json)
+          setTeacheremail('')
+          
         }
         
 

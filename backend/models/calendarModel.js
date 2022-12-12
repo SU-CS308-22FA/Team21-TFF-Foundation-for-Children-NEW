@@ -4,15 +4,15 @@ const Schema= mongoose.Schema
 
 const calendarSchema= new Schema(
     {
-        training:{
+        trainingname:{
             type:String,
             require:true
         },
-        day:{
+        datenumber:{
             type:String,
             require:true
         },
-        email:{
+        studentemail:{
             type:String,
             require:true
         }
