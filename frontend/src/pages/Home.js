@@ -6,9 +6,9 @@ import c1 from "../img/c1.jpg"
 import c2 from "../img/c2.jpg"
 import c3 from "../img/c3.jpg"
 import c4 from "../img/c4.jpg"
+import Announcements from "./Announcements"
 
 const Home= ()=> {
-
 
     fetch()
     .then(res => {
@@ -25,21 +25,12 @@ const Home= ()=> {
 
 return(
                     <div className="homePage">
+
                         <Navbar/>
                         <div className="aboutDescription">
-                        
-                        <div className="infoBox">
-                            <h1> Follow Here For Courses </h1> 
-                            <p> Please keep reading for details. To be updated... </p>
-                        </div>
-                        <div className="infoBox">
-                            <h1> Our Motivation and Mission </h1>
-                            <p>Please keep reading for details. To be updated...</p>
-                        </div>
-                        <div className="infoBox">
-                            <h1> Follow Here For Our Gallery </h1>
-                            <p> Please keep reading for details. To be updated...</p>
-                        </div>
+                            <h2>ANNOUNCEMENTS</h2>
+                        <iframe src="/Announcements" title="W3Schools Free Online Web Tutorials"></iframe>
+
                     </div>
                     <div className="purposeDescription">
                         <img src={lifting} alt="" />
