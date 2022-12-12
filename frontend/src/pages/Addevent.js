@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar"
 import { useState } from "react";
 import { useEventContext } from "../hooks/useEventContext"
+import { Link } from 'react-router-dom'
 //import { useAuthContext } from '../hooks/useAuthContext'
 const Addevent = () =>{
     const { dispatch } = useEventContext()
@@ -35,14 +36,15 @@ const Addevent = () =>{
             setEmptyFields(json.emptyFields)
         }
         if (response.ok) {
-        seteventtitle("")
-        seteventlocation("")
-        seteventbody("")
-        seteventquota("")
-        setError(null)
-        setEmptyFields([])
-        dispatch({type: 'ADD_EVENT', payload: json})
-        console.log("new event is added (json), ", json)
+            // make the form empty again
+            seteventtitle("")
+            seteventlocation("")
+            seteventbody("")
+            seteventquota("")
+            setError(null)
+            setEmptyFields([])
+            dispatch({type: 'ADD_EVENT', payload: json})
+            console.log("new event is added (json), ", json)
         }
     }
 
@@ -85,6 +87,7 @@ const Addevent = () =>{
             <button type="submit">Add Event</button>
             {error && <div className="error">{error}</div>}
             </form>
+            <Link to="/teacher/events" id = "returneventsbutton">Return to all events</Link>
         
         </div> 
     )

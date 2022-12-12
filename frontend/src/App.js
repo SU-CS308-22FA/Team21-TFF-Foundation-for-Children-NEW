@@ -5,9 +5,9 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Student from './pages/Student'
 import Teacher from './pages/Teacher'
-import Events from './pages/Events'
 import Home from './pages/Home'
 import Addevent from './pages/Addevent'
+import EventsTabOnTeacher from './pages/EventsTabOnTeacher'
 function App() {
   return (
     <div className="App">
@@ -38,14 +38,13 @@ function App() {
                 element={<Teacher />} 
               />
 
-              <Route 
-                path="/student/events" 
-                element={<Events />} 
+              <Route
+                path = "/teacher/events"
+                element= {<EventsTabOnTeacher />}
               />
 
               <Route 
-                //path="/teacher/addeventto" 
-                path="/teacher/addevent" 
+                path="/teacher/events/addevent" 
                 element={<Addevent />} 
               />
 

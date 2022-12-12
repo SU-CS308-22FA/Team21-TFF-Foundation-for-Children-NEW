@@ -1,12 +1,7 @@
 const Event = require('../models/eventsModel')
 const mongoose = require('mongoose')
 /*
-// get all events
-const getEvents = async (req, res) => {
-    const events = await Event.find({}).sort({createdAt: -1})
 
-    res.status(200).json(events)
-}
 
 // get a single event
 const getEvent = async (req, res) => {
@@ -92,29 +87,14 @@ const updateEvent = async (req, res) => {
 const { MongoClient } = require('mongodb');
 
 
-const getStuEvent = (req, res) => {
-  MongoClient.connect(
-    process.env.MONGO_URI,
-    { useUnifiedTopology: true },
-    (error, client) => {
-      if (error) {
-        return console.log('Could not connect to database');
-      }
-      const db = client.db('test');
-      db.collection('events')
-        .find({})
-        .toArray((error, result) => {
-          if (error) {
-            return console.log('Could not get connected to the events collection');
-          }
-          res.json(result);
-        });
-    }
-  );
-};
+const getStuEvent = async (req, res) => {
+  const events = await Event.find({}).sort({createdAt: -1})
+
+  res.status(200).json(events)
+
+}
 
 const addStuEvent = async (req, res) => {
-  console.log("fonksiyon cagrildi!!")
   const {eventtitle,eventlocation,eventbody,eventquota} = req.body 
   console.log(eventtitle)
   let emptyFields = []
