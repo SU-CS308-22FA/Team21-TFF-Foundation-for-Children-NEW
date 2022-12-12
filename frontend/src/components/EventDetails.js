@@ -5,6 +5,11 @@ const EventDetails = ({ event }) => {
     const { dispatch } = useEventContext()
     const { user } = useAuthContext()
 
+    const handleClick = async () => {
+      if (!user) {
+        return
+      }
+    }
 
     return (
       <div className="event-details">
