@@ -106,60 +106,6 @@ const updateAnnouncement = (req, res) => {
   );
 };
 
-const deleteAnnouncement = (req, res) => {
-  MongoClient.connect(
-    process.env.MONGO_URI,
-    { useUnifiedTopology: true },
-    (error, client) => {
-      if (error) {
-        return console.log('Could not connect to database');
-      }
-      const db = client.db(databaseName);
-      db.collection('announcements').deleteOne(
-        {
-          _id: ObjectId(req.body.id),
-        },
-        (error, result) => {
-          if (error) {
-            return console.log('Could not delete announcement');
-          }
-          res.json(result);
-        }
-      );
-    }
-  );
-};
-
-const updateAnnouncement = (req, res) => {
-  MongoClient.connect(
-    process.env.MONGO_URI,
-    { useUnifiedTopology: true },
-    (error, client) => {
-      if (error) {
-        return console.log('Could not connect to database');
-      }
-      const db = client.db(databaseName);
-      db.collection('announcements').updateOne(
-        {
-          _id: ObjectId(req.body.id),
-        },
-        {
-          $set: {
-            title: req.body.title,
-            content: req.body.content,
-          },
-        },
-        (error, result) => {
-          if (error) {
-            return console.log('Could not update announcement');
-          }
-          res.json(result);
-        }
-      );
-    }
-  );
-};
-
 router.get('/', getAnnouncements);
 router.post('/', createAnnouncement);
 router.delete('/', deleteAnnouncement);

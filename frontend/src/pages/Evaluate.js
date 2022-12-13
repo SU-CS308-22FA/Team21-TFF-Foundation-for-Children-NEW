@@ -122,18 +122,15 @@ const Evaluate = () => {
       body: JSON.stringify({
         id: modalContent._id,
         evaluation: {
-
           behaviour: modalContent.evaluations.behaviour,
           teamwork: modalContent.evaluations.teamwork,
           communication: modalContent.evaluations.communication,
-
         },
       }),
     }).then((response) => {
       handleResetEvaluation();
     });
   };
-
 
   const getEvaluationAverage = (evaluation) => {
     if (!evaluation) return 0;
@@ -143,7 +140,6 @@ const Evaluate = () => {
       evaluation.behaviour + evaluation.teamwork + evaluation.communication;
 
     return (sum / 3).toFixed(2) || 0;
-
   };
 
   return (
@@ -176,16 +172,13 @@ const Evaluate = () => {
             modalContent?.evaluations.length !== 0 ? (
               <>
                 <Typography component="legend">Behaviour Evaluation</Typography>
-
                 <Rating value={modalContent.evaluations.behaviour} readOnly />
                 <Typography component="legend">Teamwork Evaluation</Typography>
                 <Rating value={modalContent.evaluations.teamwork} readOnly />
-
                 <Typography component="legend">
                   Communication Evaluation
                 </Typography>
                 <Rating
-
                   value={modalContent.evaluations.communication}
                   readOnly
                 />
@@ -197,7 +190,6 @@ const Evaluate = () => {
                     </Typography>
                   </div>
                 )}
-
                 <div style={{ marginTop: '20px' }}>
                   <Button
                     variant="contained"
@@ -273,7 +265,6 @@ const Evaluate = () => {
                 }}
               >
                 <h3 className="evaluation-name">
-
                   {`${student?.evaluations?.objection ? '(!)' : ''} ` +
                     `${student.userName} (${
                       (student?.evaluations !== undefined &&
@@ -281,7 +272,6 @@ const Evaluate = () => {
                         getEvaluationAverage(student.evaluations)) ||
                       'not evaluated'
                     }`}
-
                   )
                 </h3>
               </div>

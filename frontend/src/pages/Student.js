@@ -63,7 +63,7 @@ const Student = () => {
           Announcements{' '}
 
         </Link>
-        <Link to="/evaluation" id="link">
+        <Link to="/Evaluation" id="link">
           My Evaluation{' '}
 
         </Link>

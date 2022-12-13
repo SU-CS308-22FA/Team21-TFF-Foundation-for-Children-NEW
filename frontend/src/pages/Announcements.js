@@ -8,11 +8,8 @@ const Announcements = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useAuthContext();
-
   const userRole = user && user.role;
-
   const isPermittedToEdit = userRole === 'Teacher';
-
 
   const getAnnouncements = () => {
     fetch('/api/announcement')
@@ -58,7 +55,6 @@ const Announcements = () => {
             <AnnouncementItem
               ann={ann}
               isPermitted={isPermittedToEdit}
-
               key={ann._id}
               getAnnouncements={getAnnouncements}
             />

@@ -63,9 +63,7 @@ const addEvaluationToUser = (req, res) => {
       const db = client.db(databaseName);
       db.collection('users').updateOne(
         { _id: ObjectId(req.body.id) },
-
         { $set: { evaluations: req.body.evaluation } },
-
         (error, result) => {
           if (error) {
             return console.log('Could not add evaluation to user');
@@ -100,7 +98,6 @@ const updateEvaluation = (req, res) => {
   );
 };
 
-
 const deleteEvaluationFromUser = (req, res) => {
   MongoClient.connect(
     process.env.MONGO_URI,
@@ -127,9 +124,7 @@ const deleteEvaluationFromUser = (req, res) => {
 router.get('/', getStudents);
 router.post('/', addEvaluationToUser);
 router.delete('/', deleteEvaluationFromUser);
-
 router.put('/', updateEvaluation);
-
 router.post('/student', getStudentEvaluation);
 
 module.exports = router;
