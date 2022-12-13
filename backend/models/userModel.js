@@ -9,6 +9,11 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
+    userName: {
+      //  idk what primary key is, but I think it's the same as unique key
+      type: String,
+      required: true,
+    },
     email: {
       // email is the primary key
       type: String,
@@ -39,7 +44,7 @@ A static method (or static function) is a method defined as a member of an objec
 but is accessible directly from an API object's constructor, 
 rather than from an object instance created via the constructor.
 */
-userSchema.statics.signup = async function (email, password, role) {
+userSchema.statics.signup = async function (userName, email, password, role) {
   // create a function name with signup
   // bc we are using this keyword, we cannot use arrow func. we need to use asyncrh. regular function.
 
@@ -64,7 +69,7 @@ userSchema.statics.signup = async function (email, password, role) {
   const salt = await bcryptjs.genSalt(10); //in order to add additional characters to the passwords for security purposes.
   const hash = await bcryptjs.hash(password, salt);
 
-  const user = await this.create({ email, password: hash, role }); // swap password and hashed password
+  const user = await this.create({ userName, email, password: hash, role }); // swap password and hashed password
 
   return user;
 };

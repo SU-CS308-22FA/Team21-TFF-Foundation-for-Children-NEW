@@ -1,19 +1,39 @@
 .announcement {
   margin: 0 auto;
   max-width: 800px;
-  padding: 20px;
+
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   &-item {
+    padding: 20px;
+    position: relative;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    &__actions {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
   }
 
   &-item + &-item {
     padding-top: 30px;
-    margin-top: 30px;
     border-top: 1px solid #ccc;
+  }
+
+  .show-more {
+    color: black;
+
+    &:hover {
+      cursor: pointer;
+      border-bottom: 1px solid black;
+    }
   }
 }

@@ -1,32 +1,53 @@
 import './Announcements.scss';
 import { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar';
+import CircularProgress from '@mui/material/CircularProgress';
+import AnnouncementItem from './AnnouncementItem';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 const Announcements = () => {
   const [announcements, setAnnouncements] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { user } = useAuthContext();
+
+  const isPermitted = user && user.role === 'Teacher';
+
   const getAnnouncements = () => {
     fetch('/api/announcement')
       .then((response) => response.json())
       .then((data) => {
         setAnnouncements(data);
+        setIsLoading(false);
       });
-    console.log(announcements);
   };
 
   useEffect(() => {
     getAnnouncements();
   }, []);
 
+  if (isLoading)
+    return (
+      <CircularProgress
+        style={{
+          margin: 'auto',
+          marginTop: '75px',
+          height: '95%',
+          display: 'flex',
+        }}
+      />
+    );
+
   return (
     <div className="loginContainer">
-    
       <div className="announcement">
         {announcements.map((ann) => {
+          if (!ann.content) return null;
           return (
-            <div className="announcement-item" key={ann._id}>
-              <h3>{ann.title}</h3>
-              <p>{ann.content}</p>
-            </div>
+            <AnnouncementItem
+              ann={ann}
+              isPermitted={isPermitted}
+              key={ann._id}
+              getAnnouncements={getAnnouncements}
+            />
           );
         })}
       </div>

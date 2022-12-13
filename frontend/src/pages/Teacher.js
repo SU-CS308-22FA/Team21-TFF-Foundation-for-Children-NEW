@@ -1,46 +1,49 @@
-import "../index.css";
-import React from "react";
-import logo from "../img/mt-0966-logo.png";
-import { Link } from "react-router-dom";
-import one from "../img/1.jpg";
-import two from "../img/2.jpg";
-import three from "../img/3.jpg";
-import four from "../img/4.jpg";
-import five from "../img/5.jpg";
-import six from "../img/6.jpg";
+import '../index.scss';
+import React from 'react';
+import logo from '../img/mt-0966-logo.png';
+import { Link } from 'react-router-dom';
+import one from '../img/1.jpg';
+import two from '../img/2.jpg';
+import three from '../img/3.jpg';
+import four from '../img/4.jpg';
+import five from '../img/5.jpg';
+import six from '../img/6.jpg';
 const Teacher = () => {
   return (
     <div className="stuPage">
       <div className="introImage"></div>
       <div className="nav">
         <Link to="/" id="link">
-          {" "}
-          <img src={logo} alt="" />{" "}
+          {' '}
+          <img src={logo} alt="" />{' '}
         </Link>
 
         <Link id="link"> Home </Link>
 
         <Link to="/announcementAdd" id="link">
-          Add Announcement{" "}
+          Add Announcement{' '}
         </Link>
         <Link to="/announcements" id="link">
-          Current Announcements{" "}
+          Current Announcements{' '}
+        </Link>
+        <Link to="/evaluate" id="link">
+          Evaluate Students{' '}
         </Link>
         <Link to="/" id="link">
-          {" "}
-          Add Event{" "}
+          {' '}
+          Add Event{' '}
         </Link>
         <Link to="/" id="link">
-          {" "}
-          Student Development{" "}
+          {' '}
+          Student Development{' '}
         </Link>
         <Link to="/" id="link">
-          {" "}
-          Change Student{" "}
+          {' '}
+          Change Student{' '}
         </Link>
         <Link to="/addTraining" id="link">
-          {" "}
-          Add Training{" "}
+          {' '}
+          Add Training{' '}
         </Link>
       </div>
       <div className="skillContainer">
