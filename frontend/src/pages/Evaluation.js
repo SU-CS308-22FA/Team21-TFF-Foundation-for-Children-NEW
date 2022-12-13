@@ -1,17 +1,21 @@
+
 import { Button, Rating, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { useAuthContext } from '../hooks/useAuthContext';
 import SendIcon from '@mui/icons-material/Send';
 
+
 const Evaluation = () => {
   const { user } = useAuthContext();
+
 
   const [evaluation, setEvaluation] = useState({
     behaviour: 0,
     communication: 0,
     teamwork: 0,
   });
+
 
   const [feedbackMessage, setFeedbackMessage] = useState('');
 
@@ -34,6 +38,7 @@ const Evaluation = () => {
     });
   };
 
+
   const getStudentEvaluation = () => {
     fetch('/api/evaluation/student', {
       method: 'POST',
@@ -44,8 +49,10 @@ const Evaluation = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+
         console.log(data);
         setEvaluation(data[0].evaluations);
+
       });
   };
 
@@ -67,6 +74,7 @@ const Evaluation = () => {
         Your Evaluation
       </h1>
       <div style={{ textAlign: 'center' }}>
+
         {evaluation && evaluation.behaviour !== 0 ? (
           <>
             <Typography component="legend">Behaviour Evaluation</Typography>
@@ -100,6 +108,7 @@ const Evaluation = () => {
         ) : (
           <div>Not evaluated yet</div>
         )}
+
       </div>
     </div>
   );
