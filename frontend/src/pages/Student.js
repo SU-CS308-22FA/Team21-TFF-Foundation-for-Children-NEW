@@ -1,16 +1,15 @@
-import "../index.css";
-import logo from "../img/mt-0966-logo.png";
-import "../index.css";
-import { Link } from "react-router-dom";
-import one from "../img/1.jpg";
-import two from "../img/2.jpg";
-import three from "../img/3.jpg";
-import four from "../img/4.jpg";
-import five from "../img/5.jpg";
-import six from "../img/6.jpg";
-import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import { useAuthContext } from "../hooks/useAuthContext";
+import '../index.scss';
+import logo from '../img/mt-0966-logo.png';
+import { Link } from 'react-router-dom';
+import one from '../img/1.jpg';
+import two from '../img/2.jpg';
+import three from '../img/3.jpg';
+import four from '../img/4.jpg';
+import five from '../img/5.jpg';
+import six from '../img/6.jpg';
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import { useAuthContext } from '../hooks/useAuthContext';
 function stringToColor(string) {
   let hash = 0;
   let i;
@@ -20,7 +19,7 @@ function stringToColor(string) {
     hash = string.charCodeAt(i) + ((hash << 5) - hash);
   }
 
-  let color = "#";
+  let color = '#';
 
   for (i = 0; i < 3; i += 1) {
     const value = (hash >> (i * 8)) & 0xff;
@@ -41,7 +40,7 @@ function stringAvatar(name) {
 }
 const Student = () => {
   const { user } = useAuthContext();
-  const email = user?.email.toString() || "su";
+  const email = user?.email.toString() || 'su';
 
   return (
     <div className="stuPage">
@@ -50,22 +49,25 @@ const Student = () => {
         <Avatar {...stringAvatar(email)} />
 
         <Link to="/" id="link">
-          {" "}
-          <img src={logo} alt="" />{" "}
+          {' '}
+          <img src={logo} alt="" />{' '}
         </Link>
         <Link to="/" id="link">
-          {" "}
-          Home{" "}
+          {' '}
+          Home{' '}
         </Link>
         <Link to="/" id="link">
-          About{" "}
+          About{' '}
         </Link>
         <Link to="/announcements" id="link">
-          Announcements{" "}
+          Announcements{' '}
+        </Link>
+        <Link to="/evaluation" id="link">
+          My Evaluation{' '}
         </Link>
         <Link to="/student/events">Events</Link>
         <Link to="/" id="link">
-          My Development{" "}
+          My Development{' '}
         </Link>
       </div>
       <div className="welcome">

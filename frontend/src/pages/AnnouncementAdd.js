@@ -1,5 +1,5 @@
 import Navbar from '../components/Navbar';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { Alert, Snackbar } from '@mui/material';
@@ -20,14 +20,14 @@ const AnnouncementAdmin = () => {
       setContent('');
     });
   };
- 
+
   const [showAlert, setShowAlert] = useState(false);
 
   const handleCloseAlert = () => {
     setShowAlert(false);
   };
 
-  if (user && user.userrole === 'Teacher') {
+  if (user && user.role === 'Teacher') {
     return (
       <div className="loginContainer">
         <Navbar />
@@ -65,9 +65,9 @@ const AnnouncementAdmin = () => {
           />
 
           <button>Add Announcement</button>
-       <Link to="/announcements" id="link">
-          Announcements{""}
-        </Link>
+          <Link to="/announcements" id="link">
+            Announcements{''}
+          </Link>
         </form>
       </div>
     );

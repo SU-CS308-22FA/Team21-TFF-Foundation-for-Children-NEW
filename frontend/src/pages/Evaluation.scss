@@ -1,0 +1,14 @@
+.evaluation {
+  &-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+
+    transition: opacity 0.1s;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.65;
+    }
+  }
+}
