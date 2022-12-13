@@ -11,6 +11,7 @@ import Selection from './pages/Selection'
 import Addevent from './pages/Addevent'
 import EventsTabOnTeacher from './pages/EventsTabOnTeacher'
 import EventsTabOnStudent from './pages/StudentEventsTab'
+import ApplyEvent from './pages/applyForEvent'
 function App() {
   return (
     <div className="App">
@@ -62,6 +63,11 @@ function App() {
               <Route
                 path = "/student/events"
                 element= {<EventsTabOnStudent />}
+              />
+
+              <Route
+                path = "/student/events/applyevent"
+                element = {<ApplyEvent/>}
               />
 
 

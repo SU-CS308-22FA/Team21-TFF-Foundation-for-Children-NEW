@@ -4,9 +4,30 @@
 const mongoose = require('mongoose')  
 const bcrypt = require('bcrypt')
 const validator = require('validator')
-
 const Schema = mongoose.Schema
 // deneme
+
+const eventSchema = new Schema(
+  {
+    eventtitle: {   // email is the primary key
+        type: String,
+        required: true
+        
+    },
+    eventlocation: {
+        type: String,
+        required: true
+    },
+    eventbody: {
+        type: String,
+        required: true
+    },
+    eventquota: {  // different people can have the same password
+        type: String,
+        required: true
+    }
+}, { timestamps: true });
+
 const userSchema = new Schema(
   {
     email: {   // email is the primary key
@@ -26,7 +47,8 @@ const userSchema = new Schema(
     assignedemail:{
       type:String,
       required:true
-    }
+    },
+    events: [eventSchema],
   },
   { timestamps: true }
 );

@@ -257,6 +257,18 @@ form.signup select {
   margin: 20px auto;
 }
 
+#viewEventButton{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: var(--primary);
+  padding: 6px;
+  border-radius: 50%;
+  color: rgb(253, 249, 249);
+
+}
+
 .plus::before {
   content: "+";
 }
