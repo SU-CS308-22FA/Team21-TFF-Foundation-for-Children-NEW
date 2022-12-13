@@ -30,6 +30,26 @@ const updateUser= async (req,res) =>{
 
 }
 
+const addToEventsList = async (req, res) => {
+  console.log("addToEventsArray was called!")
+  const {event, email} = req.body 
+  console.log("event and email in addToEventsArray: ", event, email)
+  const query= { email:req.body.email  }
+  //const {eventitle} = event.eventitle
+  //const exists = await User.eventsList.findOne({ event.eventtitle: req.body.event.eventtitle })
+  try {
+    /*if (exists) {
+      throw Error('Events has already been added to your events!')
+    }*/
+    const newvalues = {$push:{eventsList: event}}
+    const user= await User.findOneAndUpdate(query, newvalues)
+    res.status(200).json(user)
+
+  } catch (error) {
+    res.status(400).json({error: error.message})
+  }
+}
+
 const loginUser = async (req, res) => { // async function bc it will communicate with the db
   const {email, password} = req.body
   console.log("loginuser girildi")
@@ -68,4 +88,4 @@ const signupUser = async (req, res) => {
 }
 
 
-module.exports = { signupUser, loginUser, getUsers, updateUser }
+module.exports = { signupUser, loginUser, getUsers, updateUser,  addToEventsList}

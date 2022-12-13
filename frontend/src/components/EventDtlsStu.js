@@ -1,11 +1,10 @@
 import { useEventContext } from '../hooks/useEventContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { Link } from 'react-router-dom'
-import ApplyEvent from '../pages/applyForEvent'
 const EventDetailsStu = ({ event }) => {
 
   let data = event;
-  console.log("data: ", data);
+  //console.log("data: ", data);
 
   /*const handleClick = async () => {  // make handleClick an async function because we are going to reach out to the API
     if (!user) {

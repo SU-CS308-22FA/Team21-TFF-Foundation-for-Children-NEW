@@ -48,7 +48,7 @@ const userSchema = new Schema(
       type:String,
       required:true
     },
-    events: [eventSchema],
+    eventsList: [eventSchema],
   },
   { timestamps: true }
 );
@@ -111,6 +111,7 @@ userSchema.statics.login = async function(email, password) {
 
   return user
 }
+
 
 
 module.exports = mongoose.model('User', userSchema)

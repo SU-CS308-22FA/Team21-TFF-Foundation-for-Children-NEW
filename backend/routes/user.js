@@ -2,7 +2,7 @@ const express = require('express')
 
 
 // controller functions
-const { loginUser, signupUser, getUsers, updateUser } = require('../controllers/userController') // import the handler functions
+const { loginUser, signupUser, getUsers, updateUser, addToEventsList } = require('../controllers/userController') // import the handler functions
 
 
 const router = express.Router()
@@ -23,6 +23,7 @@ router.post('/login', loginUser)  // send data in a request
 
 // signup route
 router.post('/signup', signupUser)
+router.patch('/addtoeventslist', addToEventsList)
 
 //student page
 
