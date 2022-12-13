@@ -8,8 +8,10 @@ import Student from './pages/Student';
 import Teacher from './pages/Teacher';
 import Events from './pages/Events';
 import Home from './pages/Home';
-import Announcements from './pages/Announcements';
 import AnnouncementAdd from './pages/AnnouncementAdd';
+import AnnouncementPage from './pages/AnnouncementPage';
+import Evaluate from './pages/Evaluate';
+import Evaluation from './pages/Evaluation';
 
 function App() {
   return (
@@ -29,8 +31,10 @@ function App() {
             <Route path="/teacher" element={<Teacher />} />
 
             <Route path="/student/events" element={<Events />} />
-            <Route path="/announcements" element={<Announcements />} />
+            <Route path="/announcements" element={<AnnouncementPage />} />
             <Route path="/announcementAdd" element={<AnnouncementAdd />} />
+            <Route path="/evaluate" element={<Evaluate />} />
+            <Route path="/evaluation" element={<Evaluation />} />
           </Routes>
         </div>
       </BrowserRouter>
