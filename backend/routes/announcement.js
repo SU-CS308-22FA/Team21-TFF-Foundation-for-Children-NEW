@@ -39,12 +39,13 @@ const createAnnouncement = (req, res) => {
         {
           title: req.body.title,
           content: req.body.content,
+          permitted: req.body.permitted,
         },
         (error, result) => {
           if (error) {
             return console.log('Could not create announcement');
           }
-          res.json(result.ops);
+          res.json(result);
         }
       );
     }

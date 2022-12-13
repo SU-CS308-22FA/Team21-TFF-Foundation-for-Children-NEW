@@ -2,18 +2,19 @@ import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useAuthContext } from '../hooks/useAuthContext';
-import { Alert, Snackbar } from '@mui/material';
+import { Alert, MenuItem, Select, Snackbar } from '@mui/material';
 
 const AnnouncementAdmin = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [permitted, setPermitted] = useState('Everyone');
   const { user } = useAuthContext();
   const addAnnouncement = (event) => {
     event.preventDefault();
     fetch('/api/announcement', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, content }),
+      body: JSON.stringify({ title, content, permitted }),
     }).then((response) => {
       setShowAlert(true);
       setTitle('');
@@ -22,6 +23,10 @@ const AnnouncementAdmin = () => {
   };
 
   const [showAlert, setShowAlert] = useState(false);
+
+  const handleChange = (event) => {
+    setPermitted(event.target.value);
+  };
 
   const handleCloseAlert = () => {
     setShowAlert(false);
@@ -63,6 +68,20 @@ const AnnouncementAdmin = () => {
             value={content}
             style={{ width: '100%' }}
           />
+          <div style={{ marginBottom: '10px', marginTop: '10px' }}>
+            <label style={{ marginBottom: '10px' }}>Can be visible by</label>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={permitted}
+              label="Who Can See?"
+              onChange={handleChange}
+            >
+              <MenuItem value={'Everyone'}>Everyone</MenuItem>
+              <MenuItem value={'Student'}>Students</MenuItem>
+              <MenuItem value={'Teacher'}>Teachers</MenuItem>
+            </Select>
+          </div>
 
           <button>Add Announcement</button>
           <Link to="/announcements" id="link">

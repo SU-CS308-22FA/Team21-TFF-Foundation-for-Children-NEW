@@ -8,8 +8,9 @@ const Announcements = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useAuthContext();
+  const userRole = user && user.role;
 
-  const isPermitted = user && user.role === 'Teacher';
+  const isPermittedToEdit = userRole === 'Teacher';
 
   const getAnnouncements = () => {
     fetch('/api/announcement')
@@ -40,11 +41,19 @@ const Announcements = () => {
     <div className="loginContainer">
       <div className="announcement">
         {announcements.map((ann) => {
+          if (ann.permitted === 'Teacher' && userRole !== 'Teacher')
+            return null;
+          if (
+            ann.permitted === 'Student' &&
+            userRole !== 'Student' &&
+            userRole !== 'Teacher'
+          )
+            return null;
           if (!ann.content) return null;
           return (
             <AnnouncementItem
               ann={ann}
-              isPermitted={isPermitted}
+              isPermitted={isPermittedToEdit}
               key={ann._id}
               getAnnouncements={getAnnouncements}
             />

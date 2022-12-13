@@ -26,16 +26,12 @@ const Teacher = () => {
         <Link to="/announcements" id="link">
           Current Announcements{' '}
         </Link>
-        <Link to="/evaluate" id="link">
-          Evaluate Students{' '}
-        </Link>
         <Link to="/" id="link">
           {' '}
           Add Event{' '}
         </Link>
-        <Link to="/" id="link">
-          {' '}
-          Student Development{' '}
+        <Link to="/Evaluate" id="link">
+          Evaluate Students{' '}
         </Link>
         <Link to="/" id="link">
           {' '}
