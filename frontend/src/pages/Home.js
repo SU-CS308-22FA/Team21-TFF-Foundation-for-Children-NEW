@@ -40,7 +40,7 @@ const Home = () => {
           </h2>
           <div
             style={{
-              height: '50vh',
+              height: 'auto',
               overflow: 'auto',
               width: '600px',
               margin: 'auto',
