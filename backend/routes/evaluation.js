@@ -63,7 +63,9 @@ const addEvaluationToUser = (req, res) => {
       const db = client.db(databaseName);
       db.collection('users').updateOne(
         { _id: ObjectId(req.body.id) },
-        { $push: { evaluations: req.body.evaluation } },
+
+        { $set: { evaluations: req.body.evaluation } },
+
         (error, result) => {
           if (error) {
             return console.log('Could not add evaluation to user');
@@ -74,6 +76,30 @@ const addEvaluationToUser = (req, res) => {
     }
   );
 };
+
+const updateEvaluation = (req, res) => {
+  MongoClient.connect(
+    process.env.MONGO_URI,
+    { useUnifiedTopology: true },
+    (error, client) => {
+      if (error) {
+        return console.log('Could not connect to database');
+      }
+      const db = client.db(databaseName);
+      db.collection('users').updateOne(
+        { email: req.body.email },
+        { $set: { evaluations: req.body.evaluation } },
+        (error, result) => {
+          if (error) {
+            return console.log('Could not update evaluation');
+          }
+          res.json(result);
+        }
+      );
+    }
+  );
+};
+
 
 const deleteEvaluationFromUser = (req, res) => {
   MongoClient.connect(
@@ -101,6 +127,9 @@ const deleteEvaluationFromUser = (req, res) => {
 router.get('/', getStudents);
 router.post('/', addEvaluationToUser);
 router.delete('/', deleteEvaluationFromUser);
+
+router.put('/', updateEvaluation);
+
 router.post('/student', getStudentEvaluation);
 
 module.exports = router;
