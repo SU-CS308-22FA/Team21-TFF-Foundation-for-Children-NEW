@@ -109,7 +109,7 @@ const deleteEvaluationFromUser = (req, res) => {
       const db = client.db(databaseName);
       db.collection('users').updateOne(
         { _id: ObjectId(req.body.id) },
-        { $pull: { evaluations: req.body.evaluation } },
+        { $unset: { evaluations: req.body.evaluation } },
         (error, result) => {
           if (error) {
             return console.log('Could not delete evaluation from user');
