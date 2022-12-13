@@ -3,16 +3,13 @@ import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { useAuthContext } from '../hooks/useAuthContext';
 import SendIcon from '@mui/icons-material/Send';
-
 const Evaluation = () => {
   const { user } = useAuthContext();
-
   const [evaluation, setEvaluation] = useState({
     behaviour: 0,
     communication: 0,
     teamwork: 0,
   });
-
   const [feedbackMessage, setFeedbackMessage] = useState('');
 
   const handleFeedbackChange = (e) => {
@@ -33,7 +30,6 @@ const Evaluation = () => {
       }
     });
   };
-
   const getStudentEvaluation = () => {
     fetch('/api/evaluation/student', {
       method: 'POST',

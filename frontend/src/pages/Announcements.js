@@ -9,7 +9,6 @@ const Announcements = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useAuthContext();
   const userRole = user && user.role;
-
   const isPermittedToEdit = userRole === 'Teacher';
 
   const getAnnouncements = () => {
@@ -41,6 +40,7 @@ const Announcements = () => {
     <div className="loginContainer">
       <div className="announcement">
         {announcements.map((ann) => {
+
           if (ann.permitted === 'Teacher' && userRole !== 'Teacher')
             return null;
           if (
@@ -49,6 +49,7 @@ const Announcements = () => {
             userRole !== 'Teacher'
           )
             return null;
+
           if (!ann.content) return null;
           return (
             <AnnouncementItem
