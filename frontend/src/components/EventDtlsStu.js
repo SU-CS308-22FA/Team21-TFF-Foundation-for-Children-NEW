@@ -16,9 +16,6 @@ const EventDetailsStu = ({ event }) => {
     return (
       <div className="event-details">
         <h4>{event.eventtitle}</h4>
-        <p><strong>Location: </strong>{event.eventlocation}</p>
-        <p><strong>Details: </strong>{event.eventbody}</p>
-        <p><strong>Quota: </strong>{event.eventquota}</p>
         <Link to="applyevent" state={data} id="viewEventButton">View</Link>
       </div>
     )

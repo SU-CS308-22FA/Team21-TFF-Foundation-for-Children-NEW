@@ -1,5 +1,4 @@
 const User = require('../models/userModel')
-
 const jwt = require('jsonwebtoken')
 console.log(User, " in userController")
 const mongoose = require('mongoose')
@@ -33,16 +32,26 @@ const getUsers= async (req,res) => {
 
 }
 
+/*
 const getUserEvents = async (req,res) => {
-  /*const {email} = req.body
-  const
-  console.log("getUserEvents called")
-  const query= { eventsList  }
-  const events = await User.eventsList.find({}).sort({createdAt: -1})
+  const { id } = req.params
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({error: 'No such user'})
+    }
 
-  res.status(200).json(events)*/
-  
+    const user = await User.findById(id)
+
+    if (!user) {
+    return res.status(404).json({error: 'No such user'})
+    }
+
+    const events = await User.eventsList.forEach(element => {
+      element.getStuEvent(element.id);
+    });
+    res.status(200).json(events)
+    
 }
+*/
 
 const updateUser= async (req,res) =>{
   console.log("ok")

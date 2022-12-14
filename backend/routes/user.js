@@ -25,7 +25,8 @@ router.post('/signup', signupUser)
 router.patch('/addtoeventslist', addToEventsList)
 router.get('/getusers', getUsers)
 router.get('/getusers/:id', getUser)
+//router.get('/getusers/:id', getUser)
 //student page
-//router.get('/getuserevents', getUserEvents)
+//router.get('/getuserevents/:id', getUserEvents)
 
 module.exports = router
