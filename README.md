@@ -21,16 +21,16 @@ The frontend of TFF Foundation for Children was built with React.js and the back
    "git clone https://github.com/SU-CS308-22FA/Team21-TFF-Foundation-for-Children-NEW.git".
    
    #### How to set up the project
-   Run these on the terminal to set up backend:
+   #####Run these on the terminal to set up backend:
    	`cd backend`
       `npm install`
-   Run these to set up frontend:
+   #####Run these to set up frontend:
       `cd frontend`
       `npm install`
-   Run these to start backend:
+   #####Run these to start backend:
       `cd backend`
       `npm run dev`
-   Run these to start frontend:
+   #####Run these to start frontend:
       `cd frontend`
       `npm start`
    ### The layout of the directory structure
