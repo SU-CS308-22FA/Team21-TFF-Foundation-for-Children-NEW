@@ -8,18 +8,13 @@ const mongoose= require('mongoose')
 
 
 const getCalendar = async (req, res) => {
-    const { id }= req.params
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: 'No such calendar'})
-    }
-
-    const calendar= await Calendar.findById(id)
-
-    if(!calendar){
-        return res.status(404).json({error: 'No such calendar'})
-    }
-
-    res.status(200).json(calendar)
+   console.log("getCalendar is called!")
+   const {teacheremail}= req.params
+   console.log("teacheremail is: ",teacheremail)
+   const user= await User.findOne({email:teacheremail})
+   console.log("assigned email is: ", user.assignedemail)
+   const calendars= await Calendar.find({studentemail:user.assignedemail})
+   res.status(200).json(calendars)
 }
 
 const createCalendar= async (req, res) => {
@@ -27,13 +22,10 @@ const createCalendar= async (req, res) => {
     
     const { trainingname, datenumber, teacheremail }= req.body
     
-   
-
     //console.log(specificUser.assignedEmail)
-    
-    console.log(trainingname, datenumber)
-    
-    
+    const teacher= await User.findOne( { email:teacheremail } )
+    console.log("assigned email is: ", teacher.assignedemail)
+    const studentemail= teacher.assignedemail
     let emptyFields= []
     if(!trainingname){
         emptyFields.push('training')
@@ -47,12 +39,11 @@ const createCalendar= async (req, res) => {
         return res.status(400).json({error:'Please fill the field(s): ', emptyFields})
     }
 
-
     try{
         
-        const calendar= await Calendar.create({trainingname, datenumber})
-        console.log(calendar.trainingname, calendar.datenumber)
-       
+        const calendar= await Calendar.create({trainingname, datenumber, studentemail})
+        
+        
         res.status(200).json(calendar)
     }
     catch(error){

@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { useState } from "react"
+
 import { useEvents } from "../hooks/useEvents"
 import one from "../img/1.jpg"
 import two from "../img/2.jpg"

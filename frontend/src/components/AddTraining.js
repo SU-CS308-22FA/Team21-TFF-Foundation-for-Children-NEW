@@ -1,21 +1,39 @@
 import Navbar from "./Navbar"
-
+import { useAuthContext } from '../hooks/useAuthContext'
 import { useState } from "react";
+import { useEffect } from "react";
+import Calendar from "./Calendar";
 const AddTraining = () =>{
     
 
-
+    const { user } = useAuthContext()
     const [error, setError]= useState(null)
     const [trainingname, settrainingname] = useState('');
     const [datenumber, setdatenumber] = useState('');
-    const [teacheremail, setTeacheremail]= useState('')
+    const [calendars, setCalendars] = useState('');
+    
+   
+    useEffect(() => {
+      console.log("fetching calendars1")
+          const fetchCalendars= async () =>{
+          const response2= await fetch('/api/calendar/'+user.email)
+          const json2= await response2.json()
+          
+          if(response2.ok){
+            setCalendars(json2)
+            
+            console.log("good")
+          }     
+    }
+        fetchCalendars()
+      }, [])
     const add= async (event) =>{
         event.preventDefault();
-        
+        console.log("teacher's email: ",user.email)
         //teachers email is here
+        const teacheremail= user.email
         
-        
-        const training= {trainingname, datenumber}
+        const training= {trainingname, datenumber, teacheremail}
         //console.log(training.trainingname, training.datenumber)
         
         
@@ -40,16 +58,15 @@ const AddTraining = () =>{
           setError(null)
           setdatenumber('')
           settrainingname('')
-          setTeacheremail('')
+         
           
         }
-        
-
     }
     return (
-        <div className="loginContainer">
+        <div className="loginContainerrr">
           <Navbar/>
           
+         
           <form className="login" onSubmit={add}>
             <h3>Training</h3>
             
@@ -69,12 +86,19 @@ const AddTraining = () =>{
             />
               
               
-            <button >Add Training</button>
-              
-              
+            <button>Add Training</button>
             
           </form>
+          
+           
+   
+          <Calendar calendars={calendars}/>
+          
+          
+           
           </div>
     )
 }
 export default AddTraining
+
+

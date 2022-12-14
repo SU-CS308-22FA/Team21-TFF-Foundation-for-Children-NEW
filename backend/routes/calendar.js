@@ -8,7 +8,7 @@ const{
 
 const router = express.Router()
 
-router.get('/addTraining/:id', getCalendar)
+router.get('/:teacheremail', getCalendar)
 
 router.post('/addtraining', createCalendar)
 

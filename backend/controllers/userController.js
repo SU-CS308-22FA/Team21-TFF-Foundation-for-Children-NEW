@@ -12,7 +12,7 @@ const createToken = (_id) => { // after the tokens are created,
 
 const getUsers= async (req,res) => {
   console.log("get Users girildi!")
-  const users= await User.find({})
+  const users= await User.find({role:"Student"})
 
   res.status(200).json(users)
 

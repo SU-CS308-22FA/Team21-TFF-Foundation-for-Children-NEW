@@ -30,7 +30,7 @@ function App() {
                 element={<Login />} 
               />
                <Route 
-                path="/addTraining" 
+                path="/addtraining" 
                 element={<Training />} 
               />
               <Route 
