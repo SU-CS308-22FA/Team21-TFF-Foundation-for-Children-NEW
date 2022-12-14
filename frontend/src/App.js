@@ -8,6 +8,13 @@ import Teacher from './pages/Teacher'
 import Home from './pages/Home'
 import Addevent from './pages/Addevent'
 import EventsTabOnTeacher from './pages/EventsTabOnTeacher'
+<<<<<<< Updated upstream
+=======
+import EventsTabOnStudent from './pages/StudentEventsTab'
+import ApplyEvent from './pages/applyForEvent'
+import MyEvents from './pages/myEventsTab'
+import UpdateEvent from './pages/Updateevent'
+>>>>>>> Stashed changes
 function App() {
   return (
     <div className="App">
@@ -48,8 +55,28 @@ function App() {
                 element={<Addevent />} 
               />
 
+<<<<<<< Updated upstream
+=======
+              <Route
+                path = "/student/events"
+                element= {<EventsTabOnStudent />}
+              />
 
+              <Route
+                path = "/student/events/applyevent"
+                element = {<ApplyEvent/>}
+              />
 
+              <Route
+                path = "/student/events/myevents"
+                element = {<MyEvents/>}
+              />
+>>>>>>> Stashed changes
+
+              <Route
+                path = "/teacher/events/updateevent"
+                element = {<UpdateEvent/>}
+              />
             
             </Routes>
           </switch>

@@ -65,9 +65,8 @@ const deleteStuEvent = async (req, res) => {
 
 }
 
-/*
 // update an event
-const updateEvent = async (req, res) => {
+const updateStuEvent = async (req, res) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -85,9 +84,6 @@ const updateEvent = async (req, res) => {
     res.status(200).json(event)
 
 }
-
-*/
-
 
 const getStuEvents = async (req, res) => {
   const events = await Event.find({}).sort({createdAt: -1})
@@ -136,5 +132,6 @@ module.exports = {
   getStuEvent,
   getStuEvents,
   addStuEvent,
-  deleteStuEvent
+  deleteStuEvent,
+  updateStuEvent
 }

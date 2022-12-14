@@ -179,7 +179,7 @@ form.signup select {
 /* teacher events tab*/
 
 .EventsTabOnTeacherContainer{
-  display: inline;
+  display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 }

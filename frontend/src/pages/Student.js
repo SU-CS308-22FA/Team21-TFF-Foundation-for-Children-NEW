@@ -29,6 +29,7 @@ const Student= () => {
                             <Link to="/" id="link">Announcements </Link>
                             <Link to="/student/events">Events</Link>
                             <Link to="/" id="link">My Development </Link>
+                            <Link to="/student/events/myevents" >My Events </Link>
                         </div>
                         <div className="welcome">
                             <div id="welcomeMessage">

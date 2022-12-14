@@ -1,9 +1,16 @@
 import { useEventContext } from '../hooks/useEventContext'
 import { useAuthContext } from '../hooks/useAuthContext'
-
+import { useState } from "react";
+import { Link } from 'react-router-dom'
 const EventDetails = ({ event }) => {
     const { dispatch } = useEventContext()
     const { user } = useAuthContext()
+
+    /*const[eventtitle, seteventtitle] = useState('');
+    const[eventlocation, seteventlocation] = useState('');
+    const[eventbody, seteventbody] = useState('');
+    const[eventquota, seteventquota] = useState('');
+    const [error, setError] = useState(null)*/
 
     const handleClick = async () => {  // make handleClick an async function because we are going to reach out to the API
       if (!user) {
@@ -28,6 +35,41 @@ const EventDetails = ({ event }) => {
         console.log("delete hatali")
       }
     }
+/*
+      const sendEventDetails = async (e) => {
+        if (!user) {
+          console.log("please log in!")
+          return
+        }
+        const response = await fetch('/api/event/getevents/' + event._id, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${user.token}`
+
+          }
+        })
+        
+  
+        const json = await response.json()
+        console.log("json bu:", json)
+  
+        if (response.ok) {
+          console.log("event alindi")
+          seteventtitle(json.eventtitle)
+          seteventlocation(json.eventlocation)
+          seteventbody(json.eventbody)
+          seteventquota(json.eventquota)
+          setError(null)
+          console.log("artik: ", eventtitle, eventlocation, eventbody, eventquota)
+        }
+        else {
+          console.log("get hatali")
+        }
+      }
+      */
+      let data = event;
+
 
     return (
       <div className="event-details">
@@ -35,8 +77,12 @@ const EventDetails = ({ event }) => {
         <p><strong>Location: </strong>{event.eventlocation}</p>
         <p><strong>Details: </strong>{event.eventbody}</p>
         <p><strong>Quota: </strong>{event.eventquota}</p>
+<<<<<<< Updated upstream
         <span className="material-symbols-outlined" id="updateEventButton" onClick={handleClick}>update</span>
+=======
+>>>>>>> Stashed changes
         <span className="material-symbols-outlined" id="deleteEventButton"onClick={handleClick}>delete</span>
+        <Link to="updateevent" state={data} className="material-symbols-outlined" id="updateEventButton">update</Link>
       </div>
     )
   }
