@@ -2,7 +2,7 @@ const express = require('express')
 
 
 // controller functions
-const { loginUser, signupUser, getUsers, updateUser, addToEventsList } = require('../controllers/userController') // import the handler functions
+const { loginUser, signupUser, getUsers, updateUser, addToEventsList, getUser } = require('../controllers/userController') // import the handler functions
 
 
 const router = express.Router()
@@ -14,7 +14,6 @@ router.get('/', (req,res) => {
 
 
 //get user route
-router.get('/getusers', getUsers)
 //update user
 router.patch('/update', updateUser)
 // login route
@@ -24,7 +23,9 @@ router.post('/login', loginUser)  // send data in a request
 // signup route
 router.post('/signup', signupUser)
 router.patch('/addtoeventslist', addToEventsList)
-
+router.get('/getusers', getUsers)
+router.get('/getusers/:id', getUser)
 //student page
+//router.get('/getuserevents', getUserEvents)
 
 module.exports = router

@@ -6,6 +6,8 @@ import { useEventContext } from "../hooks/useEventContext"
 import { useAuthContext } from '../hooks/useAuthContext'
 import { Link } from 'react-router-dom'
 
+//import UpdateForm from '../components/Updateevent'
+
 const EventsTabOnTeacher = () =>{
 
     const { events, dispatch } = useEventContext() // events will be changed with 
@@ -32,7 +34,8 @@ const EventsTabOnTeacher = () =>{
             <Link to="addevent" id="addEventButtononEventTab">Add event</Link>
             {events && events.map((event) => (<EventDetails key={event._id} event = {event} />))}
             </div>
-        </div> 
+        </div>
+
     )
 }
 export default EventsTabOnTeacher

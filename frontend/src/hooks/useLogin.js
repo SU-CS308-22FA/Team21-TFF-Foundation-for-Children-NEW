@@ -42,14 +42,14 @@ export const useLogin = () => {
 
       //const redirect = location.search.split('=')[1];
 
-      if (JSON.parse(localStorage.getItem('user')) && JSON.parse(localStorage.getItem('user')).userrole === 'Student') {
+      if (JSON.parse(localStorage.getItem('user')) && JSON.parse(localStorage.getItem('user')).role === 'Student') {
         console.log("33.satir: ", localStorage.getItem('user'))
         console.log('Redirecting to student dashboard')
         navigate('/student');
       }
       else if (
         JSON.parse(localStorage.getItem('user')) && 
-        JSON.parse(localStorage.getItem('user')).userrole === 'Teacher'
+        JSON.parse(localStorage.getItem('user')).role === 'Teacher'
         //!redirect
       ) {
           console.log('Redirecting to teacher dashboard')

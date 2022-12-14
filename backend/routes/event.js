@@ -3,7 +3,8 @@ const {
     getStuEvents,
     addStuEvent,
     getStuEvent,
-    deleteStuEvent
+    deleteStuEvent,
+    updateStuEvent
 } = require('../controllers/eventsController') // import the handler functions
 const router = express.Router()
 
@@ -48,5 +49,6 @@ router.get('/getevents/:id', getStuEvent)
 router.get('/getevents', getStuEvents)
 router.post('/addevent', addStuEvent)
 router.delete('/getevents/:id', deleteStuEvent)
+router.patch('/getevents/:id', updateStuEvent)
 
 module.exports = router
