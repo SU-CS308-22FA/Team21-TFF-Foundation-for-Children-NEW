@@ -23,17 +23,17 @@ The frontend of TFF Foundation for Children was built with React.js and the back
    
    #### How to set up the project
    ##### Run these on the terminal to set up backend:
-   	`cd backend`
-      `npm install`
+   	'cd backend'
+      'npm install'
    ##### Run these to set up frontend:
-      `cd frontend`
-      `npm install`
+      'cd frontend'
+      'npm install'
    ##### Run these to start backend:
-      `cd backend`
-      `npm run dev`
+      'cd backend'
+      'npm run dev'
    ##### Run these to start frontend:
-      `cd frontend`
-      `npm start`
+      'cd frontend'
+      'npm start'
    ### The layout of the directory structure
    
        ### How to build and deploy the software
