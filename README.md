@@ -7,7 +7,7 @@ The frontend of TFF Foundation for Children was built with React.js and the back
 
 # User Documentation
    ### How to install or run the project
-   To install the code, you can clone a repository from GitHub.com to your local computer to make it easier to fix merge conflicts, add or remove files, and push        larger commits. When you clone a repository, you copy the repository from GitHub.com to your local machine. Please follow [this link]                                  (https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository) for further assistance. 
+   To install the code, you can clone a repository from GitHub.com to your local computer to make it easier to fix merge conflicts, add or remove files, and push        larger commits. When you clone a repository, you copy the repository from GitHub.com to your local machine. Please follow [this link](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository)                            for further assistance. 
    You can also access the project through our remote server by clicking [here](url here).
    ### How to report a bug
    You can inform us about any bug by creating an issue. Click [here](https://github.com/SU-CS308-22FA/Team21-TFF-Foundation-for-Children-NEW/issues).
