@@ -2,7 +2,7 @@
 # URL of the server
 # Descriptioon of the Project
 # User Documentation
-       ### How to install the project
+       ## How to install the project
        ### How to run the project
        ### How to report a bug
        ### Known bugs
