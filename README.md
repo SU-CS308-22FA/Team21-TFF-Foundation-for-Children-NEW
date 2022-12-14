@@ -17,6 +17,22 @@ The frontend of TFF Foundation for Children was built with React.js and the back
    
 # Developer Documentation
    ### How to obtain the source code
-   You can obtain the souce code by opening git bash where you want to download the project and pasting this: "git clone https://github.com/SU-CS308-22FA/Team21-TFF-Foundation-for-Children-NEW.git".
-       ### The layout of the directory structure
+   You can obtain the souce code by opening git bash where you want to download the project and pasting this:
+   "git clone https://github.com/SU-CS308-22FA/Team21-TFF-Foundation-for-Children-NEW.git".
+   
+   #### How to set up the project
+   #####Run these on the terminal to set up backend:
+   	`cd backend`
+      `npm install`
+   #####Run these to set up frontend:
+      `cd frontend`
+      `npm install`
+   #####Run these to start backend:
+      `cd backend`
+      `npm run dev`
+   #####Run these to start frontend:
+      `cd frontend`
+      `npm start`
+   ### The layout of the directory structure
+   
        ### How to build and deploy the software
