@@ -1,4 +1,5 @@
 const User = require('../models/userModel')
+
 const jwt = require('jsonwebtoken')
 console.log(User, " in userController")
 const mongoose = require('mongoose')
@@ -25,8 +26,6 @@ const getUser = async (req,res) => {
     res.status(200).json(user)
 }
 
-<<<<<<< Updated upstream
-=======
 const getUsers= async (req,res) => {
   const users = await User.find({}).sort({createdAt: -1})
 
@@ -77,10 +76,9 @@ const addToEventsList = async (req, res) => {
   }
 }
 
->>>>>>> Stashed changes
 const loginUser = async (req, res) => { // async function bc it will communicate with the db
   const {email, password} = req.body
-
+  console.log("loginuser girildi")
   try {
     const user = await User.login(email, password)
     // create a token
@@ -97,17 +95,17 @@ const loginUser = async (req, res) => { // async function bc it will communicate
 
 // signup a user
 const signupUser = async (req, res) => {
-  const {email, password, role} = req.body // pull the email and password and role of the user from req. and name them email and password
-
+  const {email, password, role, assignedemail} = req.body // pull the email and password and role of the user from req. and name them email and password
+  console.log("signup user girildi")
+  console.log(assignedemail)
   try {
     console.log("role:", role )
-    const user = await User.signup(email, password, role)
-    console.log("user in signup function ", user)
+    console.log("debug1")
+    const user = await User.signup(email, password, role, assignedemail)
+    console.log("debug1")
     // create a token
-    console.log("before creating token")
     const token = createToken(user._id)
-    console.log("after creating token")
-    console.log("check, ",token, " is token")
+    console.log(user._id)
     res.status(200).json({email, token})
   } catch (error) { // error is coming from userModel.js. or if it is related to creating db, mongodb can also give an error message.
       res.status(400).json({error: error.message})
@@ -116,8 +114,4 @@ const signupUser = async (req, res) => {
 }
 
 
-<<<<<<< Updated upstream
-module.exports = { signupUser, loginUser }
-=======
 module.exports = { signupUser, loginUser, getUsers, updateUser,  addToEventsList, getUser}
->>>>>>> Stashed changes

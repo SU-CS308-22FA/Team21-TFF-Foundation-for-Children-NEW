@@ -3,18 +3,17 @@ import React from 'react'
 // pages & components
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import Training from './pages/Training'
 import Student from './pages/Student'
 import Teacher from './pages/Teacher'
 import Home from './pages/Home'
+import Selection from './pages/Selection'
 import Addevent from './pages/Addevent'
 import EventsTabOnTeacher from './pages/EventsTabOnTeacher'
-<<<<<<< Updated upstream
-=======
 import EventsTabOnStudent from './pages/StudentEventsTab'
 import ApplyEvent from './pages/applyForEvent'
 import MyEvents from './pages/myEventsTab'
 import UpdateEvent from './pages/Updateevent'
->>>>>>> Stashed changes
 function App() {
   return (
     <div className="App">
@@ -28,8 +27,16 @@ function App() {
                 element={<Home />} 
               />
               <Route 
+                path="/selection" 
+                element={<Selection />} 
+              />
+              <Route 
                 path="/login" 
                 element={<Login />} 
+              />
+               <Route 
+                path="/addTraining" 
+                element={<Training />} 
               />
               <Route 
                 path="/signup"   // bak bu isim user.js'teki route ismi ile ayni. oraya middleware kurmuştuk zaten.
@@ -55,8 +62,6 @@ function App() {
                 element={<Addevent />} 
               />
 
-<<<<<<< Updated upstream
-=======
               <Route
                 path = "/student/events"
                 element= {<EventsTabOnStudent />}
@@ -71,7 +76,6 @@ function App() {
                 path = "/student/events/myevents"
                 element = {<MyEvents/>}
               />
->>>>>>> Stashed changes
 
               <Route
                 path = "/teacher/events/updateevent"

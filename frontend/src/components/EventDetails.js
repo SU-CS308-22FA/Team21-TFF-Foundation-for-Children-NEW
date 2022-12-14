@@ -77,10 +77,6 @@ const EventDetails = ({ event }) => {
         <p><strong>Location: </strong>{event.eventlocation}</p>
         <p><strong>Details: </strong>{event.eventbody}</p>
         <p><strong>Quota: </strong>{event.eventquota}</p>
-<<<<<<< Updated upstream
-        <span className="material-symbols-outlined" id="updateEventButton" onClick={handleClick}>update</span>
-=======
->>>>>>> Stashed changes
         <span className="material-symbols-outlined" id="deleteEventButton"onClick={handleClick}>delete</span>
         <Link to="updateevent" state={data} className="material-symbols-outlined" id="updateEventButton">update</Link>
       </div>

@@ -1,18 +1,3 @@
-<<<<<<< Updated upstream
-/*import { useState } from "react";
-import { useEventContext } from "../hooks/useEventContext"
-import { Link } from 'react-router-dom'
-import { useAuthContext } from '../hooks/useAuthContext'
-
-const EventDetails = ({ event }) => {
-
-    const handleClick = async () => {
-      if (!user) {
-        return
-      }
-    }
-const Updateevent = ({event}) =>{
-=======
 import { useEffect, useState } from "react";
 import { useEventContext } from "../hooks/useEventContext"
 import { Link } from 'react-router-dom'
@@ -49,7 +34,6 @@ const UpdateEvent = () =>{
     }
 
     /*
->>>>>>> Stashed changes
     const { dispatch } = useEventContext()
     const { user } = useAuthContext()
     const[eventtitle, seteventtitle] = useState('');
@@ -59,14 +43,9 @@ const UpdateEvent = () =>{
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
 
-<<<<<<< Updated upstream
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-=======
 
     const handleSubmit = async (e) => {
         e.preventDefault() // prevent to take action when the page was refreshed.
->>>>>>> Stashed changes
         if (!user) {
             setError('You must be logged in')
             return
@@ -100,12 +79,6 @@ const UpdateEvent = () =>{
             console.log("new event is added (json), ", json)
         }
     }
-<<<<<<< Updated upstream
-
-    return(
-        <div className="addeventContainer">
-            <Navbar/>
-=======
     */
     const handleSubmit = async (e) => {
         e.preventDefault() // prevent to take action when the page was refreshed.
@@ -145,7 +118,6 @@ const UpdateEvent = () =>{
 
     return(
         <div className="event-details">
->>>>>>> Stashed changes
             <form className="addevent" onSubmit={handleSubmit}>
             <br /> <br />
             <label>Event title (required):</label>
@@ -179,21 +151,6 @@ const UpdateEvent = () =>{
                 value={eventquota} 
                 className={emptyFields.includes('eventquota') ? 'error' : ''}
             />
-<<<<<<< Updated upstream
-            <button type="submit">Add Event</button>
-            {error && <div className="error">{error}</div>}
-            </form>
-            <Link to="/teacher/events" id = "returneventsbutton">Return to all events</Link>
-        
-        </div> 
-    )
-
-
-
-}
-export default Addevent
-*/
-=======
             <button type="submit">Update Event</button>
             <Link to="/teacher/events" id = "returneventsbutton">Return to events</Link>
             {error && <div className="error">{error}</div>}
@@ -203,4 +160,3 @@ export default Addevent
     )
 }
 export default UpdateEvent
->>>>>>> Stashed changes

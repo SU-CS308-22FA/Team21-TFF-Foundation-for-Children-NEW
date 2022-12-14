@@ -23,6 +23,7 @@ export const eventReducer = (state, action) => {
       return {
         events: action.payload // payload will be an array of events
       }
+
     default:
       return state
   }

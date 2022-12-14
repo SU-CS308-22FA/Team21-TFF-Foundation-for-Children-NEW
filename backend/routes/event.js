@@ -42,7 +42,7 @@ router.post('/', createEvent)
 // DELETE a event
 router.delete('/:id', deleteEvent)
 
-// UPDATE a event
+// UPDATE an event
 router.patch('/:id', updateEvent)
 */
 router.get('/getevents/:id', getStuEvent)
