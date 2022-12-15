@@ -38,13 +38,10 @@ const getUserEvents = async (req,res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({error: 'No such user'})
     }
-
     const user = await User.findById(id)
-
     if (!user) {
     return res.status(404).json({error: 'No such user'})
     }
-
     const events = await User.eventsList.forEach(element => {
       element.getStuEvent(element.id);
     });
@@ -89,18 +86,18 @@ const loginUser = async (req, res) => { // async function bc it will communicate
   const {email, password} = req.body
   console.log("loginuser girildi")
   try {
-    const user = await User.login(email, password);
+    const user = await User.login(email, password)
     // create a token
 
     const token = createToken(user._id)
     const role = user.role
     res.status(200).json({email, token, role})
   } catch (error) {
-    if (error.message != 'role is not defined') {
-      res.status(400).json({ error: error.message });
+    if (error.message != "role is not defined"){
+      res.status(400).json({error: error.message})
     }
   }
-};
+}
 
 // signup a user
 const signupUser = async (req, res) => {
@@ -120,7 +117,7 @@ const signupUser = async (req, res) => {
       res.status(400).json({error: error.message})
     
   }
-};
+}
 
 
 module.exports = { signupUser, loginUser, getUsers, updateUser,  addToEventsList, getUser}
