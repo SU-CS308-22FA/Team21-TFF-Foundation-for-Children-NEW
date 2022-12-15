@@ -1,10 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
 // pages & components
-import AddTraining from './pages/AddTraining';
 import Student from './pages/Student';
 import Teacher from './pages/Teacher';
-import Events from './pages/Events';
 import Home from './pages/Home';
 import AnnouncementAdd from './pages/AnnouncementAdd';
 import AnnouncementPage from './pages/AnnouncementPage';

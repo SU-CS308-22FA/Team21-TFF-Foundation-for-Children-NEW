@@ -47,6 +47,14 @@ const createEvent = async (req, res) => {
 */
 
 // delete an event
+/*
+// @route DELETE /api/event/getevents/:id
+
+// @desc Get an event by its id and deletes it from the events collection.
+
+// @response send a json array of consisting of:
+          the event _id, eventtitle, eventlocation, eventbody, eventquota and the time created and updated.
+*/
 const deleteStuEvent = async (req, res) => {
     const { id } = req.params
     console.log("id:" , id)
@@ -92,7 +100,19 @@ const getStuEvents = async (req, res) => {
   res.status(200).json(events)
 
 }
+/*
+ @route POST /api/event/addevent
 
+ @request Gets the title, location, body and quota info
+
+ @desc It demands the all fields to be filled. When the inputs are OK,
+
+ create an event and adds it to the events collection.
+
+ @response If some data is missing, the function gives "Please fill in all the fields"
+ error. If not, no message.
+
+*/
 const addStuEvent = async (req, res) => {
   const {eventtitle,eventlocation,eventbody,eventquota} = req.body 
   console.log(eventtitle)
@@ -117,9 +137,7 @@ const addStuEvent = async (req, res) => {
   console.log(emptyFields)
   // add doc to db
   try {
-    //const user_id = req.user._id
     const event = await Event.create({eventtitle,eventlocation,eventbody,eventquota})
-    // const event = await Event.create({eventtitle,eventlocation,eventbody,eventquota, user_id})
     res.status(200).json(event)
   } catch (error) {
     res.status(400).json({error: error.message})

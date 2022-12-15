@@ -2,7 +2,7 @@
 // mongoose will create the models and schemas
 //for our data in the mongodb, because mongodb alone is schema-less.
 const mongoose = require('mongoose')  
-const bcrypt = require('bcrypt')
+const bcryptjs = require('bcryptjs')
 const validator = require('validator')
 const Schema = mongoose.Schema
 // deneme
@@ -97,7 +97,7 @@ userSchema.statics.signup = async function (userName, email, password, role, ass
   const salt = await bcryptjs.genSalt(10); //in order to add additional characters to the passwords for security purposes.
   const hash = await bcryptjs.hash(password, salt);
 
-  const user = await this.create({ username, email, password: hash, role,assignedemail }) // swap password and hashed password
+  const user = await this.create({ userName, email, password: hash, role,assignedemail }) // swap password and hashed password
 
   return user;
 };

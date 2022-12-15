@@ -22,7 +22,6 @@ const Signup = () => {
 
 
   };
-}
 
   return (
     <div className="signupContainer">
@@ -70,6 +69,7 @@ const Signup = () => {
         {error && <div className="error">{error}</div>}
       </form>
     </div>
-  );
+  )
+}
 
 export default Signup;

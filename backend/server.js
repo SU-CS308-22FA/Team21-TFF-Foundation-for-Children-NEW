@@ -6,7 +6,6 @@ const userRoutes = require('./routes/user'); // import the user router
 const eventRoutes = require('./routes/event');
 const announcementRoutes = require('./routes/announcement');
 const evaluationRoutes = require('./routes/evaluation');
-const eventRoutes = require('./routes/event')
 const calendarRoutes= require('./routes/calendar')
 // create an express app
 const app = express();

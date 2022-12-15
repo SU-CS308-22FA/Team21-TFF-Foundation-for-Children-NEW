@@ -11,35 +11,38 @@ import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import { useAuthContext } from '../hooks/useAuthContext';
 function stringToColor(string) {
-    let hash = 0;
-    let i;
-  
-    /* eslint-disable no-bitwise */
-    for (i = 0; i < string.length; i += 1) {
-      hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    }
-  
-    let color = '#';
-  
-    for (i = 0; i < 3; i += 1) {
-      const value = (hash >> (i * 8)) & 0xff;
-      color += `00${value.toString(16)}`.slice(-2);
-    }
-    /* eslint-enable no-bitwise */
-  
-    return color;
+  let hash = 0;
+  let i;
+
+  /* eslint-disable no-bitwise */
+  for (i = 0; i < string.length; i += 1) {
+    hash = string.charCodeAt(i) + ((hash << 5) - hash);
   }
 
-  function stringAvatar(name) {
-    return {
-      sx: {
-        bgcolor: stringToColor(name),
-      },
-      children: `${name[0]}${name[1]}`,
-    };
+  let color = '#';
+
+  for (i = 0; i < 3; i += 1) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += `00${value.toString(16)}`.slice(-2);
   }
+  /* eslint-enable no-bitwise */
+
+  return color;
+}
+
+function stringAvatar(name) {
+  return {
+    sx: {
+      bgcolor: stringToColor(name),
+    },
+    children: `${name[0]}${name[1]}`,
+  };
+}
 
 const Student= () => {
+    
+  const { user } = useAuthContext();
+  const email = user?.email.toString() || 'su';
   
     return(
         <div className="stuPage">
@@ -49,32 +52,30 @@ const Student= () => {
                     </div>
                     <div className="nav">
                     <Avatar {...stringAvatar(email)} />
-
                     <Link to="/" id="link">
-                      {' '}
-                      <img src={logo} alt="" />{' '}
-                    </Link>
-                    <Link to="/" id="link">
-                      {' '}
-                      Home{' '}
-                    </Link>
-                    <Link to="/" id="link">
-                      About{' '}
-                    </Link>
-                    <Link to="/announcements" id="link">
-                      Announcements{' '}
+                          {' '}
+                          <img src={logo} alt="" />{' '}
+                        </Link>
+                        <Link to="/" id="link">
+                          {' '}
+                          Home{' '}
+                        </Link>
+                        <Link to="/" id="link">
+                          About{' '}
+                        </Link>
+                        <Link to="/announcements" id="link">
+                          Announcements{' '}
 
-                    </Link>
-                    <Link to="/Evaluation" id="link">
-                      My Evaluation{' '}
+                        </Link>
+                        <Link to="/Evaluation" id="link">
+                          My Evaluation{' '} </Link>
 
-                    </Link>
-                    <Link to="/student/events">Events</Link>
-                    <Link to="/" id="link">
-                      My Development{' '}
-                    </Link>
-
-                    </div>
+                          <Link to="/" id="link">
+                          My Development{' '}
+                        </Link>
+                            <Link to="/student/events">Events</Link>
+                            <Link to="/student/events/myevents" >My Events </Link>
+                        </div>
                         <div className="welcome">
                             <div id="welcomeMessage">
                                 Welcome To
@@ -256,8 +257,6 @@ const Student= () => {
         </ul>
       </div>
     </div>
-
-  
   );
 };
 
