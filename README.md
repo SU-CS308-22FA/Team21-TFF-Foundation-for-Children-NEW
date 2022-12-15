@@ -8,7 +8,9 @@ The frontend of TFF Foundation for Children was built with React.js and the back
 # User Documentation
    ### How to install or run the project
    To install the code, you can clone a repository from GitHub.com to your local computer to make it easier to fix merge conflicts, add or remove files, and push        larger commits. When you clone a repository, you copy the repository from GitHub.com to your local machine. Please follow [this link](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository)                            for further assistance. 
+   <br />
    You can also access the project through our remote server by clicking [here](https://frontend-tfffc.vercel.app/).
+   <br />
    ### How to report a bug
    You can inform us about any bug by creating an issue. Click [here](https://github.com/SU-CS308-22FA/Team21-TFF-Foundation-for-Children-NEW/issues).
    ### Known bugs
@@ -26,7 +28,7 @@ The frontend of TFF Foundation for Children was built with React.js and the back
    	 cd backend
        npm install
    ##### Run these to set up frontend:
-       cd frontend 
+       cd frontend
        npm install
    ##### Run these to start backend:
        cd backend
@@ -38,4 +40,15 @@ The frontend of TFF Foundation for Children was built with React.js and the back
    The backend folder includes controllers, Data Access, models, routes, server.js, and package.json file.
    The frontend folder includes public folder and source files. Source files include components, context, helpers,        hooks,        images and pages.
    The API documentation folder (TO BE DONE)
+   <br />
+   A link for the API documentatation: https://documenter.getpostman.com/view/24264295/2s8YzWTggc
+   <br />
+   Ceren's code documentation:
+        ![image](https://user-images.githubusercontent.com/88002530/207845518-556dd00e-52da-4d02-b5ec-06506a3ec44e.png)
+        ![image](https://user-images.githubusercontent.com/88002530/207845756-4cd435eb-680a-4565-a490-48d4052e4119.png)
+        ![image](https://user-images.githubusercontent.com/88002530/207845854-52df2bcf-dced-44f5-af4b-5dbceacac435.png)
+
+
+
+       
    ### How to build and deploy the software
