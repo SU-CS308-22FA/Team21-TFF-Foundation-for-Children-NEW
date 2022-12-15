@@ -39,4 +39,12 @@ The frontend of TFF Foundation for Children was built with React.js and the back
    The frontend folder includes public folder and source files. Source files include components, context, helpers,        hooks,        images and pages.
    The API documentation folder (TO BE DONE)
    A link for the API documentatation: https://documenter.getpostman.com/view/24264295/2s8YzWTggc
+   Ceren's code documentation:
+        ![image](https://user-images.githubusercontent.com/88002530/207845518-556dd00e-52da-4d02-b5ec-06506a3ec44e.png)
+        ![image](https://user-images.githubusercontent.com/88002530/207845756-4cd435eb-680a-4565-a490-48d4052e4119.png)
+        ![image](https://user-images.githubusercontent.com/88002530/207845854-52df2bcf-dced-44f5-af4b-5dbceacac435.png)
+
+
+
+       
    ### How to build and deploy the software
