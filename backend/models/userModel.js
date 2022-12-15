@@ -1,11 +1,32 @@
 // file for creating a schema and a model for data.
 // mongoose will create the models and schemas
 //for our data in the mongodb, because mongodb alone is schema-less.
-const mongoose = require("mongoose");
-const bcryptjs = require("bcryptjs");
-const validator = require("validator");
+const mongoose = require('mongoose')  
+const bcrypt = require('bcrypt')
+const validator = require('validator')
+const Schema = mongoose.Schema
+// deneme
 
-const Schema = mongoose.Schema;
+const eventSchema = new Schema(
+  {
+    eventtitle: {   // email is the primary key
+        type: String,
+        required: true
+        
+    },
+    eventlocation: {
+        type: String,
+        required: true
+    },
+    eventbody: {
+        type: String,
+        required: true
+    },
+    eventquota: {  // different people can have the same password
+        type: String,
+        required: true
+    }
+}, { timestamps: true });
 
 const userSchema = new Schema(
   {
@@ -30,6 +51,11 @@ const userSchema = new Schema(
       default: "Student",
       required: true,
     },
+    assignedemail:{
+      type:String,
+      required:true
+    },
+    eventsList: [eventSchema],
   },
   { timestamps: true }
 );
@@ -44,9 +70,11 @@ A static method (or static function) is a method defined as a member of an objec
 but is accessible directly from an API object's constructor, 
 rather than from an object instance created via the constructor.
 */
-userSchema.statics.signup = async function (userName, email, password, role) {
+userSchema.statics.signup = async function (userName, email, password, role, assignedemail) {
   // create a function name with signup
   // bc we are using this keyword, we cannot use arrow func. we need to use asyncrh. regular function.
+  // create a function name with signup 
+// bc we are using this keyword, we cannot use arrow func. we need to use asyncrh. regular function.
 
   // validation
   if (!email || !password) {
@@ -69,7 +97,7 @@ userSchema.statics.signup = async function (userName, email, password, role) {
   const salt = await bcryptjs.genSalt(10); //in order to add additional characters to the passwords for security purposes.
   const hash = await bcryptjs.hash(password, salt);
 
-  const user = await this.create({ userName, email, password: hash, role }); // swap password and hashed password
+  const user = await this.create({ username, email, password: hash, role,assignedemail }) // swap password and hashed password
 
   return user;
 };
@@ -94,5 +122,7 @@ userSchema.statics.login = async function (email, password) {
   return user;
 };
 
-module.exports = mongoose.model("User", userSchema);
+
+
+module.exports = mongoose.model('User', userSchema)
 // User model was exported. I will use that to interact with the users collection.

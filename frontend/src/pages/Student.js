@@ -11,199 +11,203 @@ import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import { useAuthContext } from '../hooks/useAuthContext';
 function stringToColor(string) {
-  let hash = 0;
-  let i;
-
-  /* eslint-disable no-bitwise */
-  for (i = 0; i < string.length; i += 1) {
-    hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    let hash = 0;
+    let i;
+  
+    /* eslint-disable no-bitwise */
+    for (i = 0; i < string.length; i += 1) {
+      hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    }
+  
+    let color = '#';
+  
+    for (i = 0; i < 3; i += 1) {
+      const value = (hash >> (i * 8)) & 0xff;
+      color += `00${value.toString(16)}`.slice(-2);
+    }
+    /* eslint-enable no-bitwise */
+  
+    return color;
   }
 
-  let color = '#';
-
-  for (i = 0; i < 3; i += 1) {
-    const value = (hash >> (i * 8)) & 0xff;
-    color += `00${value.toString(16)}`.slice(-2);
+  function stringAvatar(name) {
+    return {
+      sx: {
+        bgcolor: stringToColor(name),
+      },
+      children: `${name[0]}${name[1]}`,
+    };
   }
-  /* eslint-enable no-bitwise */
 
-  return color;
-}
+const Student= () => {
+  
+    return(
+        <div className="stuPage">
+                    <div className="introImage">
+                        
+                       
+                    </div>
+                    <div className="nav">
+                    <Avatar {...stringAvatar(email)} />
 
-function stringAvatar(name) {
-  return {
-    sx: {
-      bgcolor: stringToColor(name),
-    },
-    children: `${name[0]}${name[1]}`,
-  };
-}
-const Student = () => {
-  const { user } = useAuthContext();
-  const email = user?.email.toString() || 'su';
+                    <Link to="/" id="link">
+                      {' '}
+                      <img src={logo} alt="" />{' '}
+                    </Link>
+                    <Link to="/" id="link">
+                      {' '}
+                      Home{' '}
+                    </Link>
+                    <Link to="/" id="link">
+                      About{' '}
+                    </Link>
+                    <Link to="/announcements" id="link">
+                      Announcements{' '}
 
-  return (
-    <div className="stuPage">
-      <div className="introImage"></div>
-      <div className="nav">
-        <Avatar {...stringAvatar(email)} />
+                    </Link>
+                    <Link to="/Evaluation" id="link">
+                      My Evaluation{' '}
 
-        <Link to="/" id="link">
-          {' '}
-          <img src={logo} alt="" />{' '}
-        </Link>
-        <Link to="/" id="link">
-          {' '}
-          Home{' '}
-        </Link>
-        <Link to="/" id="link">
-          About{' '}
-        </Link>
-        <Link to="/announcements" id="link">
-          Announcements{' '}
+                    </Link>
+                    <Link to="/student/events">Events</Link>
+                    <Link to="/" id="link">
+                      My Development{' '}
+                    </Link>
 
-        </Link>
-        <Link to="/Evaluation" id="link">
-          My Evaluation{' '}
-
-        </Link>
-        <Link to="/student/events">Events</Link>
-        <Link to="/" id="link">
-          My Development{' '}
-        </Link>
-      </div>
-      <div className="welcome">
-        <div id="welcomeMessage">Welcome To</div>
-        <div id="projectName">TFF Foundation For Children</div>
-        <div id="greetings">
-          here you will find everything about the best game in the entire world.
-          Pure emotions, latest news, statisctics in details and much more.
-        </div>
-      </div>
-      <div className="skillContainer">
-        <div className="skills">
-          <h1>My Development</h1>
-          <div id="img1">
-            <h3> Skill Name 1</h3>
-            <img src={one} alt="" />
-          </div>
-          <div id="img2">
-            <h3> Skill Name 2</h3>
-            <img src={two} alt="" />
-          </div>
-          <div id="img3">
-            <h3> Skill Name 3</h3>
-            <img src={three} alt="" />
-          </div>
-          <div id="img4">
-            <h3> Skill Name 4</h3>
-            <img src={four} alt="" />
-          </div>
-          <div id="img5">
-            <h3> Skill Name 5</h3>
-            <img src={five} alt="" />
-          </div>
-          <div id="img6">
-            <h3> Skill Name 6</h3>
-            <img src={six} alt="" />
-          </div>
-        </div>
-      </div>
-      <div className="skillContainer">
-        <div className="skills">
-          <h1>My Development</h1>
-          <div id="img1">
-            <h3> Skill Name 1</h3>
-            <img src={one} alt="" />
-          </div>
-          <div id="img2">
-            <h3> Skill Name 2</h3>
-            <img src={two} alt="" />
-          </div>
-          <div id="img3">
-            <h3> Skill Name 3</h3>
-            <img src={three} alt="" />
-          </div>
-          <div id="img4">
-            <h3> Skill Name 4</h3>
-            <img src={four} alt="" />
-          </div>
-          <div id="img5">
-            <h3> Skill Name 5</h3>
-            <img src={five} alt="" />
-          </div>
-          <div id="img6">
-            <h3> Skill Name 6</h3>
-            <img src={six} alt="" />
-          </div>
-        </div>
-      </div>
-
-      <div className="announcementsContainer">
-        <div className="announcements">
-          <h1> Latest News </h1>
-          <div className="news">
-            <div className="announcementBox1">
-              <img src={four} alt="" />
-              <div className="eventDate1">
-                <h4>April 26, 2022</h4>
-              </div>
-              <div className="eventName1">
-                <h2>Soccer Open Day</h2>
-              </div>
-              <div className="eventDescription1">
-                <p>
-                  It is vitally important that the club retains its existing
-                  players and attracts new players each season. From early July
-                  the club will arrange a Club Open Day ...
-                </p>
-              </div>
-            </div>
-            <div className="announcementBox2">
-              <img src={five} alt="" />
-              <div className="eventDate2">
-                <h4>April 26, 2022</h4>
-              </div>
-              <div className="eventName2">
-                <h2>FAI Summer Camp</h2>
-              </div>
-              <div className="eventDescription2">
-                <p>
-                  The Football Association of Ireland runs skills-based summer
-                  camps at many soccer clubs throughout the country during the
-                  summer period.
-                </p>
-              </div>
-            </div>
-            <div className="announcementBox3">
-              <img src={one} alt="" />
-              <div className="eventDate3">
-                <h4>April 26, 2022</h4>
-              </div>
-              <div className="eventName3">
-                <h2>Trip to Premiership Match</h2>
-              </div>
-              <div className="eventDescription3">
-                <p>
-                  Each season a group of players, parents & coaches travel
-                  across to the UK to watch a premiership match. A guided tour
-                  of the home stadium is sometimes...
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="calendar">
-        <div className="month">
-          <ul>
-            <li className="prev">&#10094;</li>
-            <li className="next">&#10095;</li>
-            <li>
-              August
-              <br />
-              <span>2021</span>
-            </li>
+                    </div>
+                        <div className="welcome">
+                            <div id="welcomeMessage">
+                                Welcome To
+                            </div>
+                            <div id="projectName">
+                                TFF Foundation For Children
+                            </div>
+                            <div id="greetings">
+                            here you will find everything about the best game in the entire world. 
+                            Pure emotions, latest news, statisctics in details and much more.
+                            </div>
+                        </div>
+                    <div className="skillContainer">
+                        <div className="skills">
+                            <h1>My Development</h1>
+                            <div id="img1">
+                                <h3> Skill Name 1</h3>
+                                <img src={one} alt=""/>
+                            </div>
+                            <div id="img2">
+                                <h3> Skill Name 2</h3>
+                                <img src={two} alt=""/>
+                            </div>
+                            <div id="img3">
+                                <h3> Skill Name 3</h3>
+                                <img src={three} alt=""/>
+                            </div>
+                            <div id="img4">
+                                <h3> Skill Name 4</h3>
+                                <img src={four} alt=""/>
+                            </div>
+                            <div id="img5">
+                                <h3> Skill Name 5</h3>
+                                <img src={five} alt=""/>
+                            </div>
+                            <div id="img6">
+                                <h3> Skill Name 6</h3>
+                                <img src={six} alt=""/>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div className="skillContainer">
+                        <div className="skills">
+                            <h1>My Development</h1>
+                            <div id="img1">
+                                <h3> Skill Name 1</h3>
+                                <img src={one} alt=""/>
+                            </div>
+                            <div id="img2">
+                                <h3> Skill Name 2</h3>
+                                <img src={two} alt=""/>
+                            </div>
+                            <div id="img3">
+                                <h3> Skill Name 3</h3>
+                                <img src={three} alt=""/>
+                            </div>
+                            <div id="img4">
+                                <h3> Skill Name 4</h3>
+                                <img src={four} alt=""/>
+                            </div>
+                            <div id="img5">
+                                <h3> Skill Name 5</h3>
+                                <img src={five} alt=""/>
+                            </div>
+                            <div id="img6">
+                                <h3> Skill Name 6</h3>
+                                <img src={six} alt=""/>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div className="announcementsContainer">
+        
+            
+                    <div className="announcements">
+                        <h1> Latest News </h1>
+                        <div className="news">
+                            <div className="announcementBox1">
+                                <img src={four} alt=""/>
+                                <div className="eventDate1">
+                                    <h4>April 26, 2022</h4>
+                                </div>
+                                <div className="eventName1">
+                                    <h2>Soccer Open Day</h2>
+                                </div>
+                                <div className="eventDescription1">
+                                    <p>
+                                        It is vitally important that the club retains its existing players and attracts new players each season. 
+                                        From early July the club will arrange a Club Open Day ...
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="announcementBox2">
+                                <img src={five} alt=""/>
+                                <div className="eventDate2">
+                                    <h4>April 26, 2022</h4>
+                                </div>
+                                <div className="eventName2">
+                                    <h2>FAI Summer Camp</h2>
+                                </div>
+                                <div className="eventDescription2">
+                                    <p>
+                                        The Football Association of Ireland runs skills-based summer camps at many soccer clubs throughout 
+                                        the country during the summer period.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="announcementBox3">
+                                <img src={one} alt=""/>
+                                <div className="eventDate3">
+                                    <h4>April 26, 2022</h4>
+                                </div>
+                                <div className="eventName3">
+                                    <h2>Trip to Premiership Match</h2>
+                                </div>
+                                <div className="eventDescription3">
+                                    <p>
+                                        Each season a group of players, parents & 
+                                        coaches travel across to the UK to watch a premiership match. A guided tour of the home stadium is sometimes...
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="calendar">
+                <div className="month">
+                    <ul>
+                        <li className="prev">&#10094;</li>
+                        <li className="next">&#10095;</li>
+                        <li>August<br/><span>2021</span> </li>
           </ul>
         </div>
 
@@ -252,6 +256,8 @@ const Student = () => {
         </ul>
       </div>
     </div>
+
+  
   );
 };
 

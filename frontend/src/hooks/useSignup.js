@@ -7,18 +7,20 @@ export const useSignup = () => {
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
   const navigate = useNavigate();
-  const signup = async (userName, email, password, role) => {
-    console.log('role:', role, 'hata hook mu??');
-    setIsLoading(true);
-    setError(null);
-
+  
+  const signup = async (userName, email, password, role, assignedemail) => {
+    console.log("role:", role, "hata hook mu??")
+    setIsLoading(true)
+    setError(null)
+    console.log("in useSignup: ", assignedemail)
     const response = await fetch('/api/user/signup', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userName, email, password, role }),
-    });
-    const json = await response.json();
-
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ userName, email, password, role, assignedemail })
+    })
+    console.log("Sign up json:", JSON)
+    const json = await response.json()
+    console.log("json bu:", json)
     if (!response.ok) {
       setIsLoading(false);
       setError(json.error);

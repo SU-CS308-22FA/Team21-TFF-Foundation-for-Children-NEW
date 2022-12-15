@@ -1,14 +1,13 @@
-import { Link } from 'react-router-dom';
-import { useLogout } from '../hooks/useLogout';
-import { useAuthContext } from '../hooks/useAuthContext';
+import { Link } from 'react-router-dom'
+import { useAuthContext } from '../hooks/useAuthContext'
+import React from 'react'
 
-const Navbar = () => {
-  const { logout } = useLogout();
-  const { user } = useAuthContext();
+const Navbar2 = () => {
+  const { user } = useAuthContext()
 
   const handleClick = () => {
-    logout();
-  };
+    <Link to="/"></Link>
+  }
 
   return (
     <header>
@@ -17,10 +16,10 @@ const Navbar = () => {
           <h1>TFF foundation for children</h1>
         </Link>
         <nav>
-          {user && (
+          {user &&(
             <div>
-              <span>{ user.email}</span>
-              <button onClick={handleClick}>Log out</button>
+              <span>{ user.email }</span>
+              <button onClick={handleClick}>Return</button>
             </div>
           )}
           {!user && (
@@ -32,7 +31,7 @@ const Navbar = () => {
         </nav>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar2

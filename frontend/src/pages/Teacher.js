@@ -26,21 +26,15 @@ const Teacher = () => {
         <Link to="/announcements" id="link">
           Current Announcements{' '}
         </Link>
-        <Link to="/" id="link">
-          {' '}
-          Add Event{' '}
-        </Link>
         <Link to="/Evaluate" id="link">
           Evaluate Students{' '}
         </Link>
-        <Link to="/" id="link">
-          {' '}
-          Change Student{' '}
-        </Link>
-        <Link to="/addTraining" id="link">
-          {' '}
-          Add Training{' '}
-        </Link>
+                            
+                            <Link to="/selection" id="link">Change Student</Link>
+                            <Link to="/teacher/events" id="link"> Events </Link>
+                            <Link to="/" id="link"> Student Development </Link>
+                            
+                            <Link to="/addTraining" id="link"> Add Training </Link>
       </div>
       <div className="skillContainer">
         <div className="skills">
@@ -72,42 +66,37 @@ const Teacher = () => {
         </div>
       </div>
 
-      <div className="skillContainer">
-        <div className="skills">
-          <h1>Student Name's Skill Points</h1>
-          <div id="img1">
-            <h3> Skill Name 1</h3>
-            <img src={one} alt="" />
-          </div>
-          <div id="img2">
-            <h3> Skill Name 2</h3>
-            <img src={two} alt="" />
-          </div>
-          <div id="img3">
-            <h3> Skill Name 3</h3>
-            <img src={three} alt="" />
-          </div>
-          <div id="img4">
-            <h3> Skill Name 4</h3>
-            <img src={four} alt="" />
-          </div>
-          <div id="img5">
-            <h3> Skill Name 5</h3>
-            <img src={five} alt="" />
-          </div>
-          <div id="img6">
-            <h3> Skill Name 6</h3>
-            <img src={six} alt="" />
-          </div>
-        </div>
-      </div>
-      <div id="space">
-        <div className="link">
-          <Link to="/" className="skillLink" id="link">
-            Change Skills
-          </Link>
-        </div>
-      </div>
+                       
+                        <div className="skillContainer">
+                        <div className="skills">
+                            <h1>Student Name's Skill Points</h1>
+                            <div id="img1">
+                                <h3> Skill Name 1</h3>
+                                <img src={one} alt=""/>
+                            </div>
+                            <div id="img2">
+                                <h3> Skill Name 2</h3>
+                                <img src={two} alt=""/>
+                            </div>
+                            <div id="img3">
+                                <h3> Skill Name 3</h3>
+                                <img src={three} alt=""/>
+                            </div>
+                            <div id="img4">
+                                <h3> Skill Name 4</h3>
+                                <img src={four} alt=""/>
+                            </div>
+                            <div id="img5">
+                                <h3> Skill Name 5</h3>
+                                <img src={five} alt=""/>
+                            </div>
+                            <div id="img6">
+                                <h3> Skill Name 6</h3>
+                                <img src={six} alt=""/>
+                            </div>
+                            
+                        </div>
+                    </div>
 
       <div className="announcementsContainer">
         <div className="announcements">

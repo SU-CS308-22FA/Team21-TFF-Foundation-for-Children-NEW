@@ -40,15 +40,23 @@ export const useLogin = () => {
       setIsLoading(false);
 
       //const redirect = location.search.split('=')[1];
-      console.log(json);
-      if (json.role === 'Student') {
-        console.log('33.satir: ', localStorage.getItem('user'));
-        console.log('Redirecting to student dashboard');
+
+      if (JSON.parse(localStorage.getItem('user')) && JSON.parse(localStorage.getItem('user')).role === 'Student') {
+        console.log("33.satir: ", localStorage.getItem('user'))
+        console.log('Redirecting to student dashboard')
         navigate('/student');
       } else if (json.role === 'Teacher') {
         console.log('Redirecting to teacher dashboard');
         navigate('/teacher');
       }
+      else if (
+        JSON.parse(localStorage.getItem('user')) && 
+        JSON.parse(localStorage.getItem('user')).role === 'Teacher'
+        //!redirect
+      ) {
+          console.log('Redirecting to teacher dashboard')
+          navigate('/teacher');
+        } 
     }
   };
 

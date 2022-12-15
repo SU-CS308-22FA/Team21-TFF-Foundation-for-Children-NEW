@@ -8,17 +8,21 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
+  const [assignedemail, setAssignedemail]= useState('')
   const { signup, error, isLoading } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.warn("all data", userName, email, password, role);
-    await signup(userName, email, password, role);
+    await signup(userName, email, password, role, assignedemail)
     setUsername("");
     setEmail("");
     setPassword("");
     setRole("");
+
+
   };
+}
 
   return (
     <div className="signupContainer">
@@ -43,6 +47,12 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
+        <label>assignedEmail enter none:</label>
+        <input 
+          type="text" 
+          onChange={(e) => setAssignedemail(e.target.value)} 
+          value={assignedemail} 
+        />
         <p>I am a</p>
         <select
           onChange={(e) => setRole(e.target.value)}
@@ -61,6 +71,5 @@ const Signup = () => {
       </form>
     </div>
   );
-};
 
 export default Signup;

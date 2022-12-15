@@ -6,7 +6,8 @@ const userRoutes = require('./routes/user'); // import the user router
 const eventRoutes = require('./routes/event');
 const announcementRoutes = require('./routes/announcement');
 const evaluationRoutes = require('./routes/evaluation');
-
+const eventRoutes = require('./routes/event')
+const calendarRoutes= require('./routes/calendar')
 // create an express app
 const app = express();
 
@@ -28,6 +29,10 @@ app.use('/api/user', userRoutes); // register the router (routes)
 app.use('/api/event', eventRoutes);
 app.use('/api/announcement', announcementRoutes);
 app.use('/api/evaluation', evaluationRoutes);
+app.use('/api/calendar', calendarRoutes)
+app.use('/api/user', userRoutes) // register the router (routes)
+app.use('/api/event', eventRoutes)
+
 // connect to db
 mongoose
   .connect(process.env.MONGO_URI)
