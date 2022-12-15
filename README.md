@@ -40,11 +40,12 @@ The frontend of TFF Foundation for Children was built with React.js and the back
    The backend folder includes controllers, Data Access, models, routes, server.js, and package.json file.
    The frontend folder includes public folder and source files. Source files include components, context, helpers,        hooks,        images and pages.
    ### The API Documentation
+   
+   Follow this [link](https://docs.google.com/document/d/e/2PACX-1vSqfLWR0hk5RT7aSSKlmuzUKv9t6kWk1XmvHh8UxuT7wU5En5WGVmMyD5dM4lIYzje8KrkQbMG4SiS0/pub).
    <br />
-   Follow this [link](https://docs.google.com/document/d/e/2PACX-1vSqfLWR0hk5RT7aSSKlmuzUKv9t6kWk1XmvHh8UxuT7wU5En5WGVmMyD5dM4lIYzje8KrkQbMG4SiS0/pub)
-   <br />
+   
    ### The Code Documentation
-   Follow this [link](https://docs.google.com/document/d/e/2PACX-1vSpyxwfpNJ9Dx5MdCeeBII8AHnLhDKPaB_mb1mX2fkJ4cTWWJXdWA9chI63jFQ5uc1N5Wb-BB717cZF/pub)
+   Follow this [link](https://docs.google.com/document/d/e/2PACX-1vSpyxwfpNJ9Dx5MdCeeBII8AHnLhDKPaB_mb1mX2fkJ4cTWWJXdWA9chI63jFQ5uc1N5Wb-BB717cZF/pub).
 
 
 
