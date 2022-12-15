@@ -51,3 +51,9 @@ The frontend of TFF Foundation for Children was built with React.js and the back
 
        
    ### How to build and deploy the software
+   The client-side of the web-app can be built by:
+      cd frontend
+      npm install -g serve
+      serve -s build
+   And then can be executed by:
+      npm run build
