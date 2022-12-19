@@ -6,25 +6,30 @@ const mongoose= require('mongoose')
 
 
 
-
+// it requires teacher email in the url as a parameter
+// it finds the one teacher through that email in the url
+// then search the calendar database using assigned email of the found teacher
+// at last return the calendar data(s) of the student
 const getCalendar = async (req, res) => {
-   console.log("getCalendar is called!")
    const {teacheremail}= req.params
-   console.log("teacheremail is: ",teacheremail)
+
    const user= await User.findOne({email:teacheremail})
-   console.log("assigned email is: ", user.assignedemail)
+
    const calendars= await Calendar.find({studentemail:user.assignedemail})
    res.status(200).json(calendars)
 }
 
+// it requires teacher email, datenumber, trainingname in the request body
+// find the teacher object through teacher email
+// find the assigned student email through teacher objects 'assignedemail' field
+// create a calendar object with the datenumber, traningname and assignedstudent's email which is studentemail
 const createCalendar= async (req, res) => {
-    console.log("creating calendar..")
+   
     
     const { trainingname, datenumber, teacheremail }= req.body
-    
-    //console.log(specificUser.assignedEmail)
+    console.log(teacheremail)
     const teacher= await User.findOne( { email:teacheremail } )
-    console.log("assigned email is: ", teacher.assignedemail)
+
     const studentemail= teacher.assignedemail
     let emptyFields= []
     if(!trainingname){

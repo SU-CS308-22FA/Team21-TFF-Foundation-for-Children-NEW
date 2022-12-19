@@ -10,12 +10,10 @@ const createToken = (_id) => { // after the tokens are created,
 }
 
 
-const getUsers= async (req,res) => {
+const getStudents= async (req,res) => {
   console.log("get Users girildi!")
   const users= await User.find({role:"Student"})
-
   res.status(200).json(users)
-
 }
 
 const updateUser= async (req,res) =>{
@@ -25,7 +23,8 @@ const updateUser= async (req,res) =>{
   const query= { email:teacheremail }
   const newvalues= { $set:{assignedemail:studentEmail}}
 
-  const user= await User.findOneAndUpdate(query, newvalues)
+  await User.findOneAndUpdate(query, newvalues)
+  const user= await User.find(query)
   res.status(200).json(user)
 
 }
@@ -69,4 +68,4 @@ const signupUser = async (req, res) => {
 }
 
 
-module.exports = { signupUser, loginUser, getUsers, updateUser }
+module.exports = { signupUser, loginUser, getStudents, updateUser }

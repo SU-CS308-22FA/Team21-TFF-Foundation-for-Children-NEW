@@ -16,7 +16,7 @@ const Selection=  () => {
     useEffect(() => {
         const fetchUsers= async () =>{
            
-          const response= await fetch('/api/user/getusers')
+          const response= await fetch('/api/user/getstudents')
           const json= await response.json()
           if(response.ok){
             setUsers(json)
