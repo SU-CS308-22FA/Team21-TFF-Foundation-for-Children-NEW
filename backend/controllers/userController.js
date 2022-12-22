@@ -67,12 +67,11 @@ const addToEventsList = async (req, res) => {
   const {event, email} = req.body 
   console.log("event and email in addToEventsArray: ", event, email)
   const query= { email:req.body.email  }
-  //const {eventitle} = event.eventitle
-  //const exists = await User.eventsList.findOne({ event.eventtitle: req.body.event.eventtitle })
+  const exists = await User.eventsList.findOne({ [event.eventitle]: req.body.event.eventitle })
   try {
-    /*if (exists) {
-      throw Error('Events has already been added to your events!')
-    }*/
+    if (exists) {
+      throw new Error('Events has already been added to your events!')
+    }
     const newvalues = {$push:{eventsList: event}}
     const user= await User.findOneAndUpdate(query, newvalues)
     res.status(200).json(user)
@@ -101,13 +100,13 @@ const loginUser = async (req, res) => { // async function bc it will communicate
 
 // signup a user
 const signupUser = async (req, res) => {
-  const {email, password, role, assignedemail} = req.body // pull the email and password and role of the user from req. and name them email and password
+  const {email, userName, password, role, assignedemail} = req.body // pull the email and password and role of the user from req. and name them email and password
   console.log("signup user girildi")
   console.log(assignedemail)
   try {
     console.log("role:", role )
     console.log("debug1")
-    const user = await User.signup(email, password, role, assignedemail)
+    const user = await User.signup(email, userName, password, role, assignedemail)
     console.log("debug1")
     // create a token
     const token = createToken(user._id)
