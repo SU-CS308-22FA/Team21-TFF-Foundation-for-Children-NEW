@@ -60,7 +60,7 @@ const ApplyEvent = () =>{
         const email =  user.email
         const event = eventData
         const eventAndUser = {event,email}
-        const response = await fetch('/api/user/addToEventsList', {
+        const response = await fetch('/api/user/addtoeventslist', {
             method: 'PATCH',
             body: JSON.stringify(eventAndUser),
             headers: {

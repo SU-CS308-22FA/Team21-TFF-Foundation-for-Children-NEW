@@ -64,21 +64,23 @@ const updateUser= async (req,res) =>{
 
 const addToEventsList = async (req, res) => {
   console.log("addToEventsArray was called!")
-  const {event, email} = req.body 
+  const {event, email} = req.body
+  console.log(req.body.event.eventtitle) 
   console.log("event and email in addToEventsArray: ", event, email)
   const query= { email:req.body.email  }
-  const exists = await User.eventsList.findOne({ [event.eventitle]: req.body.event.eventitle })
   try {
+    const exists = await User.findOne({ eventsList: { $elemMatch: { eventtitle: req.body.event.eventtitle } } });
     if (exists) {
-      throw new Error('Events has already been added to your events!')
+      throw new Error('Event has already been added to your events list!')
     }
-    const newvalues = {$push:{eventsList: event}}
-    const user= await User.findOneAndUpdate(query, newvalues)
+    const newvalues = {$push:{eventsList: req.body.event}}
+    console.log("new values: ", newvalues)
+    const user = await User.findOneAndUpdate(query, newvalues, { new: true });
     res.status(200).json(user)
 
   } catch (error) {
     res.status(400).json({error: error.message})
-  }
+  }
 }
 
 const loginUser = async (req, res) => { // async function bc it will communicate with the db
