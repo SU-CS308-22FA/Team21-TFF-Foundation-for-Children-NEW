@@ -30,26 +30,24 @@ const eventSchema = new Schema(
 
 const userSchema = new Schema(
   {
+    email: {
+      type: String,
+      required: true,
+      unique: true
+    },
     userName: {
       //  idk what primary key is, but I think it's the same as unique key
       type: String,
-      required: true,
+      required: true
     },
-    email: {
-      // email is the primary key
+    password: {  // different people can have the same password
       type: String,
-      required: true,
-      unique: true,
-    },
-    password: {
-      // different people can have the same password
-      type: String,
-      required: true,
+      required: true
     },
     role: {
       type: String,
       default: "Student",
-      required: true,
+      required: true
     },
     assignedemail:{
       type:String,
@@ -59,7 +57,6 @@ const userSchema = new Schema(
   },
   { timestamps: true }
 );
-
 // make a model based on the schema
 // schema defines the stucture of a type of document inside our db.
 // model applies that schema to a particular model
@@ -70,57 +67,58 @@ A static method (or static function) is a method defined as a member of an objec
 but is accessible directly from an API object's constructor, 
 rather than from an object instance created via the constructor.
 */
-userSchema.statics.signup = async function (userName, email, password, role, assignedemail) {
-  // create a function name with signup
+userSchema.statics.signup = async function(email, userName, password, role, assignedemail) {  // create a function name with signup 
   // bc we are using this keyword, we cannot use arrow func. we need to use asyncrh. regular function.
-  // create a function name with signup 
-// bc we are using this keyword, we cannot use arrow func. we need to use asyncrh. regular function.
-
-  // validation
-  if (!email || !password) {
-    throw Error("All fields must be filled"); // thrown errors will be catched in userController.js
-  }
-  if (!validator.isEmail(email)) {
-    throw Error("Email not valid");
-  }
-  if (!validator.isStrongPassword(password)) {
-    throw Error("Password not strong enough");
-  }
-
-  const exists = await this.findOne({ email }); // check if a email is given by the user.
+    console.log("modelda: ", "email: ", email)
+    console.log("modelda: ", "userName: ", userName)
+    console.log("modelda: ", "password: ", password)
+    console.log("modelda: ", "role: ", role)
+    console.log("modelda: ", "assignedEmail: ", assignedemail)
+    // validation
+    if (!email || !password) {
+      throw Error('All fields must be filled')  // thrown errors will be catched in userController.js
+    }
+    if (!validator.isEmail(email)) {
+      throw Error('Email not valid')
+    }
+    if (!validator.isStrongPassword(password)) {
+      throw Error('Password not strong enough')
+    }
+  
+    const exists = await this.findOne({ email }) // check if a email is given by the user.
   //because we created a static method, instead of using the model nanme(User), use this. it refers to the model
-
-  if (exists) {
-    throw Error("Email already in use");
+  
+    if (exists) {
+      throw Error('Email already in use')
+    }
+  
+    const salt = await bcryptjs.genSalt(10) //in order to add additional characters to the passwords for security purposes.
+    const hash = await bcryptjs.hash(password, salt)
+  
+    const user = await this.create({ email, userName, password: hash, role,assignedemail }) // swap password and hashed password
+  
+    return user
   }
-
-  const salt = await bcryptjs.genSalt(10); //in order to add additional characters to the passwords for security purposes.
-  const hash = await bcryptjs.hash(password, salt);
-
-  const user = await this.create({ userName, email, password: hash, role,assignedemail }) // swap password and hashed password
-
-  return user;
-};
-
+  
 // static login method
-userSchema.statics.login = async function (email, password) {
-  if (!email || !password) {
-    // password is the plain text password
-    throw Error("All fields must be filled");
+userSchema.statics.login = async function(email, password) {
+
+  if (!email || !password) { // password is the plain text password
+    throw Error('All fields must be filled')
   }
 
-  const user = await this.findOne({ email });
+  const user = await this.findOne({ email })
   if (!user) {
-    throw Error("Incorrect email");
+    throw Error('Incorrect email')
   }
 
-  const match = await bcryptjs.compare(password, user.password); // user.password is the hashed password
+  const match = await bcryptjs.compare(password, user.password) // user.password is the hashed password
   if (!match) {
-    throw Error("Incorrect password");
+    throw Error('Incorrect password')
   }
 
-  return user;
-};
+  return user
+}
 
 
 
