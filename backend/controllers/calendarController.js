@@ -5,7 +5,10 @@ const User= require('../models/userModel')
 const mongoose= require('mongoose')
 
 
-
+// it requires teacher email in the url as a parameter
+// it finds the one teacher through that email in the url
+// then search the calendar database using assigned email of the found teacher
+// at last return the calendar data(s) of the student
 
 const getCalendar = async (req, res) => {
     const { id }= req.params
@@ -31,7 +34,7 @@ const createCalendar= async (req, res) => {
 
     //console.log(specificUser.assignedEmail)
     
-    console.log(trainingname, datenumber)
+   
     
     
     let emptyFields= []
