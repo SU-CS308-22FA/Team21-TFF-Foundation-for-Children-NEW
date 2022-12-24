@@ -1,6 +1,6 @@
 import AddTraining from "../components/AddTraining"
 
-import { useEffect ,useState } from "react";
+
 
 
 

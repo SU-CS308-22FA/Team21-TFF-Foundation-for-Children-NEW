@@ -8,15 +8,31 @@ const AddTraining = () =>{
     const [error, setError]= useState(null)
     const [trainingname, settrainingname] = useState('');
     const [datenumber, setdatenumber] = useState('');
-    const [teacheremail, setTeacheremail]= useState('')
+    const [calendars, setCalendars] = useState('');
+    
+   
+    useEffect(() => {
+
+          const fetchCalendars= async () =>{
+          const response2= await fetch('/api/calendar/'+user.email)
+          const json2= await response2.json()
+          
+          if(response2.ok){
+            setCalendars(json2)
+            
+           
+          }     
+    }
+        fetchCalendars()
+      }, [])
     const add= async (event) =>{
         event.preventDefault();
-        
+      
         //teachers email is here
         
         
-        const training= {trainingname, datenumber}
-        //console.log(training.trainingname, training.datenumber)
+        const training= {trainingname, datenumber, teacheremail}
+        
         
         
         const response= await fetch('/api/calendar/addtraining',{
@@ -27,14 +43,14 @@ const AddTraining = () =>{
           }
         })
         if(!response.ok){
-          //console.log("bumbum")
+          
         }
         const json= await response.json()
         
 
         if(!response.ok){
           setError(json.error)
-          //console.log("bum")
+        
         }
         if(response.ok){
           setError(null)

@@ -30,7 +30,7 @@ const createCalendar= async (req, res) => {
     
     const { trainingname, datenumber, teacheremail }= req.body
     
-   
+    const teacher= await User.findOne( { email:teacheremail } )
 
     //console.log(specificUser.assignedEmail)
     

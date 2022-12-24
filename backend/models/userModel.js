@@ -50,7 +50,7 @@ const userSchema = new Schema(
       required: true
     },
     assignedemail:{
-      type:String,
+      type: String,
       required:true
     },
     eventsList: [eventSchema],
