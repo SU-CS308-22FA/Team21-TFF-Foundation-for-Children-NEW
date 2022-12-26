@@ -45,9 +45,6 @@ export const useLogin = () => {
         console.log("33.satir: ", localStorage.getItem('user'))
         console.log('Redirecting to student dashboard')
         navigate('/student');
-      } else if (json.role === 'Teacher') {
-        console.log('Redirecting to teacher dashboard');
-        navigate('/teacher');
       }
       else if (
         JSON.parse(localStorage.getItem('user')) && 

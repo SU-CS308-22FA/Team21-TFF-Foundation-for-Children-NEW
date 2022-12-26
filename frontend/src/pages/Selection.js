@@ -16,7 +16,7 @@ const Selection=  () => {
     useEffect(() => {
         const fetchUsers= async () =>{
            
-          const response= await fetch('/api/user/getusers')
+          const response= await fetch('/api/user/getstudents')
           const json= await response.json()
           if(response.ok){
             setUsers(json)
@@ -55,7 +55,6 @@ const Selection=  () => {
                     <button id="selectButton" name="email" onClick={() => assignStudent(user2.email)}> Choose </button>
                 </div>
             ))}
-              
             </div>
             
       

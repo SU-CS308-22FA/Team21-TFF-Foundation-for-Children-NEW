@@ -25,11 +25,10 @@ const getUser = async (req,res) => {
     res.status(200).json(user)
 }
 
-const getUsers= async (req,res) => {
-  const users = await User.find({}).sort({createdAt: -1})
-
+const getStudentUsers= async (req,res) => {
+  console.log("get Users girildi!")
+  const users= await User.find({role:"Student"})
   res.status(200).json(users)
-
 }
 
 /*
@@ -50,6 +49,15 @@ const getUserEvents = async (req,res) => {
 }
 */
 
+/*
+const teacherAssignStudentYourself = async (req,res) =>{
+  console.log("called teacherAssignStudentYourself")
+  const {stuEmail} = req.body
+  console.log("stuEmail in called teacherAssignStudentYourself: ", stuEmail)
+
+}
+*/
+
 const updateUser= async (req,res) =>{
   console.log("ok")
   const { studentEmail, teacheremail } =req.body
@@ -63,7 +71,6 @@ const updateUser= async (req,res) =>{
 }
 
 const addToEventsList = async (req, res) => {
-  console.log("addToEventsArray was called!")
   const {event, email} = req.body
   console.log(req.body.event.eventtitle) 
   console.log("event and email in addToEventsArray: ", event, email)
@@ -80,7 +87,7 @@ const addToEventsList = async (req, res) => {
 
   } catch (error) {
     res.status(400).json({error: error.message})
-  }
+  }
 }
 
 const loginUser = async (req, res) => { // async function bc it will communicate with the db
@@ -121,4 +128,4 @@ const signupUser = async (req, res) => {
 }
 
 
-module.exports = { signupUser, loginUser, getUsers, updateUser,  addToEventsList, getUser}
+module.exports = { signupUser, loginUser, getStudentUsers, updateUser,  addToEventsList, getUser}
