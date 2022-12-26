@@ -53,18 +53,12 @@ const userSchema = new Schema(
       type: String,
       required:true
     },
-    students: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "User"
-      }
-    ],
-    teachers: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "User"
-      }
-    ],
+    students: {
+      type: [String]
+    },
+    teachers: {
+      type: [String]
+    },
     eventsList: [eventSchema],
   },
   { timestamps: true }

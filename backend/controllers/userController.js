@@ -49,41 +49,76 @@ const getUserEvents = async (req,res) => {
 }
 */
 
-/*
-const teacherAssignStudentYourself = async (req,res) =>{
-  console.log("called teacherAssignStudentYourself")
-  const {stuEmail} = req.body
-  console.log("stuEmail in called teacherAssignStudentYourself: ", stuEmail)
 
-}
-*/
 
 const updateUser= async (req,res) =>{
   console.log("ok")
-  const { studentEmail, teacheremail } =req.body
-  console.log("in updateUser ", studentEmail, teacheremail)
-  const query= { email:teacheremail }
-  const newvalues= { $set:{assignedemail:studentEmail}}
+  const { studentEmail, teacherEmail } = req.body
+  console.log("in updateUser ", studentEmail, teacherEmail)
+  const query1= { email:teacherEmail };
+  try{
+    console.log(User)
+    const user = await User.findOne(query1);
+    console.log("user: ", user)
+    const studentIndex = user.students.findIndex((item) => item === studentEmail);
+    console.log("studentIndex: ", studentIndex)
+    let message;
+    if (studentIndex !== -1) {
+      message = 'Student has already been added to your students list!';
+      res.status(200).json({message: message, user: user});
+    }
+    else{
+      console.log("new error gecildi")
+      // create a query object to search for the user by email
+      const query2 = { email:studentEmail };
+      // retrieve the user object by searching for the email field
+      const student = await User.findOne(query2);
+      const newvalues = {$push:{students: student.email}}
+      console.log("new values: ", newvalues)
+      const updatedUser = await User.findOneAndUpdate(query1, newvalues, { new: true });  // search for the user by email
+      console.log("update user: ", updateUser)
+      message = 'Student added to your students list!';
+      res.status(200).json({message: message, user: updatedUser});
 
-  const user= await User.findOneAndUpdate(query, newvalues)
-  res.status(200).json(user)
+    }
+  }catch (error) {
+    res.status(400).json({error: error.message})
+  }
 
 }
 
 const addToEventsList = async (req, res) => {
+  console.log("addToEventsArray was called!")
   const {event, email} = req.body
   console.log(req.body.event.eventtitle) 
   console.log("event and email in addToEventsArray: ", event, email)
-  const query= { email:req.body.email  }
   try {
-    const exists = await User.findOne({ eventsList: { $elemMatch: { eventtitle: req.body.event.eventtitle } } });
-    if (exists) {
-      throw new Error('Event has already been added to your events list!')
+    // search for a user with the specified email and an eventsList field that contains an element with a matching eventtitle field
+    const query = { email };
+    const user = await User.findOne(query);
+    console.log("user: ", user)
+    // check if the event object is already in the eventsList array
+    /*const newvalues = {$push:{eventsList: event}}
+    console.log("new values: ", newvalues)*/
+    const eventIndex = user.eventsList.findIndex((item) => item.eventtitle === event.eventtitle);
+    console.log("eventIndex: ", eventIndex)
+    let message;
+    if (eventIndex !== -1) {
+      message = 'Event has already been added to your events list!';
+      res.status(200).json({message: message, user: user});
     }
-    const newvalues = {$push:{eventsList: req.body.event}}
-    console.log("new values: ", newvalues)
-    const user = await User.findOneAndUpdate(query, newvalues, { new: true });
-    res.status(200).json(user)
+    else{
+      console.log("new error gecildi")
+      // add the event object to the eventsList array of the user
+      const newvalues = {$push:{eventsList: event}}
+      console.log("new values: ", newvalues)
+      const updatedUser = await User.findOneAndUpdate(query, newvalues, { new: true });  // search for the user by email
+      console.log("update user: ", updateUser)
+      message = 'Event added to your events list!';
+      res.status(200).json({message: message, user: updatedUser});
+
+    }
+    
 
   } catch (error) {
     res.status(400).json({error: error.message})
