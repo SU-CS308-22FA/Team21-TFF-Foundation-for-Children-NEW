@@ -1,13 +1,25 @@
 import { Link } from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { logout } = useLogout();
   const { user } = useAuthContext();
 
   const handleClick = () => {
     logout();
+    navigate("/")
+  };
+
+  const handleClick2 = () => {
+    if (user.role === 'Student'){
+      navigate("/student");
+    }
+    else if (user.role === 'Teacher') {
+      navigate('/teacher');
+    }
   };
 
   return (
@@ -21,6 +33,7 @@ const Navbar = () => {
             <div>
               <span>{ user.email}</span>
               <button onClick={handleClick}>Log out</button>
+              <button onClick={handleClick2}>Home</button>
             </div>
           )}
           {!user && (

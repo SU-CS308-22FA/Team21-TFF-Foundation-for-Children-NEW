@@ -142,11 +142,12 @@ form.signup select {
   width: 190px;
   height: 40px;
   display: inline;
-  font-weight: 500;
+  font-weight: 400;
   position: absolute;
   border-radius: 3px;
   
 }
+
 #eventLink {
   font-size: 25px;
   font-weight: 600;
@@ -194,6 +195,7 @@ form.signup select {
   padding: 20px;
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  
 
 }
 
@@ -314,6 +316,58 @@ form.signup select {
 form.signup p {
   display: inline-block;
 }
+
+/* trainings */
+#returnToTrainings{
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 1em;
+  font-family: "Poppins";
+  cursor: pointer;
+  padding: 2px;
+  width: 80px;
+  height: 40px;
+  display: inline;
+  font-weight: 400;
+  position: absolute;
+  border-radius: 3px;
+
+  
+  
+}
+
+.button-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#addSkillBut{
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  cursor: pointer;
+  background: var(--primary);
+  padding: 6px;
+  border-radius: 50%;
+  color: rgb(253, 249, 249);
+
+}
+
+#addTrainingTo{
+  position: absolute;
+  top: 20px;
+  right: 175px;
+  cursor: pointer;
+  background: var(--primary);
+  padding: 6px;
+  border-radius: 50%;
+  color: rgb(253, 249, 249);
+
+}
+
+/* trainings finished */
 
 /* student page */
 * {

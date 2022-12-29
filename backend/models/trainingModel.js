@@ -5,23 +5,14 @@ const Schema= mongoose.Schema
 const trainingSchema= new Schema(
     {
         trainingName:{
-            type:String,
-            require:true
+            type:String
         },
-        start: {       // start time of the training
+        date : {       // time of the training
             type: Date,
             required: true
         },
-        end: {          // end time of the training
-            type: Date,
-            required: true
-        },
-        studentEmail:{
-            type:String,
-            require:true
-        },
-        skills: [{      // array of skills
-            type: skillSchema
+        skills: [{
+            type:String
         }]
 
     }, { timestamps: true });

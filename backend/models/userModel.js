@@ -4,6 +4,7 @@
 const mongoose = require('mongoose')  
 const bcryptjs = require('bcryptjs')
 const validator = require('validator')
+const Skill = require('./skillModel');  // require the Skill model
 const Schema = mongoose.Schema
 // deneme
 
@@ -60,6 +61,10 @@ const userSchema = new Schema(
       type: [String]
     },
     eventsList: [eventSchema],
+    skillsList: [{   
+      type: Schema.Types.ObjectId,
+      ref: 'Skill'
+    }]
   },
   { timestamps: true }
 );
