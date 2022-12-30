@@ -11,6 +11,7 @@ const createToken = (_id) => { // after the tokens are created,
 
 const getUser = async (req,res) => {
   const { id } = req.params
+  console.log("getUser called")
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({error: 'No such user'})
@@ -24,6 +25,30 @@ const getUser = async (req,res) => {
 
     res.status(200).json(user)
 }
+
+const searchUserByEmail = async (req, res) => {
+  console.log("girildi!")
+  console.log("req: ", req.params)
+  try {
+    // Get the email to search for from the request parameters
+    const { email } = req.params;
+    console.log(email)
+
+    // Search the database for an object with the matching email
+    const foundObject = await User.findOne({ email });
+
+    // If a match is found, send the object as a response
+    if (foundObject) {
+      return res.send(foundObject);
+    }
+
+    // If no match is found, send a 404 response
+    return res.sendStatus(404);
+  } catch (error) {
+    // If an error occurs, send a 500 response
+    return res.sendStatus(500);
+  }
+};
 
 const getStudentUsers= async (req,res) => {
   console.log("get Users girildi!")
@@ -163,4 +188,4 @@ const signupUser = async (req, res) => {
 }
 
 
-module.exports = { signupUser, loginUser, getStudentUsers, updateUser,  addToEventsList, getUser}
+module.exports = { signupUser, loginUser, searchUserByEmail, getStudentUsers, updateUser,  addToEventsList, getUser}
