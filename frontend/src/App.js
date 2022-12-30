@@ -17,6 +17,12 @@ import EventsTabOnTeacher from './pages/EventsTabOnTeacher'
 import EventsTabOnStudent from './pages/StudentEventsTab'
 import ApplyEvent from './pages/applyForEvent'
 import UpdateEvent from './pages/Updateevent'
+import UpdateTraining from './pages/createTraining'
+import ListTrainings from './pages/listTrainings'
+import ViewTraining from './pages/viewTraining'
+import ListSkills from './pages/listSkills'
+import CreateTraining from './pages/createTraining'
+import AssignTrainingsToStu from './pages/AssignTraining'
 function App() {
   return (
     <div className="App">
@@ -78,6 +84,37 @@ function App() {
                 path = "/teacher/events/updateevent"
                 element = {<UpdateEvent/>}
               />
+
+              <Route
+                path = "/teacher/trainings"
+                element = {<ListTrainings/>}
+              />
+
+              <Route
+                path = "/teacher/trainings/:id"
+                element = {<ViewTraining/>}
+              />
+
+              <Route
+                path = "/teacher/trainings/:id/update"
+                element = {<UpdateTraining/>}
+              />
+
+              <Route
+                path = "/teacher/skills"
+                element = {<ListSkills/>}
+              />
+              <Route
+                path = "/teacher/trainings/create"
+                element = {<CreateTraining/>}
+              />
+              <Route
+                path = "/teacher/trainings/:id/assign/students"
+                element = {<AssignTrainingsToStu/>}
+              />
+
+
+
               <Route path="/announcements" element={<AnnouncementPage />} />
               <Route path="/announcementAdd" element={<AnnouncementAdd />} />
               <Route path="/evaluate" element={<Evaluate />} />

@@ -1,4 +1,4 @@
-const express= require('express')
+/*const express= require('express')
 
 const{
     createCalendar,
@@ -13,3 +13,4 @@ router.get('/addTraining/:id', getCalendar)
 router.post('/addtraining', createCalendar)
 
 module.exports= router
+*/

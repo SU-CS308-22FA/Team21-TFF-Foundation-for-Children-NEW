@@ -12,6 +12,7 @@ import Announcements from './Announcements';
 
 const Home = () => {
   const { user } = useAuthContext();
+  
   const userName = user?.userName?.toString() || '';
   fetch()
     .then((res) => {

@@ -21,4 +21,4 @@ const EventDetailsStu = ({ event }) => {
     )
   }
   
-  export default EventDetailsStu
+  export default EventDetailsStu;

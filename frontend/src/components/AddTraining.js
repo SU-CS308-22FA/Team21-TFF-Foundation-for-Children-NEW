@@ -1,14 +1,17 @@
 import Navbar from "./Navbar"
+import { useEffect } from "react";
+import { useAuthContext } from '../hooks/useAuthContext'
 
 import { useState } from "react";
 const AddTraining = () =>{
-    
+    const {user} = useAuthContext()
 
 
     const [error, setError]= useState(null)
     const [trainingname, settrainingname] = useState('');
     const [datenumber, setdatenumber] = useState('');
     const [calendars, setCalendars] = useState('');
+    const [teacheremail, setTeacheremail] = useState('');
     
    
     useEffect(() => {

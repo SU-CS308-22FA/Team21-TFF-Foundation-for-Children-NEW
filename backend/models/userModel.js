@@ -4,6 +4,7 @@
 const mongoose = require('mongoose')  
 const bcryptjs = require('bcryptjs')
 const validator = require('validator')
+const Skill = require('./skillModel');  // require the Skill model
 const Schema = mongoose.Schema
 // deneme
 
@@ -53,7 +54,17 @@ const userSchema = new Schema(
       type: String,
       required:true
     },
+    students: {
+      type: [String]
+    },
+    teachers: {
+      type: [String]
+    },
     eventsList: [eventSchema],
+    skillsList: [{   
+      type: Schema.Types.ObjectId,
+      ref: 'Skill'
+    }]
   },
   { timestamps: true }
 );
@@ -69,11 +80,6 @@ rather than from an object instance created via the constructor.
 */
 userSchema.statics.signup = async function(email, userName, password, role, assignedemail) {  // create a function name with signup 
   // bc we are using this keyword, we cannot use arrow func. we need to use asyncrh. regular function.
-    console.log("modelda: ", "email: ", email)
-    console.log("modelda: ", "userName: ", userName)
-    console.log("modelda: ", "password: ", password)
-    console.log("modelda: ", "role: ", role)
-    console.log("modelda: ", "assignedEmail: ", assignedemail)
     // validation
     if (!email || !password) {
       throw Error('All fields must be filled')  // thrown errors will be catched in userController.js

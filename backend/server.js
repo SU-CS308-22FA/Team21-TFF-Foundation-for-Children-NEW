@@ -4,9 +4,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/user'); // import the user router
 const eventRoutes = require('./routes/event');
+const skillRoutes = require('./routes/skill');
+const trainingRoutes = require('./routes/training');
 const announcementRoutes = require('./routes/announcement');
 const evaluationRoutes = require('./routes/evaluation');
-const calendarRoutes= require('./routes/calendar')
+const studentcalendarRoutes = require('./routes/studentcalendar');
+//const calendarRoutes= require('./routes/calendar')
 // create an express app
 const app = express();
 
@@ -26,9 +29,12 @@ app.listen(5000, function () {
 // routes
 app.use('/api/user', userRoutes); // register the router (routes)
 app.use('/api/event', eventRoutes);
+app.use('/api/skill', skillRoutes);
+app.use('/api/training', trainingRoutes);
+app.use('/api/studentcalendar', studentcalendarRoutes);
 app.use('/api/announcement', announcementRoutes);
 app.use('/api/evaluation', evaluationRoutes);
-app.use('/api/calendar', calendarRoutes)
+//app.use('/api/calendar', calendarRoutes)
 app.use('/api/user', userRoutes) // register the router (routes)
 app.use('/api/event', eventRoutes)
 

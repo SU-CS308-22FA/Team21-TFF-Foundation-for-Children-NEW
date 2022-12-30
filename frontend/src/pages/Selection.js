@@ -1,22 +1,17 @@
-
-import { useState, useEffect } from "react";
-
-
-
-
-
-import Navbar from '../components/Navbar'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { useState, useEffect } from "react";
+import Navbar from '../components/Navbar'
 console.log("selection page is called!")
 
 
 const Selection=  () => {
     const { user } = useAuthContext()
+    const [error, setError] = useState(null)
     const [users, setUsers] = useState(null);
     useEffect(() => {
         const fetchUsers= async () =>{
            
-          const response= await fetch('/api/user/getusers')
+          const response= await fetch('/api/user/getstudents')
           const json= await response.json()
           if(response.ok){
             setUsers(json)
@@ -29,15 +24,32 @@ const Selection=  () => {
 
     
     const assignStudent= async (studentEmail) => { 
-        const teacheremail= user.email
-        const data= {studentEmail, teacheremail}
-        await fetch('/api/user/update',{
-        method:'PATCH',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
+        console.log("assignStudent called")
+        const teacherEmail= user.email
+        const data= {studentEmail, teacherEmail}
+        console.log("data: ", data)
+        try {
+          const response = await fetch('/api/user/update', {
+            method: 'PATCH',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
+            }
+          });
+          if (!response.ok) {
+            const json = await response.json();
+            setError(json.error);
+            return;
+          }
+          const json = await response.json();
+          console.log("response is ok. json is, ", json);
+          setError('');
+          const { message } = json;
+          alert(message);
+        } catch (error) {
+          setError('An error occurred while adding the student to your students list');
         }
-    })
 
     }
 
@@ -55,7 +67,6 @@ const Selection=  () => {
                     <button id="selectButton" name="email" onClick={() => assignStudent(user2.email)}> Choose </button>
                 </div>
             ))}
-              
             </div>
             
       

@@ -1,7 +1,7 @@
 const express = require("express");
 
 // controller functions
-const { loginUser, signupUser, getUsers, updateUser, addToEventsList, getUser } = require('../controllers/userController') // import the handler functions
+const { loginUser, signupUser, getStudentUsers, updateUser, addToEventsList, getUser } = require('../controllers/userController') // import the handler functions
 
 const router = express.Router();
 /*
@@ -21,10 +21,8 @@ router.post("/login", loginUser); // send data in a request
 // signup route
 router.post('/signup', signupUser)
 router.patch('/addtoeventslist', addToEventsList)
-router.get('/getusers', getUsers)
+router.get('/getstudents', getStudentUsers)
 router.get('/getusers/:id', getUser)
-//router.get('/getusers/:id', getUser)
-//student page
-//router.get('/getuserevents/:id', getUserEvents)
+
 
 module.exports = router;
