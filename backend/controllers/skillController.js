@@ -38,7 +38,7 @@ const getSkill = async (req, res) => {
     }
 
     const skill = await Skill.findById(id);
-
+   
     if (!skill) {
         return res.status(404).json({ error: "No such skill" });
     }

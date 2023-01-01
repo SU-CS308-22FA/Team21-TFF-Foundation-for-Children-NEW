@@ -1153,3 +1153,21 @@ body {
   font-family: 'Times New Roman', Times, serif;
   color: #fff;
 }
+
+.developmentNavbar{
+  height: 10vh;
+  width: 100%;
+  border: 2px solid;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+.tabLine{
+  border-bottom: 3px solid;
+  border-color: red;
+}
+.trainingEntry{
+  font-size: 20px;
+  font-weight: 600;
+}

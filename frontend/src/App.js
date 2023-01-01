@@ -1,8 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
+
 // pages & components
+
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Student from './pages/Student';
 import Teacher from './pages/Teacher';
+import BarChart from './pages/Development';
 import Home from './pages/Home';
 import AnnouncementAdd from './pages/AnnouncementAdd';
 import AnnouncementPage from './pages/AnnouncementPage';
@@ -37,6 +41,10 @@ function App() {
               <Route 
                 path="/selection" 
                 element={<Selection />} 
+              />
+              <Route 
+                path="/development" 
+                element={<BarChart />} 
               />
               <Route 
                 path="/login" 

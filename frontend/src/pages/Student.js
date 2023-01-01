@@ -70,7 +70,7 @@ const Student= () => {
                         <Link to="/Evaluation" id="link">
                           My Evaluation{' '} </Link>
 
-                          <Link to="/" id="link">
+                          <Link to="/development" id="link">
                           My Development{' '}
                         </Link>
                             <Link to="/student/events">Events</Link>

@@ -1,9 +1,23 @@
-const Studentcalendar = require("../models/studentcalendarModel");
+const studentcalendarSchema = require("../models/studentcalendarModel");
 const mongoose = require("mongoose");
-
+const userSchema= require("../models/userModel")
 
 
 //controller functions
+
+// get a students calendars
+const getStudentCalendar= async (req, res)=> {
+  
+  const {email2}= req.params
+ 
+  const studentId= await userSchema.findOne({email:email2})
+
+  console.log("student id is: ", studentId._id)
+  const calendars= await studentcalendarSchema.find({userId:studentId._id})
+
+  res.status(200).json(calendars)
+
+}
 
 const addStudentCalendar = async (req,res) => {
   console.log("add student cal called.")
@@ -27,7 +41,7 @@ const addStudentCalendar = async (req,res) => {
 
   // Use the .create() method to save the studentCalendar object to the database
   try {
-    const studentcalendar = await Studentcalendar.create(calendar)
+    const studentcalendar = await studentcalendarSchema.create(calendar)
     console.log('Student calendar created successfully!');
     res.status(200).json(studentcalendar)
   } catch (error) {
@@ -40,6 +54,7 @@ const addStudentCalendar = async (req,res) => {
 
 
 module.exports = {
-    addStudentCalendar
+    addStudentCalendar,
+    getStudentCalendar
  
 }
