@@ -12,15 +12,16 @@ const Navbar = () => {
     logout();
     navigate("/")
   };
+  const handleHome = () => {
+    if (user.role === "Student") {
+      navigate("/student")
 
-  const handleClick2 = () => {
-    if (user.role === 'Student'){
-      navigate("/student");
     }
-    else if (user.role === 'Teacher') {
-      navigate('/teacher');
+    if (user.role === "Teacher") {
+      navigate("/teacher")
     }
   };
+
 
   return (
     <header>
@@ -33,7 +34,7 @@ const Navbar = () => {
             <div>
               <span>{ user.email}</span>
               <button onClick={handleClick}>Log out</button>
-              <button onClick={handleClick2}>Home</button>
+              <button onClick={handleHome}>Content</button>
             </div>
           )}
           {!user && (
