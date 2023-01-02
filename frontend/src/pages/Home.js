@@ -9,6 +9,7 @@ import c4 from '../img/c4.jpg';
 
 import { useAuthContext } from '../hooks/useAuthContext';
 import Announcements from './Announcements';
+import Evaluation from './Evaluation';
 
 const Home = () => {
   const { user } = useAuthContext();
@@ -64,41 +65,12 @@ const Home = () => {
         </div>
       </div>
       <div className="teacherContainer">
-        <h1>Our Trainers</h1>
-        <div className="coachContainer">
-          <div className="coachInformation">
-            <img src={c1}></img>
-            <div className="coachName">Andrea Haywood</div>
-            <div className="coachRole">Assistant coach</div>
-            <div className="coachInfo">
-              He is an assistant coach & goalie coach for the women's team
-            </div>
-          </div>
-          <div className="coachInformation">
-            <img src={c2}></img>
-            <div className="coachName">Andy Collins</div>
-            <div className="coachRole">Staff Coach</div>
-            <div className="coachInfo">
-              He started coaching with the U10 girls and now the U12 girls.
-            </div>
-          </div>
-          <div className="coachInformation">
-            <img src={c3}></img>
-            <div className="coachName">Marilynn Smith</div>
-            <div className="coachRole">Goalkeeper</div>
-            <div className="coachInfo">
-              Marilynn possess a Level 2 certificate from the NSCAA.
-            </div>
-          </div>
-          <div className="coachInformation">
-            <img src={c4}></img>
-            <div className="coachName">Louis Ellis</div>
-            <div className="coachRole">Head coach</div>
-            <div className="coachInfo">
-              Louis is a head coach of our club Soccer team since 2008
-            </div>
-          </div>
-        </div>
+        {user?.role === 'Student'&& (
+          <Evaluation/>
+          )
+      
+        };
+        
       </div>
     </div>
   );

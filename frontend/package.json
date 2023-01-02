@@ -21,6 +21,7 @@
     "react-scripts": "^5.0.1",
     "react-truncate-markup": "^5.1.2",
     "sass": "^1.56.1",
+    "string-similarity": "^4.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

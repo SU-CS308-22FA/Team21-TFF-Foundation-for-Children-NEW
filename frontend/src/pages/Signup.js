@@ -46,11 +46,12 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <label>assignedEmail enter none:</label>
+        <label>assignedEmail (Don't touch this part please):</label>
         <input 
+          
           type="text" 
           onChange={(e) => setAssignedemail(e.target.value)} 
-          value={assignedemail} 
+          value={"none"} 
         />
         <p>I am a</p>
         <select
