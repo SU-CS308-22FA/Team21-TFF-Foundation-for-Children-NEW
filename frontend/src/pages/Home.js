@@ -2,8 +2,8 @@ import '../index.scss';
 import React from 'react';
 import Navbar from '../components/Navbar';
 import { useAuthContext } from '../hooks/useAuthContext';
-import Announcements from './Announcements';
-import Evaluation from './Evaluation';
+import Announcements from '../components/Announcements';
+import Evaluation from '../components/Evaluation';
 
 const Home = () => {
   const { user } = useAuthContext();

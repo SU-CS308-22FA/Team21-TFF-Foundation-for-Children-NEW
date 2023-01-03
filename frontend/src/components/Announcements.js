@@ -1,4 +1,4 @@
-import './Announcements.scss';
+import '../pages/Announcements.scss';
 import { useState, useEffect } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import AnnouncementItem from './AnnouncementItem';
