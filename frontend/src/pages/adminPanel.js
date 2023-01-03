@@ -1,12 +1,19 @@
 import Issues from './Issues';
+import { useAuthContext } from '../hooks/useAuthContext';
+
 
 const AdminPanel = () => {
+    const { user } = useAuthContext();
+    if (user && user.role === 'Admin') {
     return (
         
-        <div>
+        <div
+        
+         className='adminPanel'>
             <Issues />
-            <h1>Admin Panel</h1>
+             
         </div>
     )
+    }
 }
 export default AdminPanel;

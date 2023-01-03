@@ -20,6 +20,10 @@ const Navbar = () => {
     if (user.role === "Teacher") {
       navigate("/teacher")
     }
+    if (user.role === "Admin") {
+      navigate("/admin")
+    }
+
   };
 
 
