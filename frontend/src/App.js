@@ -14,6 +14,7 @@ import Signup from './pages/Signup';
 import Training from './pages/Training';
 import Selection from './pages/Selection';
 import Addevent from './pages/Addevent';
+import ContactUs from './components/ContactUs';
 import EventsTabOnTeacher from './pages/EventsTabOnTeacher';
 import EventsTabOnStudent from './pages/StudentEventsTab';
 import ApplyEvent from './pages/applyForEvent';
@@ -51,7 +52,7 @@ function App() {
               <Route path="/teacher/events/addevent" element={<Addevent />} />
 
               <Route path="/student/events" element={<EventsTabOnStudent />} />
-
+              <Route path="/contactUs" element={<ContactUs />} />
               <Route
                 path="/student/events/applyevent"
                 element={<ApplyEvent />}
