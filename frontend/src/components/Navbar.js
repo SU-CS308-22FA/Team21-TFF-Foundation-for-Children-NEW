@@ -12,6 +12,9 @@ const Navbar = () => {
     logout();
     navigate("/")
   };
+  const handleIssue = () => {
+    navigate("/reportIssue")
+  };
   const handleHome = () => {
     if (user.role === "Student") {
       navigate("/student")
@@ -39,6 +42,7 @@ const Navbar = () => {
               <span>{ user.email}</span>
               <button onClick={handleClick}>Log out</button>
               <button onClick={handleHome}>Content</button>
+              <button onClick={handleIssue}>Create Issue</button>
             </div>
           )}
           {!user && (

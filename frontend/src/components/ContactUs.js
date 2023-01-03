@@ -1,3 +1,4 @@
+import Navbar from "./Navbar";
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 var templateParams = {
@@ -22,6 +23,9 @@ export const ContactUs = () => {
   
 
   return (
+    <div>
+    <Navbar />
+
     
     
     <form ref={form} onSubmit={sendEmail}>
@@ -42,7 +46,7 @@ export const ContactUs = () => {
       <textarea name="message" />
       <input type="submit" value="Send" />
     </form>
-    
+    </div>
   );
 };
 export default ContactUs;
