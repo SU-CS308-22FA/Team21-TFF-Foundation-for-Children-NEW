@@ -1,5 +1,9 @@
+
+
 const Skill = require("../models/skillModel");
 const mongoose = require("mongoose");
+//const { default: continuousColorLegend } = require("react-vis/dist/legends/continuous-color-legend");
+const ObjectId = require('mongoose').Types.ObjectId;
 
 
 
@@ -28,11 +32,76 @@ const addSkill = async (req, res) => {
       res.status(400).json({error: error.message})
     }
   }
-
+  const getSkillList = async (req, res) => {
+    //let skillArray=[]
+    //console.log("in getSkillList route")
+    const calendars = req.query.skills;
+    
+    //console.log(calendars);
+    
+    // Split calendars string into array
+    const calendarArray = calendars.split(',').map(String);
+    //console.log(calendarArray)
+    
+    let count=5;
+    
+    const skillPromises = calendarArray.map(async calendar => {
+      try {
+        const calendarId = ObjectId(calendar);
+        const skill = await Skill.findOne({ _id: calendarId });
+        skill.level = count++;
+        if (skill !== null) {
+          return skill;
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    });
+    
+    const skillArray = await Promise.all(skillPromises);
+    console.log(skillArray);
+    /*
+    calendarArray.forEach( async calendar  =>  {
+      //const calendar= String(calendar2);
+      
+      try{
+        const calendarId = ObjectId(calendar)
+        console.log(calendarId)
+        const skill = await Skill.findOne({ _id: calendarId });
+        
+        skill.level= count++;
+        //console.log(skill)
+        if(skill!==null){
+          skillArray.push(skill)
+          //console.log(skillArray)
+        }
+      } catch(error){
+        console.error(error)
+      }
+      
+    });
+    console.log(skillArray)*/
+    const groupedData= skillArray.reduce((groups, item)=>{
+      //console.log(item.skillDate);
+      const date = new Date(item.skillDate);
+      const val = date.getDate();
+      //console.log(val)
+      groups[val]= groups[val] || [];
+      groups[val].push(item);
+      return groups
+      
+    },{})
+    //console.log(groupedData);
+    
+    
+    //console.log(skillArray)
+    //console.log("first json is: ", calendarArray[0])
+    res.status(200).send('OK');
+  }
 // get a skill by id 
 const getSkill = async (req, res) => {
     const { id } = req.params
-
+  console.log(id)
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({ error: "No such skill" });
     }
@@ -105,6 +174,7 @@ module.exports = {
     getSkill,
     getSkills,
     deleteSkill,
-    updateSkill
+    updateSkill,
+    getSkillList
  
 }

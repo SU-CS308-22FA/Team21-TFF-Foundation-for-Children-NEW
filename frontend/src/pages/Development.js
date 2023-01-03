@@ -1,5 +1,6 @@
 // <block:setup:1>
 import React from "react";
+import axios from "axios";
 import { useAuthContext } from '../hooks/useAuthContext'
 import {Bar} from "react-chartjs-2";
 import Chart from "chart.js/auto";
@@ -15,87 +16,73 @@ import { useEffect, useState } from "react";
 
 
 
+
+
+
+
+
+
+
 const BarChart =  ()  => {
-  const { user } = useAuthContext();
+  
  
+  let skillIds=[]
+
+  const { user } =  useAuthContext();
+  const email= user.email
     
-    const [calendars, setCalendars] = useState(null);
-    
-    useEffect(() => {
+    const [calendars, setCalendars] = useState([]);
+  
+    const [skills, setSkills] = useState([]);
+    useEffect(() =>  {
         
         const fetchCalendars= async () =>{
         
-        const response= await fetch('/api/studentcalendar/getStudentCalendar'+user.email)
+        const response= await fetch('/api/studentcalendar/getStudentCalendar/'+email)
         const json= await response.json()
-            if(response.ok){
-                setCalendars(json)    
-            }
+        //const jsonstring= JSON.stringify(json)
+        
+        setCalendars(json)
+        
+        
+        
         }
         fetchCalendars()
-    }, [])
-   
-    //console.log(calendars)
- 
-    let calendarsArray=[]
-    let indexes=[]
-    const getCalendars = async ()=>{
-      
-      let calendarArray=[]
-      let day
-      let level=0
-      for (const calendar of calendars){
-        level+=2
-        
-        calendarArray=[]
-        for(const skill of calendar.skills){
-          level+=1
-          let exist=false
-          try{
-            //console.log("fetching skill data..")
-            const response= await fetch('/api/skill/getSkill/'+skill)
-            if(!response.ok){
-              //console.log("not ok")
-            }
-            const json= await response.json()
-            if(response.ok){
-              json.level=level
-              let date = new Date(json.skillDate);
-              day = date.getDate();
-              for(let i=0; i < indexes.length;i++){
-                if(indexes[i]==day){
-                  exist=true
-                }
-              }
-              if(!exist){
-                indexes.push(day)
-              }
-              
-              //console.log(json.skillDate)
-              calendarArray.push(json)
-             
-            }
-          }
-          catch(error){
-            //console.log("there are errors")
-          }
-          
-          
-        }
-        
-        calendarsArray[day]=calendarArray
-      }
-      
-    }
-    getCalendars()
-    console.log(calendarsArray)
-    console.log(indexes)
+    }, [email])
     
-    const labels = indexes;
+
+    
+   console.log(calendars)
+   for(const calendar of calendars){
+    skillIds.push(calendar.skills)
+   }
+   console.log(skillIds)
+   useEffect(() => {
+    const fetchSkills = async () => {
+    
+    const response = await fetch('/api/skill/getSkillList?'+ new URLSearchParams({
+      skills: skillIds
+    }));
+    const data = await response.json();
+    setSkills(data);
+  };
+  fetchSkills();
+  }, [skillIds]);
+ 
+   
+   
+   
+   
+    
+ 
+    
+   
+    
   const data = {
-  labels: labels,
+  labels: [1,2],
   datasets: [{
     label: 'My First Dataset',
-    data: calendarsArray,
+    data: [10,5],
     backgroundColor: [
       'rgba(255, 99, 132, 0.2)',
       'rgba(255, 159, 64, 0.2)',
@@ -143,10 +130,7 @@ const config = {
     return (
         <div className="developmentPage">
             <div id="developmentNavbar" className="developmentNavbar" >
-
-           
-               
-
+                
                 <div className="trainingEntry tabLine" onClick={event => borderCheck(event)}>
                   training A
                 </div>
@@ -155,14 +139,14 @@ const config = {
                 </div>
               
             </div>
-
             
             <div className="BarChart">
                 <Bar data={data} />
             </div>
         </div>
     )
-}
+  }
+
 
 export default BarChart
 
