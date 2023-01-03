@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Navbar from '../components/Navbar'
 
 
-
 const Selection=  () => {
     const { user } = useAuthContext()
     const [error, setError] = useState(null)
