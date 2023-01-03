@@ -30,7 +30,7 @@ const getTrainings = async (req, res) => {
 
 // get a training by id 
 const getTraining = async (req, res) => {
-  console.log("get training called!")
+ 
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {

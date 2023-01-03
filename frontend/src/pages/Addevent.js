@@ -21,7 +21,7 @@ const Addevent = () =>{
         }
 
         const stuevent = {eventtitle,eventlocation,eventbody,eventquota}
-        console.log("in form: ", stuevent)
+        
         const response = await fetch('/api/event/addevent', {
             method: 'POST',
             body: JSON.stringify(stuevent),
@@ -45,7 +45,7 @@ const Addevent = () =>{
             setError(null)
             setEmptyFields([])
             dispatch({type: 'ADD_EVENT', payload: json})
-            console.log("new event is added (json), ", json)
+            
         }
     }
 

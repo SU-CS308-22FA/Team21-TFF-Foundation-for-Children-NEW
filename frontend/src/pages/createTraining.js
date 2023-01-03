@@ -33,7 +33,7 @@ const CreateTraining = () => {
         }
 
         const training = {trainingName,date,skills};
-        console.log("in form: ", training)
+      
         const response = await fetch('/api/training/addTraining', {
             method: 'POST',
             body: JSON.stringify(training),
@@ -53,7 +53,7 @@ const CreateTraining = () => {
             setdate("")
             setError(null)
             dispatch({type: 'ADD_TRAINING', payload: json})
-            console.log("new training is added (json), ", json)
+            
         }
     }
 

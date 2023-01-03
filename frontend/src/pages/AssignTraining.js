@@ -13,8 +13,7 @@ const AssignTrainingsToStu = () =>{
     const [users, setUsers] = useState(null);
     let location = useLocation();
     let trainingData = location.state;
-    console.log("passed training: ", trainingData);
-    console.log("training idsi: ",  trainingData._id);
+    
     useEffect(() => {
         const fetchUsers= async () =>{
            
@@ -35,7 +34,7 @@ const AssignTrainingsToStu = () =>{
         // firstly, create a calendar object:
         
       
-        console.log("assignTraining called");
+        
         const level = null;
         const skillDate = trainingData.date;
         const userId = stu;
@@ -44,7 +43,7 @@ const AssignTrainingsToStu = () =>{
         for (const s of trainingData.skills) {
           const skillName = s;
           const skill = { userId, skillName, level, skillDate };
-          console.log("skill params: ", userId, s, level, skillDate);
+          
         
           try {
             const response = await fetch("/api/skill/addSkill", {
@@ -85,7 +84,7 @@ const AssignTrainingsToStu = () =>{
 
         const studentcalendar = {userId, type, eventId, trainingId, eventDate, trainingDate, skills};
         
-        console.log("calendara verilecekler: ", userId, type, eventId, trainingId, eventDate, trainingDate, skills);
+       
       
         try {
           const response = await fetch("/api/studentcalendar/addStudentCalendar", {

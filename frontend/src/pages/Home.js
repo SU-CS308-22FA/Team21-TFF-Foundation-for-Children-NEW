@@ -11,9 +11,9 @@ const Home = () => {
   fetch()
     .then((res) => {
       if (res.ok) {
-        console.log('SUCCESS');
+        
       } else {
-        console.log('Not Successful');
+        
       }
     })
 
