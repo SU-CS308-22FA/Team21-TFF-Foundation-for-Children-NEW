@@ -1,26 +1,24 @@
-import React from "react";
+import React from 'react';
 
-import { useState } from "react";
-import { useSignup } from "../hooks/useSignup";
-import Navbar from "../components/Navbar";
+import { useState } from 'react';
+import { useSignup } from '../hooks/useSignup';
+import Navbar from '../components/Navbar';
 const Signup = () => {
-  const [userName, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
-  const [assignedemail, setAssignedemail]= useState('')
+  const [userName, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
+  const [assignedemail, setAssignedemail] = useState('');
   const { signup, error, isLoading } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.warn("all data", userName, email, password, role);
-    await signup(email, userName, password, role, assignedemail)
-    setUsername("");
-    setEmail("");
-    setPassword("");
-    setRole("");
-
-
+    console.warn('all data', userName, email, password, role);
+    await signup(email, userName, password, role, assignedemail);
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setRole('');
   };
 
   return (
@@ -46,11 +44,12 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <label>assignedEmail enter none:</label>
-        <input 
-          type="text" 
-          onChange={(e) => setAssignedemail(e.target.value)} 
-          value={assignedemail} 
+        <label>assignedEmail: (You cannot edit this)</label>
+        <input
+          type="text"
+          onChange={(e) => setAssignedemail(e.target.value)}
+          value={'none'}
+          readOnly
         />
         <p>I am a</p>
         <select
@@ -69,7 +68,7 @@ const Signup = () => {
         {error && <div className="error">{error}</div>}
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default Signup;

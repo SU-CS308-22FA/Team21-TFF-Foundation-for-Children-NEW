@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useNavigate } from 'react-router-dom';
-
+import logo from '../img/TFFFC.png';
 const Navbar = () => {
   const navigate = useNavigate();
   const { logout } = useLogout();
@@ -12,34 +12,51 @@ const Navbar = () => {
     logout();
     navigate("/")
   };
-
-  const handleClick2 = () => {
-    if (user.role === 'Student'){
-      navigate("/student");
-    }
-    else if (user.role === 'Teacher') {
-      navigate('/teacher');
-    }
+  const handleContact = () => {
+    navigate("/contactUs")
   };
+  const handleIssue = () => {
+    navigate("/reportIssue")
+  };
+  const handleHome = () => {
+    if (user.role === "Student") {
+      navigate("/student")
+
+    }
+    if (user.role === "Teacher") {
+      navigate("/teacher")
+    }
+    if (user.role === "Admin") {
+      navigate("/admin")
+    }
+
+  };
+
 
   return (
     <header>
       <div className="container">
         <Link to="/">
-          <h1>TFF foundation for children</h1>
+          <img height="100px" src={logo} alt="" />
         </Link>
         <nav>
           {user && (
             <div>
               <span>{ user.email}</span>
               <button onClick={handleClick}>Log out</button>
-              <button onClick={handleClick2}>Home</button>
+              <button onClick={handleHome}>Content</button>
+              <button onClick={handleIssue}>Create Issue</button>
+              <button onClick={handleContact}>Contact us</button>
+
             </div>
           )}
           {!user && (
             <div>
+              
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
+              <button onClick={handleContact}>Contact us</button>
+
             </div>
           )}
         </nav>

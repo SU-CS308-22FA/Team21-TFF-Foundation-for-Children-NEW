@@ -1,5 +1,4 @@
 import '../index.scss';
-import logo from '../img/mt-0966-logo.png';
 import { Link } from 'react-router-dom';
 import one from '../img/1.jpg';
 import two from '../img/2.jpg';
@@ -10,6 +9,7 @@ import six from '../img/6.jpg';
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import { useAuthContext } from '../hooks/useAuthContext';
+
 function stringToColor(string) {
   let hash = 0;
   let i;
@@ -48,14 +48,11 @@ const Student= () => {
         <div className="stuPage">
                     <div className="introImage">
                         
-                       
+                       {console.log(user.email+"aaaaaa")}
                     </div>
                     <div className="nav">
                     <Avatar {...stringAvatar(email)} />
-                    <Link to="/" id="link">
-                          {' '}
-                          <img src={logo} alt="" />{' '}
-                        </Link>
+
                         <Link to="/" id="link">
                           {' '}
                           Home{' '}
@@ -67,7 +64,7 @@ const Student= () => {
                           Announcements{' '}
 
                         </Link>
-                        <Link to="/Evaluation" id="link">
+                        <Link to="/evaluation" id="link">
                           My Evaluation{' '} </Link>
 
                           <Link to="/" id="link">

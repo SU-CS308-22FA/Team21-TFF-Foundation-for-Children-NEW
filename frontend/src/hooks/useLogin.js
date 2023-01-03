@@ -53,7 +53,10 @@ export const useLogin = () => {
       ) {
           console.log('Redirecting to teacher dashboard')
           navigate('/teacher');
-        } 
+        }
+      else {
+         navigate('/admin');
+      }
     }
   };
 
