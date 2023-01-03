@@ -12,10 +12,7 @@ const getStudentSkills = async (req, res)=>{
   const {email}= req.params;
   const user= await User.findOne({email:email});
   const skills = await Skill.find({userId: user._id});
-  let levels=10;
-  for (const skill of skills){
-    skill.level= levels++;
-  }
+  
   
   const groupedData= skills.reduce((groups, item)=>{
    
@@ -185,10 +182,10 @@ const updateSkill = async (req, res) => {
   console.log("in update skill")
     const { id, level } = req.body
     const objectId = mongoose.Types.ObjectId(id);
-    console.log(id, level)
+    
     //const skillobj= await Skill.findOne({_id:objectId})
     const skill= await Skill.findOneAndUpdate({_id:objectId},{level:level})
-    console.log(skill);
+    
   res.status(200)
 };
 
