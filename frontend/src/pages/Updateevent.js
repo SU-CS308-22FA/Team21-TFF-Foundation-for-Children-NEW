@@ -33,53 +33,6 @@ const UpdateEvent = () =>{
 
     }
 
-    /*
-    const { dispatch } = useEventContext()
-    const { user } = useAuthContext()
-    const[eventtitle, seteventtitle] = useState('');
-    const[eventlocation, seteventlocation] = useState('');
-    const[eventbody, seteventbody] = useState('');
-    const[eventquota, seteventquota] = useState('');
-    const [error, setError] = useState(null)
-    const [emptyFields, setEmptyFields] = useState([])
-
-
-    const handleSubmit = async (e) => {
-        e.preventDefault() // prevent to take action when the page was refreshed.
-        if (!user) {
-            setError('You must be logged in')
-            return
-        }
-
-        const stuevent = {eventtitle,eventlocation,eventbody,eventquota}
-        console.log("in form: ", stuevent)
-        const response = await fetch('/api/event/addevent', {
-            method: 'POST',
-            body: JSON.stringify(stuevent),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${user.token}`
-            }
-        })
-
-        const json = await response.json()
-        if (!response.ok) {
-            setError(json.error)
-            setEmptyFields(json.emptyFields)
-        }
-        if (response.ok) {
-            // make the form empty again
-            seteventtitle("")
-            seteventlocation("")
-            seteventbody("")
-            seteventquota("")
-            setError(null)
-            setEmptyFields([])
-            dispatch({type: 'ADD_EVENT', payload: json})
-            console.log("new event is added (json), ", json)
-        }
-    }
-    */
     const handleSubmit = async (e) => {
         e.preventDefault() // prevent to take action when the page was refreshed.
         if (!user) {

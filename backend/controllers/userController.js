@@ -26,11 +26,56 @@ const getUser = async (req, res) => {
   res.status(200).json(user);
 };
 
-const getStudentUsers = async (req, res) => {
-  console.log('get Users girildi!');
-  const users = await User.find({ role: 'Student' });
+
+const getSomeUsers = async (req, res) => {
+  
+  console.log("getSomeUsers called");
+
+  const { userIds  } = req.query;
+  console.log(userIds )
+  if (!userIds) {
+    return setError("The 'userIds' array is required.");
+  }
+
+  // Convert the userIds to an array of ObjectIds
+  const objectIds = userIds.split(',').map(userId => mongoose.Types.ObjectId(userId));
+  console.log("objectIds: ",  objectIds)
+
+  // Find the user documents with the given userIds
+  const users = await User.find({ _id: { $in: objectIds } });
+
   res.status(200).json(users);
 };
+
+const searchUserByEmail = async (req, res) => {
+  console.log("girildi!")
+  console.log("req: ", req.params)
+  try {
+    // Get the email to search for from the request parameters
+    const { email } = req.params;
+    console.log(email)
+
+    // Search the database for an object with the matching email
+    const foundObject = await User.findOne({ email });
+
+    // If a match is found, send the object as a response
+    if (foundObject) {
+      return res.send(foundObject);
+    }
+
+    // If no match is found, send a 404 response
+    return res.sendStatus(404);
+  } catch (error) {
+    // If an error occurs, send a 500 response
+    return res.sendStatus(500);
+  }
+};
+
+const getStudentUsers= async (req,res) => {
+  console.log("get Users girildi!")
+  const users= await User.find({role:"Student"})
+  res.status(200).json(users)
+}
 
 /*
 const getUserEvents = async (req,res) => {
@@ -86,6 +131,15 @@ const updateUser = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+
+const updateSkillLevel = async (req, res) => {
+  console.log("updateSkillLevel was called!")
+  const {level, email} = req.body
+  console.log("level: ", level)
+  console.log("email: ", email)
+  
+
+}
 
 const addToEventsList = async (req, res) => {
   console.log('addToEventsArray was called!');
@@ -167,13 +221,9 @@ const signupUser = async (req, res) => {
     // error is coming from userModel.js. or if it is related to creating db, mongodb can also give an error message.
     res.status(400).json({ error: error.message });
   }
-};
 
-module.exports = {
-  signupUser,
-  loginUser,
-  getStudentUsers,
-  updateUser,
-  addToEventsList,
-  getUser,
-};
+}
+
+
+module.exports = { signupUser, loginUser, searchUserByEmail, updateSkillLevel, getStudentUsers, updateUser,  addToEventsList, getUser, getSomeUsers}
+
