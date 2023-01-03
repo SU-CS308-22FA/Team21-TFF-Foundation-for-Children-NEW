@@ -7,6 +7,7 @@ const eventRoutes = require('./routes/event');
 const skillRoutes = require('./routes/skill');
 const trainingRoutes = require('./routes/training');
 const announcementRoutes = require('./routes/announcement');
+const issueRoutes = require('./routes/issue');
 const evaluationRoutes = require('./routes/evaluation');
 const studentcalendarRoutes = require('./routes/studentcalendar');
 //const calendarRoutes= require('./routes/calendar')
@@ -33,10 +34,11 @@ app.use('/api/skill', skillRoutes);
 app.use('/api/training', trainingRoutes);
 app.use('/api/studentcalendar', studentcalendarRoutes);
 app.use('/api/announcement', announcementRoutes);
+app.use('/api/issue', issueRoutes);
 app.use('/api/evaluation', evaluationRoutes);
 //app.use('/api/calendar', calendarRoutes)
-app.use('/api/user', userRoutes) // register the router (routes)
-app.use('/api/event', eventRoutes)
+app.use('/api/user', userRoutes); // register the router (routes)
+app.use('/api/event', eventRoutes);
 
 // connect to db
 mongoose

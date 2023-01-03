@@ -13,7 +13,7 @@ import Evaluation from './Evaluation';
 
 const Home = () => {
   const { user } = useAuthContext();
-  
+  console.log(user);
   const userName = user?.userName?.toString() || '';
   fetch()
     .then((res) => {
@@ -42,7 +42,6 @@ const Home = () => {
           </h2>
           <div
             style={{
-
               height: '50vh',
 
               overflow: 'auto',
@@ -65,12 +64,7 @@ const Home = () => {
         </div>
       </div>
       <div className="teacherContainer">
-        {user?.role === 'Student'&& (
-          <Evaluation/>
-          )
-      
-        };
-        
+        {user?.role === 'Student' && <Evaluation />};
       </div>
     </div>
   );
