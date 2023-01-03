@@ -1,15 +1,12 @@
 import '../index.scss';
 import React from 'react';
 import Navbar from '../components/Navbar';
-
-
 import { useAuthContext } from '../hooks/useAuthContext';
 import Announcements from './Announcements';
 import Evaluation from './Evaluation';
 
 const Home = () => {
   const { user } = useAuthContext();
-  console.log(user);
   const userName = user?.userName?.toString() || '';
   fetch()
     .then((res) => {

@@ -9,6 +9,7 @@ import six from '../img/6.jpg';
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import { useAuthContext } from '../hooks/useAuthContext';
+
 function stringToColor(string) {
   let hash = 0;
   let i;
@@ -47,7 +48,7 @@ const Student= () => {
         <div className="stuPage">
                     <div className="introImage">
                         
-                       
+                       {console.log(user.email+"aaaaaa")}
                     </div>
                     <div className="nav">
                     <Avatar {...stringAvatar(email)} />
