@@ -25,7 +25,7 @@ const Home = () => {
       <Navbar />
       <div className="aboutDescription">
         
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: 'center', margin:"auto" }}>
           <h1>
             {userName
               ? `Welcome, ${userName}`
