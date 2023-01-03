@@ -1,5 +1,5 @@
 import Navbar from '../components/Navbar';
-import Announcements from './Announcements';
+import Announcements from '../components/Announcements';
 
 const AnnouncementPage = () => {
   return (

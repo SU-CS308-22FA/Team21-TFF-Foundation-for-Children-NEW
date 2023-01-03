@@ -81,6 +81,7 @@ const IssueAdd = () => {
             <MenuItem value={'General'}>General</MenuItem>
             <MenuItem value={'Bug Report'}>Bug Report</MenuItem>
             <MenuItem value={'Others'}>Others</MenuItem>
+            <MenuItem value={'Delete My Account'}>Delete My Account</MenuItem>
           </Select>
         </div>
 

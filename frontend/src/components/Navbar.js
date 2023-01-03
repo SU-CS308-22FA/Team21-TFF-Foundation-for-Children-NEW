@@ -12,6 +12,12 @@ const Navbar = () => {
     logout();
     navigate("/")
   };
+  const handleContact = () => {
+    navigate("/contactUs")
+  };
+  const handleIssue = () => {
+    navigate("/reportIssue")
+  };
   const handleHome = () => {
     if (user.role === "Student") {
       navigate("/student")
@@ -20,6 +26,10 @@ const Navbar = () => {
     if (user.role === "Teacher") {
       navigate("/teacher")
     }
+    if (user.role === "Admin") {
+      navigate("/admin")
+    }
+
   };
 
 
@@ -35,12 +45,18 @@ const Navbar = () => {
               <span>{ user.email}</span>
               <button onClick={handleClick}>Log out</button>
               <button onClick={handleHome}>Content</button>
+              <button onClick={handleIssue}>Create Issue</button>
+              <button onClick={handleContact}>Contact us</button>
+
             </div>
           )}
           {!user && (
             <div>
+              
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
+              <button onClick={handleContact}>Contact us</button>
+
             </div>
           )}
         </nav>
