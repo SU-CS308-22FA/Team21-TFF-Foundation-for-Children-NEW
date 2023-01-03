@@ -13,7 +13,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.warn("all data", userName, email, password, role);
+    
     await signup(email, userName, password, role, assignedemail)
     setUsername("");
     setEmail("");

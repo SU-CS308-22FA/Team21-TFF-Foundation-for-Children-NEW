@@ -1161,7 +1161,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
+  background-color: black;
 }
 .tabLine{
   border-bottom: 3px solid;
@@ -1170,4 +1170,17 @@ body {
 .trainingEntry{
   font-size: 20px;
   font-weight: 600;
+  color: #fff;
+}
+.BarChart{
+  margin-top: 10%;
+  display: none;
+}
+.avarages{
+  color: #fff;
+  font-size: 20px;
+  
+}
+.barChartAvarage{
+  display: none;
 }

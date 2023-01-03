@@ -25,7 +25,7 @@ export const useLogin = () => {
       body: JSON.stringify({ email, password }),
     });
     const json = await response.json();
-    console.log('json bu:', json);
+    
     if (!response.ok) {
       setIsLoading(false);
       setError(json.error);
@@ -35,15 +35,14 @@ export const useLogin = () => {
       localStorage.setItem('user', JSON.stringify(json));
       // update the auth context
       dispatch({ type: 'LOGIN', payload: json });
-      console.log('entered to login');
+   
       // update loading state
       setIsLoading(false);
 
       //const redirect = location.search.split('=')[1];
 
       if (JSON.parse(localStorage.getItem('user')) && JSON.parse(localStorage.getItem('user')).role === 'Student') {
-        console.log("33.satir: ", localStorage.getItem('user'))
-        console.log('Redirecting to student dashboard')
+        
         navigate('/student');
       }
       else if (
@@ -51,7 +50,7 @@ export const useLogin = () => {
         JSON.parse(localStorage.getItem('user')).role === 'Teacher'
         //!redirect
       ) {
-          console.log('Redirecting to teacher dashboard')
+          
           navigate('/teacher');
         } 
     }

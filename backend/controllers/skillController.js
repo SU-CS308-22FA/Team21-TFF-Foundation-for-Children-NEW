@@ -1,5 +1,5 @@
 
-
+const User= require('../models/userModel')
 const Skill = require("../models/skillModel");
 const mongoose = require("mongoose");
 //const { default: continuousColorLegend } = require("react-vis/dist/legends/continuous-color-legend");
@@ -8,10 +8,32 @@ const ObjectId = require('mongoose').Types.ObjectId;
 
 
 //controller functions
+const getStudentSkills = async (req, res)=>{
+  const {email}= req.params;
+  const user= await User.findOne({email:email});
+  const skills = await Skill.find({userId: user._id});
+  let levels=10;
+  for (const skill of skills){
+    skill.level= levels++;
+  }
+  
+  const groupedData= skills.reduce((groups, item)=>{
+   
+    //const date = new Date(item.skillDate);
+    //const val = date.getDate();
+    const val= item.skillName;
 
+    groups[val]= groups[val] || [];
+    groups[val].push(item);
+    return groups
+    
+  },{})
+  
+  res.status(200).json(groupedData);
+}
 //create a skill object
 const addSkill = async (req, res) => {
-  console.log("add skill girildi")
+  
     const {userId, skillName, level, skillDate} = req.body 
     console.log(userId, skillName, level, skillDate)
   
@@ -45,21 +67,29 @@ const addSkill = async (req, res) => {
     
     let count=5;
     
-    const skillPromises = calendarArray.map(async calendar => {
+    let skillArray = [];
+
+    for (const calendar of calendarArray) {
       try {
         const calendarId = ObjectId(calendar);
         const skill = await Skill.findOne({ _id: calendarId });
         skill.level = count++;
         if (skill !== null) {
-          return skill;
+          skillArray.push({
+            ...skill,
+            _id: skill._id.toHexString()
+          });
         }
       } catch (error) {
         console.error(error);
       }
-    });
+    }
+    //console.log(skillArray[0].skillDate)
+   
     
-    const skillArray = await Promise.all(skillPromises);
-    console.log(skillArray);
+    
+    //const skillDates = skillArray.map(skill => skill.skillDate);
+    //console.log(skillDates);
     /*
     calendarArray.forEach( async calendar  =>  {
       //const calendar= String(calendar2);
@@ -80,17 +110,20 @@ const addSkill = async (req, res) => {
       }
       
     });
-    console.log(skillArray)*/
+    console.log(skillArray)
+    */
+    /*
     const groupedData= skillArray.reduce((groups, item)=>{
-      //console.log(item.skillDate);
+   
       const date = new Date(item.skillDate);
       const val = date.getDate();
-      //console.log(val)
+     
       groups[val]= groups[val] || [];
       groups[val].push(item);
       return groups
       
     },{})
+    */
     //console.log(groupedData);
     
     
@@ -101,7 +134,7 @@ const addSkill = async (req, res) => {
 // get a skill by id 
 const getSkill = async (req, res) => {
     const { id } = req.params
-  console.log(id)
+ 
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({ error: "No such skill" });
     }
@@ -147,24 +180,14 @@ const deleteSkill = async (req, res) => {
 // update a skill by its id. 
 //This function will be used when the level of the student is measured and should be released by the teacher. 
 const updateSkill = async (req, res) => {
-    const { id } = req.params
-
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such skill" });
-  }
-
-  const skill = await Skill.findOneAndUpdate(
-    { _id: id },
-    {
-      ...req.body,
-    }
-  );
-
-  if (!skill) {
-    return res.status(400).json({ error: "No such skill" });
-  }
-
-  res.status(200).json(skill);
+  
+    const { id, level } = req.body
+    const objectId = mongoose.Types.ObjectId(id);
+    
+    //const skillobj= await Skill.findOne({_id:objectId})
+    const skill= await Skill.findOneAndUpdate({_id:objectId},{level:level})
+    
+  res.status(200)
 };
 
 
@@ -175,6 +198,7 @@ module.exports = {
     getSkills,
     deleteSkill,
     updateSkill,
-    getSkillList
+    getSkillList,
+    getStudentSkills
  
 }

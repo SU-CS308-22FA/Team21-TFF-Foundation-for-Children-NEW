@@ -50,7 +50,7 @@ const Evaluate = () => {
       .then((data) => {
         setStudents(data);
         setIsLoading(false);
-        console.log(data);
+       
       });
   };
 

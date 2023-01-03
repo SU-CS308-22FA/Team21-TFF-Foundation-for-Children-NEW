@@ -10,8 +10,7 @@ const ViewTraining = () =>{
   const [error, setError] = useState(null)
   let location = useLocation();
   let trainingData = location.state;
-  console.log("location: ", trainingData);
-  console.log("idsi: ",  trainingData._id);
+  
  
   
   

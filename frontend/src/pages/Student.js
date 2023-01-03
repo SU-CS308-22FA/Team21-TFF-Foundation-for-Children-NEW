@@ -10,6 +10,8 @@ import six from '../img/6.jpg';
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import { useAuthContext } from '../hooks/useAuthContext';
+import { useEffect, useState } from "react";
+
 function stringToColor(string) {
   let hash = 0;
   let i;
@@ -39,11 +41,55 @@ function stringAvatar(name) {
   };
 }
 
+
+
+
+
+
 const Student= () => {
-    
+    let [calendars, setCalendars]= useState([]);
   const { user } = useAuthContext();
+  let email2= user.email;
   const email = user?.email.toString() || 'su';
-  
+  useEffect (() => {
+    const fetchCalendars= async () =>{
+        const response= await fetch('/api/studentcalendar/getStudentCalendar/'+email)
+        const json= await response.json();
+        setCalendars(json);
+    }
+    fetchCalendars()
+}, [email2]);
+
+let trainingsArray=[];
+let eventsArray=[];
+
+for(let x=0; x<calendars.length;x++){
+    const calendarType = calendars[x].type.toString();
+    if(calendarType==="training"){
+        
+        const date= new Date(calendars[x].trainingDate);
+        const day= date.getDate();
+        trainingsArray.push(day);
+    }
+    else{
+        const date= new Date(calendars[x].trainingDate);
+        const day= date.getDate();
+        eventsArray.push(day);
+    }
+}
+const dayList= document.getElementsByClassName("days")[0];
+for(let i=0; i < trainingsArray.length;i++){
+    const dayObject= dayList.children[trainingsArray[i]-1];
+    dayObject.addEventListener('click', (event)=>{
+        window.location.href = '/development';
+    });
+    dayObject.innerHTML="Training";
+}
+for(let i=0; i < eventsArray.length;i++){
+    const dayObject= dayList.children[eventsArray[i]-1];
+    dayObject.innerHTML="Event";
+}
+
     return(
         <div className="stuPage">
                     <div className="introImage">
@@ -232,9 +278,8 @@ const Student= () => {
           <li>7</li>
           <li>8</li>
           <li>9</li>
-          <li>
-            <span className="active">10</span>
-          </li>
+          <li>10</li>
+          <li>11</li>
           <li>12</li>
           <li>13</li>
           <li>14</li>
@@ -256,6 +301,7 @@ const Student= () => {
           <li>30</li>
         </ul>
       </div>
+     
     </div>
   );
 };

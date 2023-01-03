@@ -40,7 +40,7 @@ const Evaluation = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+       
         setEvaluation(data[0].evaluations);
       });
   };
