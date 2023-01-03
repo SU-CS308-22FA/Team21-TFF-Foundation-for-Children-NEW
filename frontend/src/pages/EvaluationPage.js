@@ -1,5 +1,5 @@
 import Navbar from '../components/Navbar';
-import Evaluation from './Evaluation';
+import Evaluation from '../components/Evaluation';
 
 const EvaluationPage = () => {
   return (
