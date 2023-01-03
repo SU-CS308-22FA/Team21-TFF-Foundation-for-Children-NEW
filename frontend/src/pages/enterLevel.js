@@ -85,18 +85,18 @@ const EnterLevel = () => {
   const [error, setError] = useState(null)
   const [skills, setSkills] = useState([]);
   const { current: calendarsData, userId } = location.state;
-  console.log("calendars here: ", calendarsData)
-  console.log("user here: ", userId)
+  //console.log("calendars here: ", calendarsData)
+  //console.log("user here: ", userId)
   const index = calendarsData.findIndex(calendar => calendar.userId === userId);
-  console.log("bu userin calendarlari iste bunlar,", calendarsData[index]);
+  //console.log("bu userin calendarlari iste bunlar,", calendarsData[index]);
   const currentUsersSkills = calendarsData[index];
 
   const fetchSkills = async () => {
     const skillIds = currentUsersSkills.skills;
-    console.log("skillIds here: ", skillIds);
+    //console.log("skillIds here: ", skillIds);
     const fetchedSkills = [];
     for (const skillid of skillIds) {
-      console.log("fordaki bir skill id: ", skillid)
+      //console.log("fordaki bir skill id: ", skillid)
       try {
         const response = await fetch('/api/skill/getSkill/' + skillid, {
           method: 'GET',
@@ -112,15 +112,15 @@ const EnterLevel = () => {
             setError(json.error);
           }
           if (response.ok) {
-            console.log("skill bu: ", json)
+            //console.log("skill bu: ", json)
             setError(null);
             fetchedSkills.push(json);
           }
           if (skillIds.length === fetchedSkills.length) {
             setSkills(fetchedSkills);
-            console.log("skills: ", skills);
+            //console.log("skills: ", skills);
           }
-          console.log("final: ", skills);
+          //console.log("final: ", skills);
         } catch (error) {
           setError("An error occurred while getting the skill!");
       }

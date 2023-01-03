@@ -30,7 +30,7 @@ const getTrainings = async (req, res) => {
 
 // get a training by id 
 const getTraining = async (req, res) => {
-  console.log("get training called!")
+  //console.log("get training called!")
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -60,7 +60,7 @@ const getTraining = async (req, res) => {
 // delete a skill by id
 const deleteTraining = async (req, res) => {
     const { id } = req.params
-    console.log("id:" , id)
+    //console.log("id:" , id)
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "No such training" });

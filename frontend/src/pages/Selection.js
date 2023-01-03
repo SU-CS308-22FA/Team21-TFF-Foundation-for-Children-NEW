@@ -1,7 +1,7 @@
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useState, useEffect } from "react";
 import Navbar from '../components/Navbar'
-console.log("selection page is called!")
+//console.log("selection page is called!")
 
 
 const Selection=  () => {
@@ -24,10 +24,10 @@ const Selection=  () => {
 
     
     const assignStudent= async (studentEmail) => { 
-        console.log("assignStudent called")
+        //console.log("assignStudent called")
         const teacherEmail= user.email
         const data= {studentEmail, teacherEmail}
-        console.log("data: ", data)
+        //console.log("data: ", data)
         try {
           const response = await fetch('/api/user/update', {
             method: 'PATCH',
@@ -43,7 +43,7 @@ const Selection=  () => {
             return;
           }
           const json = await response.json();
-          console.log("response is ok. json is, ", json);
+          //console.log("response is ok. json is, ", json);
           setError('');
           const { message } = json;
           alert(message);

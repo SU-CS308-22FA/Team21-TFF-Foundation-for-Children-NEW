@@ -8,7 +8,7 @@ const EventDetails = ({ event }) => {
 
     const handleClick = async () => {  // make handleClick an async function because we are going to reach out to the API
       if (!user) {
-        console.log("please log in!")
+        //console.log("please log in!")
         return
       }
       const response = await fetch('/api/event/getevents/' + event._id, {
@@ -20,13 +20,13 @@ const EventDetails = ({ event }) => {
       
 
       const json = await response.json()
-      console.log("json bu:", json)
+      //console.log("json bu:", json)
 
       if (response.ok) {
         dispatch({type: 'DELETE_EVENT', payload: json})
       }
       else {
-        console.log("delete hatali")
+        //console.log("delete hatali")
       }
     }
 

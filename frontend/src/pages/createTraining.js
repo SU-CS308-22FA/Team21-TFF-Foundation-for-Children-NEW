@@ -33,7 +33,7 @@ const CreateTraining = () => {
         }
 
         const training = {trainingName,date,skills};
-        console.log("in form: ", training)
+        //console.log("in form: ", training)
         const response = await fetch('/api/training/addTraining', {
             method: 'POST',
             body: JSON.stringify(training),

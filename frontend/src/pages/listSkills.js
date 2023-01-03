@@ -16,7 +16,7 @@ const ListSkills =  () => {
           })
           const json= await response.json() // json contains an array of event objects.
           if(response.ok){
-            console.log("fetchSkills ok")
+            //console.log("fetchSkills ok")
             dispatch({type: 'VIEW_SKILL', payload: json})
           }
         }

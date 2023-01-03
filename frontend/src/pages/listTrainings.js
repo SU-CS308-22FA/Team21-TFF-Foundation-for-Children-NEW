@@ -16,7 +16,7 @@ const ListTrainings =  () => {
           })
           const json= await response.json() // json contains an array of event objects.
           if(response.ok){
-            console.log("fetchTrainings ok")
+            //console.log("fetchTrainings ok")
             dispatch({type: 'VIEW_TRAINING', payload: json})// remember, the payload should be an array of events. json is an array of events here.
           }
         }

@@ -57,7 +57,7 @@ const createEvent = async (req, res) => {
 */
 const deleteStuEvent = async (req, res) => {
     const { id } = req.params
-    console.log("id:" , id)
+    //console.log("id:" , id)
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "No such event" });
@@ -115,7 +115,7 @@ const getStuEvents = async (req, res) => {
 */
 const addStuEvent = async (req, res) => {
   const {eventtitle,eventlocation,eventbody,eventquota} = req.body 
-  console.log(eventtitle)
+  //console.log(eventtitle)
   let emptyFields = []
 
   if(!eventtitle) {
@@ -134,7 +134,7 @@ const addStuEvent = async (req, res) => {
   if(emptyFields.length > 0) {
     return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
   }
-  console.log(emptyFields)
+  //console.log(emptyFields)
   // add doc to db
   try {
     const event = await Event.create({eventtitle,eventlocation,eventbody,eventquota})

@@ -9,8 +9,8 @@ const ApplyEvent = () =>{
   const [error, setError] = useState(null)
   let location = useLocation();
   let eventData = location.state;
-  console.log("location: ", eventData);
-  console.log("idsi: ",  eventData._id);
+  //console.log("location: ", eventData);
+  //console.log("idsi: ",  eventData._id);
  
   const handleClick = async (e) => {
     // make handleClick an async function because we are going to reach out to the API
@@ -38,7 +38,7 @@ const ApplyEvent = () =>{
         return;
       }
       const json = await response.json();
-      console.log("response is ok. json is, ", json);
+      //console.log("response is ok. json is, ", json);
       setError('');
       const { message } = json;
       alert(message);
