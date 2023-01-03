@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
 // pages & components
+import AdminPanel from './pages/adminPanel'
 import Student from './pages/Student';
 import Teacher from './pages/Teacher';
 import Home from './pages/Home';
@@ -43,6 +44,7 @@ function App() {
 
               <Route path="/student" element={<Student />} />
               <Route path="/teacher" element={<Teacher />} />
+              <Route path="/admin" element={<AdminPanel />} />
 
               <Route path="/teacher/events" element={<EventsTabOnTeacher />} />
 
