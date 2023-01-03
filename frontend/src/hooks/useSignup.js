@@ -7,6 +7,7 @@ export const useSignup = () => {
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
   const navigate = useNavigate();
+<<<<<<< Updated upstream
   
   const signup = async (email, userName, password, role, assignedemail) => {
     console.log("role:", role, "hata hook mu??")
@@ -26,6 +27,27 @@ export const useSignup = () => {
     console.log("Sign up json:", JSON)
     const json = await response.json()
     console.log("json bu:", json)
+=======
+
+  const signup = async (email, userName, password, role, assignedemail) => {
+    console.log('role:', role, 'hata hook mu??');
+    setIsLoading(true);
+    setError(null);
+    console.log('in useSignup: ', assignedemail);
+    console.log('in useSignup email: ', email);
+    console.log(' usesign up: username ', userName);
+    console.log('usesign up: password ', password);
+    console.log('usesign up: role ', role);
+    console.log('usesign up: assignedemail ', assignedemail);
+    const response = await fetch('/api/user/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, userName, password, role, assignedemail }),
+    });
+    console.log('Sign up json:', JSON);
+    const json = await response.json();
+    console.log('json bu:', json);
+>>>>>>> Stashed changes
     if (!response.ok) {
       setIsLoading(false);
       setError(json.error);

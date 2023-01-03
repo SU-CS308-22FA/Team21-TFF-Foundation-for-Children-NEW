@@ -13,7 +13,11 @@ import Evaluation from './Evaluation';
 
 const Home = () => {
   const { user } = useAuthContext();
+<<<<<<< Updated upstream
   
+=======
+  console.log(user);
+>>>>>>> Stashed changes
   const userName = user?.userName?.toString() || '';
   fetch()
     .then((res) => {
@@ -42,7 +46,10 @@ const Home = () => {
           </h2>
           <div
             style={{
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
               height: '50vh',
 
               overflow: 'auto',
@@ -65,12 +72,16 @@ const Home = () => {
         </div>
       </div>
       <div className="teacherContainer">
+<<<<<<< Updated upstream
         {user?.role === 'Student'&& (
           <Evaluation/>
           )
       
         };
         
+=======
+        {user?.role === 'Student' && <Evaluation />};
+>>>>>>> Stashed changes
       </div>
     </div>
   );
