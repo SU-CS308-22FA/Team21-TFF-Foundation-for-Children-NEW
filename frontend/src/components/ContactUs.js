@@ -1,12 +1,6 @@
 import Navbar from "./Navbar";
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-var templateParams = {
-    name: 'James',
-    notes: 'Check this out!'
-};
-
-
 export const ContactUs = () => {
   const form = useRef();
 
