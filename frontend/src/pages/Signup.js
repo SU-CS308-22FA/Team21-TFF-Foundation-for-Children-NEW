@@ -1,16 +1,3 @@
-<<<<<<< Updated upstream
-import React from "react";
-
-import { useState } from "react";
-import { useSignup } from "../hooks/useSignup";
-import Navbar from "../components/Navbar";
-const Signup = () => {
-  const [userName, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
-  const [assignedemail, setAssignedemail]= useState('')
-=======
 import React from 'react';
 
 import { useState } from 'react';
@@ -22,28 +9,16 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
   const [assignedemail, setAssignedemail] = useState('');
->>>>>>> Stashed changes
   const { signup, error, isLoading } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-<<<<<<< Updated upstream
-    console.warn("all data", userName, email, password, role);
-    await signup(email, userName, password, role, assignedemail)
-    setUsername("");
-    setEmail("");
-    setPassword("");
-    setRole("");
-
-
-=======
     console.warn('all data', userName, email, password, role);
     await signup(email, userName, password, role, assignedemail);
     setUsername('');
     setEmail('');
     setPassword('');
     setRole('');
->>>>>>> Stashed changes
   };
 
   return (
@@ -70,18 +45,10 @@ const Signup = () => {
           value={password}
         />
         <label>assignedEmail (Don't touch this part please):</label>
-<<<<<<< Updated upstream
-        <input 
-          
-          type="text" 
-          onChange={(e) => setAssignedemail(e.target.value)} 
-          value={"none"} 
-=======
         <input
           type="text"
           onChange={(e) => setAssignedemail(e.target.value)}
           value={'none'}
->>>>>>> Stashed changes
         />
         <p>I am a</p>
         <select
@@ -100,12 +67,7 @@ const Signup = () => {
         {error && <div className="error">{error}</div>}
       </form>
     </div>
-<<<<<<< Updated upstream
-  )
-}
-=======
   );
 };
->>>>>>> Stashed changes
 
 export default Signup;

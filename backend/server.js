@@ -7,10 +7,7 @@ const eventRoutes = require('./routes/event');
 const skillRoutes = require('./routes/skill');
 const trainingRoutes = require('./routes/training');
 const announcementRoutes = require('./routes/announcement');
-<<<<<<< Updated upstream
-=======
 const issueRoutes = require('./routes/issue');
->>>>>>> Stashed changes
 const evaluationRoutes = require('./routes/evaluation');
 const studentcalendarRoutes = require('./routes/studentcalendar');
 //const calendarRoutes= require('./routes/calendar')
@@ -37,18 +34,11 @@ app.use('/api/skill', skillRoutes);
 app.use('/api/training', trainingRoutes);
 app.use('/api/studentcalendar', studentcalendarRoutes);
 app.use('/api/announcement', announcementRoutes);
-<<<<<<< Updated upstream
-app.use('/api/evaluation', evaluationRoutes);
-//app.use('/api/calendar', calendarRoutes)
-app.use('/api/user', userRoutes) // register the router (routes)
-app.use('/api/event', eventRoutes)
-=======
 app.use('/api/issue', issueRoutes);
 app.use('/api/evaluation', evaluationRoutes);
 //app.use('/api/calendar', calendarRoutes)
 app.use('/api/user', userRoutes); // register the router (routes)
 app.use('/api/event', eventRoutes);
->>>>>>> Stashed changes
 
 // connect to db
 mongoose
