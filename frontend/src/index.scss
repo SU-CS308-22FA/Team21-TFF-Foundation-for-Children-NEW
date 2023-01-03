@@ -215,6 +215,13 @@ form.signup select {
   border-radius: 50%;
   color: rgb(253, 249, 249);
 }
+#updateLevelButton{
+ width:25%;
+  cursor: pointer;
+  background: var(--primary);
+  padding: 6px;
+  color: rgb(253, 249, 249);
+}
 
 #deleteEventButton{
   position: absolute;

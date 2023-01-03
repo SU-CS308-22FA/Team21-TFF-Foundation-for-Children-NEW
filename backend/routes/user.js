@@ -1,7 +1,7 @@
 const express = require("express");
 
 // controller functions
-const { loginUser, signupUser, searchUserByEmail, getStudentUsers, updateUser, addToEventsList, getUser } = require('../controllers/userController') // import the handler functions
+const { loginUser, signupUser, searchUserByEmail, updateSkillLevel, getStudentUsers, updateUser, addToEventsList, getUser, getSomeUsers } = require('../controllers/userController') // import the handler functions
 
 const router = express.Router();
 /*
@@ -21,8 +21,11 @@ router.post("/login", loginUser); // send data in a request
 // signup route
 router.post('/signup', signupUser)
 router.patch('/addtoeventslist', addToEventsList)
+router.patch('/updateskills', updateSkillLevel)
 router.get('/getstudents', getStudentUsers)
 router.get('/getusers/:id', getUser)
+router.get('/getsomeusers', getSomeUsers);
+
 router.get('/getuserbyemail/:email', searchUserByEmail)
 
 

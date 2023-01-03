@@ -5,6 +5,20 @@ const mongoose = require("mongoose");
 
 //controller functions
 
+// get a students calendars
+const getStudentCalendar= async (req, res)=> {
+  
+  const {email2}= req.params
+ 
+  const studentId= await userSchema.findOne({email:email2})
+
+  console.log("student id is: ", studentId._id)
+  const calendars= await studentcalendarSchema.find({userId:studentId._id})
+
+  res.status(200).json(calendars)
+
+}
+
 const addStudentCalendar = async (req,res) => {
   console.log("add student cal called.")
   // Create a new studentCalendar object
@@ -33,6 +47,30 @@ const addStudentCalendar = async (req,res) => {
   } catch (error) {
     res.status(400).json({error: error.message})
   }
+}
+
+const searchCalendarsWithTraningIdX = async (req, res) => {
+  console.log("girildi!")
+  console.log("req: ", req.params)
+  try {
+    // Get the trainingId to search for from the request parameters
+    const { trainingId } = req.params;
+    console.log(trainingId)
+
+    // Search the database for an object with the matching trainingId
+    const foundObject = await Studentcalendar.find({ trainingId });
+
+    // If a match is found, send the object as a response
+    if (foundObject) {
+      return res.send(foundObject);
+    }
+
+    // If no match is found, send a 404 response
+    return res.sendStatus(404);
+  } catch (error) {
+    // If an error occurs, send a 500 response
+    return res.sendStatus(500);
+  }
 };
 
 
@@ -40,6 +78,8 @@ const addStudentCalendar = async (req,res) => {
 
 
 module.exports = {
-    addStudentCalendar
+  addStudentCalendar,
+  getStudentCalendar,
+  searchCalendarsWithTraningIdX
  
 }

@@ -26,6 +26,27 @@ const getUser = async (req,res) => {
     res.status(200).json(user)
 }
 
+
+const getSomeUsers = async (req, res) => {
+  
+  console.log("getSomeUsers called");
+
+  const { userIds  } = req.query;
+  console.log(userIds )
+  if (!userIds) {
+    return setError("The 'userIds' array is required.");
+  }
+
+  // Convert the userIds to an array of ObjectIds
+  const objectIds = userIds.split(',').map(userId => mongoose.Types.ObjectId(userId));
+  console.log("objectIds: ",  objectIds)
+
+  // Find the user documents with the given userIds
+  const users = await User.find({ _id: { $in: objectIds } });
+
+  res.status(200).json(users);
+};
+
 const searchUserByEmail = async (req, res) => {
   console.log("girildi!")
   console.log("req: ", req.params)
@@ -112,6 +133,15 @@ const updateUser= async (req,res) =>{
 
 }
 
+const updateSkillLevel = async (req, res) => {
+  console.log("updateSkillLevel was called!")
+  const {level, email} = req.body
+  console.log("level: ", level)
+  console.log("email: ", email)
+  
+
+}
+
 const addToEventsList = async (req, res) => {
   console.log("addToEventsArray was called!")
   const {event, email} = req.body
@@ -188,4 +218,4 @@ const signupUser = async (req, res) => {
 }
 
 
-module.exports = { signupUser, loginUser, searchUserByEmail, getStudentUsers, updateUser,  addToEventsList, getUser}
+module.exports = { signupUser, loginUser, searchUserByEmail, updateSkillLevel, getStudentUsers, updateUser,  addToEventsList, getUser, getSomeUsers}

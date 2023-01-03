@@ -17,11 +17,12 @@ import EventsTabOnTeacher from './pages/EventsTabOnTeacher'
 import EventsTabOnStudent from './pages/StudentEventsTab'
 import ApplyEvent from './pages/applyForEvent'
 import UpdateEvent from './pages/Updateevent'
-import UpdateTraining from './pages/createTraining'
+import CreateTraining from './pages/createTraining'
 import ListTrainings from './pages/listTrainings'
 import ViewTraining from './pages/viewTraining'
 import ListSkills from './pages/listSkills'
-import CreateTraining from './pages/createTraining'
+import ViewSkills from './pages/enterLevel'
+import UpdateLevel from './pages/UpdateLevel'
 import AssignTrainingsToStu from './pages/AssignTraining'
 function App() {
   return (
@@ -97,8 +98,21 @@ function App() {
 
               <Route
                 path = "/teacher/trainings/:id/update"
-                element = {<UpdateTraining/>}
+                element = {<CreateTraining/>}
               />
+
+              <Route
+                path = "/teacher/trainings/:id/skills"
+                element = {<ViewSkills/>}
+              />
+
+              <Route
+                path = "/teacher/trainings/:id/skills/update_level"
+                element = {<UpdateLevel/>}
+              />
+
+
+
 
               <Route
                 path = "/teacher/skills"
