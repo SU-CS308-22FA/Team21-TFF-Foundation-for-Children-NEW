@@ -133,7 +133,7 @@ const EnterLevel = () => {
 
   return (
     <div>
-      <h1>merhaba</h1>
+      <h1>Here is the grades of the student</h1>
       {skills &&
         skills.map((skill) => (
           <div className="userContainer">

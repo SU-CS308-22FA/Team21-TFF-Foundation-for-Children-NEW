@@ -13,7 +13,6 @@ import AnnouncementAdd from './pages/AnnouncementAdd';
 import AnnouncementPage from './pages/AnnouncementPage';
 import EvaluationPage from './pages/EvaluationPage';
 import Evaluate from './pages/Evaluate';
-
 import ViewSkills from './pages/enterLevel'
 import UpdateLevel from './pages/UpdateLevel'
 import Login from './pages/Login';

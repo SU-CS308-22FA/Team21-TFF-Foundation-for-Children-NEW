@@ -28,8 +28,11 @@ const ListTrainings =  () => {
       <div className="Trainings">
           <Navbar/>
           
-            <h1> Trainings </h1>
-            <Link to="create" id="create">Create training</Link>
+            <h1> All Trainings </h1>
+            <br></br>
+            <Link to="create" id="returneventsbutton">Create training </Link>
+            <br></br>
+            <br></br>
           {trainings && trainings.map((training) =>(<TrainingDetails key={training._id} training = {training} />))}
       </div>
     );

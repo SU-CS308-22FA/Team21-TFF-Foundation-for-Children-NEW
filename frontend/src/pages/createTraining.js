@@ -53,6 +53,10 @@ const CreateTraining = () => {
             setdate("")
             setError(null)
             dispatch({type: 'ADD_TRAINING', payload: json})
+<<<<<<< Updated upstream
+=======
+            console.log("new training is added (json), ", json)
+>>>>>>> Stashed changes
             
         }
     }
