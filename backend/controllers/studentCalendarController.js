@@ -19,19 +19,7 @@ const getStudentCalendar= async (req, res)=> {
 
 }
 
-// get a students calendars
-const getStudentCalendar= async (req, res)=> {
-  
-  const {email2}= req.params
- 
-  const studentId= await userSchema.findOne({email:email2})
 
-  console.log("student id is: ", studentId._id)
-  const calendars= await studentcalendarSchema.find({userId:studentId._id})
-
-  res.status(200).json(calendars)
-
-}
 
 const addStudentCalendar = async (req,res) => {
  
