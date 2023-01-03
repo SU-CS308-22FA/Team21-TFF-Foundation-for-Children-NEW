@@ -44,11 +44,12 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <label>assignedEmail (Don't touch this part please):</label>
+        <label>assignedEmail: (You cannot edit this)</label>
         <input
           type="text"
           onChange={(e) => setAssignedemail(e.target.value)}
           value={'none'}
+          readOnly
         />
         <p>I am a</p>
         <select

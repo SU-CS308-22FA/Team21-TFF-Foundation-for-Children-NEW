@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useNavigate } from 'react-router-dom';
-
+import logo from '../img/TFFFC.png';
 const Navbar = () => {
   const navigate = useNavigate();
   const { logout } = useLogout();
@@ -27,7 +27,7 @@ const Navbar = () => {
     <header>
       <div className="container">
         <Link to="/">
-          <h1>TFF foundation for children</h1>
+          <img height="100px" src={logo} alt="" />
         </Link>
         <nav>
           {user && (

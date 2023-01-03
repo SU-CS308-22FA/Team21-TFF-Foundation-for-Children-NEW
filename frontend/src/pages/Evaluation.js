@@ -1,6 +1,5 @@
 import { Button, Rating, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
 import { useAuthContext } from '../hooks/useAuthContext';
 import SendIcon from '@mui/icons-material/Send';
 const Evaluation = () => {
@@ -56,7 +55,6 @@ const Evaluation = () => {
 
   return (
     <div>
-      <Navbar />
       <h1
         style={{ textAlign: 'center', marginBottom: '20px', marginTop: '50px' }}
       >

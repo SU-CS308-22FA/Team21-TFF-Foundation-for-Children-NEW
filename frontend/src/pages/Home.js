@@ -1,11 +1,7 @@
 import '../index.scss';
 import React from 'react';
-import lifting from '../img/lifting.jpg';
 import Navbar from '../components/Navbar';
-import c1 from '../img/c1.jpg';
-import c2 from '../img/c2.jpg';
-import c3 from '../img/c3.jpg';
-import c4 from '../img/c4.jpg';
+
 
 import { useAuthContext } from '../hooks/useAuthContext';
 import Announcements from './Announcements';
@@ -31,6 +27,7 @@ const Home = () => {
     <div className="homePage">
       <Navbar />
       <div className="aboutDescription">
+        
         <div style={{ textAlign: 'center' }}>
           <h1>
             {userName
@@ -55,16 +52,11 @@ const Home = () => {
             <Announcements />
           </div>
         </div>
+        <div
+ 
+       className="SecondContent">
+        {user?.role === 'Student' && <Evaluation />}
       </div>
-      <div className="purposeDescription">
-        <img src={lifting} alt="" />
-        <div className="description">
-          <h1> WHY US? </h1>
-          <p> Please keep reading for details. To be updated... </p>
-        </div>
-      </div>
-      <div className="teacherContainer">
-        {user?.role === 'Student' && <Evaluation />};
       </div>
     </div>
   );

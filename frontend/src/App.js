@@ -6,8 +6,8 @@ import Teacher from './pages/Teacher';
 import Home from './pages/Home';
 import AnnouncementAdd from './pages/AnnouncementAdd';
 import AnnouncementPage from './pages/AnnouncementPage';
+import EvaluationPage from './pages/EvaluationPage';
 import Evaluate from './pages/Evaluate';
-import Evaluation from './pages/Evaluation';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Training from './pages/Training';
@@ -63,7 +63,6 @@ function App() {
               <Route path="/teacher/trainings" element={<ListTrainings />} />
 
               <Route path="/teacher/trainings/:id" element={<ViewTraining />} />
-
               <Route
                 path="/teacher/trainings/:id/update"
                 element={<UpdateTraining />}
@@ -84,7 +83,7 @@ function App() {
               <Route path="/issues" element={<Issues />} />
               <Route path="/reportIssue" element={<IssueAdd />} />
               <Route path="/evaluate" element={<Evaluate />} />
-              <Route path="/evaluation" element={<Evaluation />} />
+              <Route path="/evaluation" element={<EvaluationPage />} />
             </Routes>
           </switch>
         </div>
