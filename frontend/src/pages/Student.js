@@ -164,91 +164,10 @@ for(let i=0; i < eventsArray.length;i++){
                             
                         </div>
                     </div>
-                    <div className="skillContainer">
-                        <div className="skills">
-                            <h1>My Development</h1>
-                            <div id="img1">
-                                <h3> Skill Name 1</h3>
-                                <img src={one} alt=""/>
-                            </div>
-                            <div id="img2">
-                                <h3> Skill Name 2</h3>
-                                <img src={two} alt=""/>
-                            </div>
-                            <div id="img3">
-                                <h3> Skill Name 3</h3>
-                                <img src={three} alt=""/>
-                            </div>
-                            <div id="img4">
-                                <h3> Skill Name 4</h3>
-                                <img src={four} alt=""/>
-                            </div>
-                            <div id="img5">
-                                <h3> Skill Name 5</h3>
-                                <img src={five} alt=""/>
-                            </div>
-                            <div id="img6">
-                                <h3> Skill Name 6</h3>
-                                <img src={six} alt=""/>
-                            </div>
-                            
-                        </div>
-                    </div>
+                   
+                   
                     
-                    <div className="announcementsContainer">
-        
-            
-                    <div className="announcements">
-                        <h1> Latest News </h1>
-                        <div className="news">
-                            <div className="announcementBox1">
-                                <img src={four} alt=""/>
-                                <div className="eventDate1">
-                                    <h4>April 26, 2022</h4>
-                                </div>
-                                <div className="eventName1">
-                                    <h2>Soccer Open Day</h2>
-                                </div>
-                                <div className="eventDescription1">
-                                    <p>
-                                        It is vitally important that the club retains its existing players and attracts new players each season. 
-                                        From early July the club will arrange a Club Open Day ...
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="announcementBox2">
-                                <img src={five} alt=""/>
-                                <div className="eventDate2">
-                                    <h4>April 26, 2022</h4>
-                                </div>
-                                <div className="eventName2">
-                                    <h2>FAI Summer Camp</h2>
-                                </div>
-                                <div className="eventDescription2">
-                                    <p>
-                                        The Football Association of Ireland runs skills-based summer camps at many soccer clubs throughout 
-                                        the country during the summer period.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="announcementBox3">
-                                <img src={one} alt=""/>
-                                <div className="eventDate3">
-                                    <h4>April 26, 2022</h4>
-                                </div>
-                                <div className="eventName3">
-                                    <h2>Trip to Premiership Match</h2>
-                                </div>
-                                <div className="eventDescription3">
-                                    <p>
-                                        Each season a group of players, parents & 
-                                        coaches travel across to the UK to watch a premiership match. A guided tour of the home stadium is sometimes...
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    
                 <div className="calendar">
                 <div className="month">
                     <ul>
