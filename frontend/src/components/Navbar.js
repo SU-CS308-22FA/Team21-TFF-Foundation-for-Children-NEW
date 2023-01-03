@@ -12,6 +12,9 @@ const Navbar = () => {
     logout();
     navigate("/")
   };
+  const handleContact = () => {
+    navigate("/contactUs")
+  };
   const handleIssue = () => {
     navigate("/reportIssue")
   };
@@ -43,12 +46,17 @@ const Navbar = () => {
               <button onClick={handleClick}>Log out</button>
               <button onClick={handleHome}>Content</button>
               <button onClick={handleIssue}>Create Issue</button>
+              <button onClick={handleContact}>Contact us</button>
+
             </div>
           )}
           {!user && (
             <div>
+              
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
+              <button onClick={handleContact}>Contact us</button>
+
             </div>
           )}
         </nav>
