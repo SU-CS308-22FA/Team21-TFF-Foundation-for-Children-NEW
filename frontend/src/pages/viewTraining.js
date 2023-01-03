@@ -98,8 +98,6 @@ const ViewTraining = () =>{
         <p><strong>Date: </strong>{trainingData.date}</p>
         <p><strong>Skills: </strong>{trainingData.skills}</p>
         <div className="button-container">
-        <span className="material-symbols-outlined" id="addSkillBut">delete</span>
-        <Link to="update" state={trainingData} className="material-symbols-outlined" id="updateEventButton"> Update </Link>
         <Link to="assign/students" state={trainingData} className="material-symbols-outlined" id="addTrainingTo"> Assign </Link>
         </div>
         <br></br>
