@@ -106,7 +106,19 @@ const BarChart =  ()  => {
         levels.push(data.level);
 
       }
-      
+      for(let i=0; i < days.length;i++){
+        
+        for(let j=0; j< days.length;j++){
+          if(days[j]>days[i]){
+            let temp= days[j];
+            let temp2= levels[j];
+            days[j]= days[i];
+            days[i]= temp;
+            levels[j]= levels[i];
+            levels[i]= temp2;
+          }
+        }
+      }
       const data2 = {
         labels: days,
         datasets: [{
