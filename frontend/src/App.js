@@ -27,11 +27,11 @@ import ApplyEvent from './pages/applyForEvent';
 import UpdateEvent from './pages/Updateevent';
 import ListTrainings from './pages/listTrainings';
 import ViewTraining from './pages/viewTraining';
-import ListSkills from './pages/listSkills';
 import CreateTraining from './pages/createTraining';
 import AssignTrainingsToStu from './pages/AssignTraining';
 import IssueAdd from './pages/IssueAdd';
 import Issues from './pages/Issues';
+import MyEvents from './pages/myEvents';
 function App() {
   return (
     <div className="App">
@@ -82,6 +82,7 @@ function App() {
               <Route path="/teacher/events/addevent" element={<Addevent />} />
 
               <Route path="/student/events" element={<EventsTabOnStudent />} />
+              <Route path="/student/events/myevents" element={<MyEvents />} />
               <Route path="/contactUs" element={<ContactUs />} />
               <Route
                 path="/student/events/applyevent"
@@ -106,19 +107,12 @@ function App() {
                 element = {<ViewSkills/>}
               />
 
-              <Route path="/teacher/skills" element={<ListSkills />} />
+          
               <Route
                 path = "/teacher/trainings/:id/skills/update_level"
                 element = {<UpdateLevel/>}
               />
-
-
-
-
-              <Route
-                path = "/teacher/skills"
-                element = {<ListSkills/>}
-              />
+  
               <Route
                 path = "/teacher/trainings/create"
                 element = {<CreateTraining/>}

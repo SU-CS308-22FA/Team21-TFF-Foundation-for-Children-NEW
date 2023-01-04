@@ -2,6 +2,7 @@
 import EventDetails from '../components/EventDetails'
 //import Updateevent from '.../components/Updateevent'
 import { useEffect } from "react";
+import Navbar from '../components/Navbar';
 import { useEventContext } from "../hooks/useEventContext"
 import { useAuthContext } from '../hooks/useAuthContext'
 import { Link } from 'react-router-dom'
@@ -30,8 +31,12 @@ const EventsTabOnTeacher = () =>{
     return(
         <div className="EventsTabOnTeacherContainer">
             <div className="events">
+            <Navbar />
             <h1> Events </h1>
             <Link to="addevent" id="addEventButtononEventTab">Add event</Link>
+            <br></br>
+            <br></br>
+            <br></br>
             {events && events.map((event) => (<EventDetails key={event._id} event = {event} />))}
             </div>
         </div>

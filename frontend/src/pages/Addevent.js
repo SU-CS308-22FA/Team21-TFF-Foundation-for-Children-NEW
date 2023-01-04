@@ -62,7 +62,7 @@ const Addevent = () =>{
                 className={emptyFields.includes('eventtitle') ? 'error' : ''}
             />
             <br /> <br />
-            <label>Event City (required):</label>
+            <label>Event Location (required):</label>
             <input 
                 type="eventlocation" 
                 onChange={(e) => seteventlocation(e.target.value)} 
