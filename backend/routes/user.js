@@ -48,10 +48,10 @@ router.delete('/delete', deleteUser)
 router.post('/signup', signupUser)
 router.patch('/addtoeventslist', addToEventsList)
 router.patch('/updateskills', updateSkillLevel)
-router.get('/getstudents', getStudentUsers)
+router.get('/getstudents/:email', getStudentUsers)
 router.get('/getusers/:id', getUser)
 router.get('/getsomeusers', getSomeUsers);
-router.get('/getEventsList/:id', getEventsList );
+router.get('/getEventsList/:email', getEventsList );
 
 router.get('/getuserbyemail/:email', searchUserByEmail)
 

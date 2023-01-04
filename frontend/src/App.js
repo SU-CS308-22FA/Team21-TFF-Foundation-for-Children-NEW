@@ -32,6 +32,7 @@ import AssignTrainingsToStu from './pages/AssignTraining';
 import IssueAdd from './pages/IssueAdd';
 import Issues from './pages/Issues';
 import MyEvents from './pages/myEvents';
+import MyEventsDetails from './pages/MyEventsViewDet.js';
 function App() {
   return (
     <div className="App">
@@ -88,6 +89,12 @@ function App() {
                 path="/student/events/applyevent"
                 element={<ApplyEvent />}
               />
+
+              <Route
+                path="/student/events/myevents/view"
+                element={<MyEventsDetails />}
+              />
+
 
               <Route
                 path="/teacher/events/updateevent"

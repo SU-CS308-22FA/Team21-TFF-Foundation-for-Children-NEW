@@ -9,15 +9,17 @@ const AssignTrainingsToStu = () =>{
 
     
     const { user } = useAuthContext()
+    
     const [error, setError] = useState(null)
     const [users, setUsers] = useState(null);
+    const email= user.email
     let location = useLocation();
     let trainingData = location.state;
     
     useEffect(() => {
         const fetchUsers= async () =>{
            
-          const response= await fetch('/api/user/getstudents')
+          const response= await fetch('/api/user/getstudents/'+email)
           const json= await response.json()
           if(response.ok){
             setUsers(json)
@@ -26,8 +28,8 @@ const AssignTrainingsToStu = () =>{
     }
   
         fetchUsers()
-      }, [])
-
+      }, [email])
+      console.log(users)
 
       const assignTraining = async (stu) => {
         // add the training to the calendar of the student

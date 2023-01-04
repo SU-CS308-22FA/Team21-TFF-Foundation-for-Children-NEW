@@ -2,6 +2,8 @@ const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 console.log(User, ' in userController');
 const mongoose = require('mongoose');
+const Event= require('../models/eventsModel')
+
 
 const createToken = (_id) => {
   // after the tokens are created,
@@ -72,9 +74,26 @@ const searchUserByEmail = async (req, res) => {
 };
 
 const getStudentUsers= async (req,res) => {
-  //console.log("get Users girildi!")
-  const users= await User.find({role:"Student"})
-  res.status(200).json(users)
+  const {email}= req.params
+  
+  const teacher= await User.findOne({email:email})
+  const studentEmails= teacher.students;
+  const studentList=[];
+  for(const email of studentEmails){
+    const student= await User.findOne({email:email})
+    if(student){
+      studentList.push(student);
+    }
+  }
+  /*
+  studentEmails.forEach( async (email)=>{
+    
+    const student= await User.findOne({email:email})
+    console.log(student);
+    studentList.push(student);
+  })*/
+  console.log(studentList);
+  res.status(200).send(studentList)
 }
 
 /*
@@ -96,22 +115,23 @@ const getUserEvents = async (req,res) => {
 */
 
 const getEventsList = async (req, res) => {
-  const { id } = req.params;
-  console.log(id)
+  const { email } = req.params;
+  
 
   // Validate id field
-  if (!id) {
+  if (!email) {
     return res.status(400).send({ error: 'Missing required field: id' });
   }
 
   // Find user by id
   try {
-    const user = await User.findById(id, { eventsList: 1 });
+    const user = await User.findOne({ email: email });
+    console.log(user)
     if (!user) {
       return res.status(404).send({ error: 'User not found' });
     }
 
-    res.status(200).send(user);
+    res.status(200).send(user.eventsList);
   } catch (error) {
     res.status(500).send({ error: 'Error fetching events list' });
   }
