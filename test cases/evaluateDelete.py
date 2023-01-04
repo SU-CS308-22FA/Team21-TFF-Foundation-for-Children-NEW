@@ -22,7 +22,7 @@ time.sleep(1)
 driver.find_element(By.XPATH, '/html/body/div/div/div/switch/div/div[2]/a[4]').click()
 time.sleep(2)
 searchStudent=driver.find_element(By.XPATH, '//*[@id="root"]/div/div/switch/div/div[1]/div/input')
-searchStudent.send_keys("ZeynoCem")
+searchStudent.send_keys("Zeynocuk the Survivor")
 time.sleep(2)
 
 driver.find_element(By.XPATH, '//*[@id="root"]/div/div/switch/div/div[2]/div[2]/h3').click()
