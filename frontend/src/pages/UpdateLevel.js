@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useLocation } from 'react-router-dom';
 import { useParams} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 const UpdateLevel = () =>{
+  const navigate = useNavigate();
     const { user } = useAuthContext();
     let location2 = useLocation();
     let skillData = location2.state;
@@ -53,6 +55,7 @@ const UpdateLevel = () =>{
               setSkillLevel('');
               setError(null);
               console.log('Skill level updated', json);
+              
             }
           } catch (error) {
             console.error(error);
@@ -62,7 +65,9 @@ const UpdateLevel = () =>{
 
     
    
-
+function navigateBack(){
+  navigate(-1);
+}
     return (
         <div>
       <h1>Update Skill Level</h1>
@@ -74,7 +79,7 @@ const UpdateLevel = () =>{
           onChange={(e) => setSkillLevel(e.target.value)}
           className={emptyFields.includes('skillLevel') ? 'error' : ''}
         />
-        <button type="submit">Update Skill</button>
+        <button type="submit" name="skillButton" >Update Skill</button>
         {error && <div className="error">{error}</div>}
       </form>
     </div>

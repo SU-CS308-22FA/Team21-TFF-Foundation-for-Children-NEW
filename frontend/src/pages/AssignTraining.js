@@ -32,7 +32,7 @@ const AssignTrainingsToStu = () =>{
       const assignTraining = async (stu) => {
         // add the training to the calendar of the student
         // firstly, create a calendar object:
-        
+        alert("training has been assigned");
       
         
         const level = null;
@@ -64,6 +64,7 @@ const AssignTrainingsToStu = () =>{
             if (response.ok) {
               setError(null);
               skillIds.push(json._id); // add the ID of the skill to the array
+              
             }
           } catch (error) {
             setError(

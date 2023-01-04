@@ -32,7 +32,7 @@ const getStudentSkills = async (req, res)=>{
 const addSkill = async (req, res) => {
   
     const {userId, skillName, level, skillDate} = req.body 
-    console.log(userId, skillName, level, skillDate)
+    
   
     if(!skillName) {
         return res.status(400).json({ error: 'Please give the name of the skill'})
@@ -130,7 +130,7 @@ const addSkill = async (req, res) => {
   }
 // get a skill by id 
 const getSkill = async (req, res) => {
-  console.log("get skill called!")
+ 
     const { id } = req.params
  
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -142,7 +142,7 @@ const getSkill = async (req, res) => {
     if (!skill) {
         return res.status(404).json({ error: "No such skill" });
     }
-    console.log("skill is: ", skill)
+    
 
     res.status(200).json(skill);
 };
@@ -159,7 +159,7 @@ const getSkills = async (req, res) => {
 // delete a skill by id
 const deleteSkill = async (req, res) => {
     const { id } = req.params
-    console.log("id:" , id)
+    
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "No such skill" });
@@ -179,7 +179,7 @@ const deleteSkill = async (req, res) => {
 // update a skill by its id. 
 //This function will be used when the level of the student is measured and should be released by the teacher. 
 const updateSkill = async (req, res) => {
-  console.log("in update skill")
+ 
     const { id, level } = req.body
     const objectId = mongoose.Types.ObjectId(id);
     

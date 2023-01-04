@@ -60,7 +60,7 @@ const searchCalendarsWithTraningIdX = async (req, res) => {
     console.log(trainingId)
 
     // Search the database for an object with the matching trainingId
-    const foundObject = await Studentcalendar.find({ trainingId });
+    const foundObject = await studentcalendarSchema.find({ trainingId });
 
     // If a match is found, send the object as a response
     if (foundObject) {

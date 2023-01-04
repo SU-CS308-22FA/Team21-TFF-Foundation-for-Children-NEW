@@ -7,6 +7,6 @@ const router = express.Router()
 router.post('/addStudentCalendar', addStudentCalendar)
 
 router.get('/getStudentCalendar/:email2', getStudentCalendar)
-router.get('/getcalendarswithtraningid/:trainingId', searchCalendarsWithTraningIdX)
+router.get('/getcalendarswithtraningId/:trainingId', searchCalendarsWithTraningIdX)
 
 module.exports = router

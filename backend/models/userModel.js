@@ -52,7 +52,7 @@ const userSchema = new Schema(
     },
     assignedemail:{
       type: String,
-      required:true
+      required:false
     },
     students: {
       type: [String]

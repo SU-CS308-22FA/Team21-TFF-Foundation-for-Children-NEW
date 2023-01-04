@@ -53,7 +53,7 @@ const ApplyEvent = () =>{
         <p><strong>Location: </strong>{eventData.eventlocation}</p>
         <p><strong>Details: </strong>{eventData.eventbody}</p>
         <p><strong>Quota: </strong>{eventData.eventquota}</p>
-        <span className="material-symbols-outlined" id="applyButton"onClick={handleClick}>Apply</span>
+        <span className="material-symbols-outlined" id="applyButton" onClick={handleClick}>Apply</span>
       </div>
 
     )

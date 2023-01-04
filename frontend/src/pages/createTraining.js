@@ -53,14 +53,12 @@ const CreateTraining = () => {
             setdate("")
             setError(null)
             dispatch({type: 'ADD_TRAINING', payload: json})
-<<<<<<< Updated upstream
-=======
-            console.log("new training is added (json), ", json)
->>>>>>> Stashed changes
             
         }
     }
-
+function alertFunc(){
+    alert("training is created");
+}
     return (
         <div className="addeventContainer">
             <Navbar />
@@ -93,7 +91,7 @@ const CreateTraining = () => {
                 <button type="button" onClick={handleAddSkill}>
                     Add Skill
                 </button>
-                <button type="submit">Create training</button>
+                <button type="submit" onClick={(alertFunc)}>Create training</button>
                 {error && <div className="error">{error}</div>}
             </form>
             <Link to="/teacher/trainings" id="returneventsbutton">
