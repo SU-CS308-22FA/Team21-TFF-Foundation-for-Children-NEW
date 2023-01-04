@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome("/chromedriver.exe") 
-driver.get("http://localhost:3000/")
+driver.get("https://frontend-tfffc.vercel.app/")
 time.sleep(2)
 
 
