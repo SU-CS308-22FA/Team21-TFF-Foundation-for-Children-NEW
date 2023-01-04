@@ -21,7 +21,7 @@ passwordInput.send_keys('Tunahan29!')
 driver.find_element(By.XPATH, '//*[@id="root"]/div/div/switch/div/form/button').click()
 time.sleep(1)
 driver.find_element(By.XPATH, '//*[@id="link"]').click()
-time.sleep(1)
+time.sleep(3)
 announcementSearch=driver.find_element(By.XPATH, '//*[@id="outlined-basic"]')
 announcementSearch.send_keys("evryone")
 
