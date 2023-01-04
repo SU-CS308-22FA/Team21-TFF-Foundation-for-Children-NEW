@@ -3,7 +3,7 @@ const express = require("express");
 // controller functions
 
 
-const { loginUser, signupUser, searchUserByEmail, updateSkillLevel, getStudentUsers, updateUser, addToEventsList, getUser, getSomeUsers } = require('../controllers/userController') // import the handler functions
+const { loginUser, signupUser, searchUserByEmail, updateSkillLevel, getStudentUsers, updateUser, addToEventsList, getUser, getSomeUsers,  getEventsList } = require('../controllers/userController') // import the handler functions
 const { MongoClient, ObjectId } = require('mongodb');
 const databaseName = 'test';
 const router = express.Router();
@@ -51,6 +51,7 @@ router.patch('/updateskills', updateSkillLevel)
 router.get('/getstudents', getStudentUsers)
 router.get('/getusers/:id', getUser)
 router.get('/getsomeusers', getSomeUsers);
+router.get('/getEventsList/:id', getEventsList );
 
 router.get('/getuserbyemail/:email', searchUserByEmail)
 

@@ -66,9 +66,6 @@ const Teacher = () => {
                             
                             <Link to="/selection" id="link">Change Student</Link>
                             <Link to="/teacher/events" id="link"> Events </Link>
-                            <Link to="/" id="link"> Student Development </Link>
-                            
-                            <Link to="/teacher/skills" id="link"> Skills </Link>
                             <Link to="/teacher/trainings" id="link"> Trainings </Link>
 
       </div>

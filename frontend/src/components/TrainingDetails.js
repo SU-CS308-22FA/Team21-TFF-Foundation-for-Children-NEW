@@ -6,6 +6,7 @@ const TrainingDetails = ({training}) => {
     return (
         <div className="event-details">
           <h4>{training.trainingName}</h4>
+          <h4>{training.date}</h4>
           <Link to={`${training._id}`} state={data} ><button>View Details</button></Link>
         </div>
     );

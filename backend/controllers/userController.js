@@ -29,7 +29,7 @@ const getUser = async (req, res) => {
 
 const getSomeUsers = async (req, res) => {
   
-  console.log("getSomeUsers called");
+  //console.log("getSomeUsers called");
 
   const { userIds  } = req.query;
   console.log(userIds )
@@ -39,7 +39,7 @@ const getSomeUsers = async (req, res) => {
 
   // Convert the userIds to an array of ObjectIds
   const objectIds = userIds.split(',').map(userId => mongoose.Types.ObjectId(userId));
-  console.log("objectIds: ",  objectIds)
+  //console.log("objectIds: ",  objectIds)
 
   // Find the user documents with the given userIds
   const users = await User.find({ _id: { $in: objectIds } });
@@ -48,8 +48,8 @@ const getSomeUsers = async (req, res) => {
 };
 
 const searchUserByEmail = async (req, res) => {
-  console.log("girildi!")
-  console.log("req: ", req.params)
+  //console.log("girildi!")
+  //console.log("req: ", req.params)
   try {
     // Get the email to search for from the request parameters
     const { email } = req.params;
@@ -72,7 +72,7 @@ const searchUserByEmail = async (req, res) => {
 };
 
 const getStudentUsers= async (req,res) => {
-  console.log("get Users girildi!")
+  //console.log("get Users girildi!")
   const users= await User.find({role:"Student"})
   res.status(200).json(users)
 }
@@ -94,6 +94,29 @@ const getUserEvents = async (req,res) => {
     
 }
 */
+
+const getEventsList = async (req, res) => {
+  const { id } = req.params;
+  console.log(id)
+
+  // Validate id field
+  if (!id) {
+    return res.status(400).send({ error: 'Missing required field: id' });
+  }
+
+  // Find user by id
+  try {
+    const user = await User.findById(id, { eventsList: 1 });
+    if (!user) {
+      return res.status(404).send({ error: 'User not found' });
+    }
+
+    res.status(200).send(user);
+  } catch (error) {
+    res.status(500).send({ error: 'Error fetching events list' });
+  }
+};
+
 
 const updateUser = async (req, res) => {
   console.log('ok');
@@ -142,10 +165,10 @@ const updateSkillLevel = async (req, res) => {
 }
 
 const addToEventsList = async (req, res) => {
-  console.log('addToEventsArray was called!');
+  //console.log('addToEventsArray was called!');
   const { event, email } = req.body;
-  console.log(req.body.event.eventtitle);
-  console.log('event and email in addToEventsArray: ', event, email);
+  //console.log(req.body.event.eventtitle);
+  //console.log('event and email in addToEventsArray: ', event, email);
   try {
     // search for a user with the specified email and an eventsList field that contains an element with a matching eventtitle field
     const query = { email };
@@ -225,4 +248,4 @@ const signupUser = async (req, res) => {
 }
 
 
-module.exports = { signupUser, loginUser, searchUserByEmail, updateSkillLevel, getStudentUsers, updateUser,  addToEventsList, getUser, getSomeUsers}
+module.exports = { signupUser, loginUser, searchUserByEmail, getEventsList, updateSkillLevel, getStudentUsers, updateUser,  addToEventsList, getUser, getSomeUsers}

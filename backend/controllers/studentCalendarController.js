@@ -52,8 +52,8 @@ const addStudentCalendar = async (req,res) => {
 }
 
 const searchCalendarsWithTraningIdX = async (req, res) => {
-  console.log("girildi!")
-  console.log("req: ", req.params)
+  //console.log("girildi!")
+  //console.log("req: ", req.params)
   try {
     // Get the trainingId to search for from the request parameters
     const { trainingId } = req.params;

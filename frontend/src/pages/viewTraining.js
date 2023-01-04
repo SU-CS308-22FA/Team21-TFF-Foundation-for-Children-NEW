@@ -98,8 +98,7 @@ const ViewTraining = () =>{
         <p><strong>Date: </strong>{trainingData.date}</p>
         <p><strong>Skills: </strong>{trainingData.skills}</p>
         <div className="button-container">
-        <span className="material-symbols-outlined" id="addSkillBut">delete</span>
-        <Link to="update" state={trainingData} className="material-symbols-outlined" id="updateEventButton"> Update </Link>
+
         <Link to="assign/students" state={trainingData} className="material-symbols-outlined" id="addTrainingTo"> Assign </Link>
         </div>
         <br></br>
@@ -111,7 +110,14 @@ const ViewTraining = () =>{
                     <Link to='skills' state={{current: calendars.current, userId: stu._id}} id="selectButton">Update level</Link>
                 </div>
                 ))}
+                <br></br>
+                <Link to="/teacher/trainings" id="returneventsbutton">
+                Return to all trainings
+          </Link>
+          <br></br>
       </div>
+      
+
 
     )
 
