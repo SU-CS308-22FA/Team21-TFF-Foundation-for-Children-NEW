@@ -1,4 +1,3 @@
-
 const User= require('../models/userModel')
 const Skill = require("../models/skillModel");
 const mongoose = require("mongoose");

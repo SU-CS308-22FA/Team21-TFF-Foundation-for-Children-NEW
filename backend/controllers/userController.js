@@ -1,7 +1,7 @@
-const User = require('../models/userModel')
-const jwt = require('jsonwebtoken')
-
-const mongoose = require('mongoose')
+const User = require('../models/userModel');
+const jwt = require('jsonwebtoken');
+console.log(User, ' in userController');
+const mongoose = require('mongoose');
 
 const createToken = (_id) => {
   // after the tokens are created,
@@ -72,7 +72,7 @@ const searchUserByEmail = async (req, res) => {
 };
 
 const getStudentUsers= async (req,res) => {
- 
+  console.log("get Users girildi!")
   const users= await User.find({role:"Student"})
   res.status(200).json(users)
 }
@@ -95,34 +95,35 @@ const getUserEvents = async (req,res) => {
 }
 */
 
-
-
-const updateUser= async (req,res) =>{
- 
-  const { studentEmail, teacherEmail } = req.body
-  
-  const query1= { email:teacherEmail };
-  try{
-   
+const updateUser = async (req, res) => {
+  console.log('ok');
+  const { studentEmail, teacherEmail } = req.body;
+  console.log('in updateUser ', studentEmail, teacherEmail);
+  const query1 = { email: teacherEmail };
+  try {
+    console.log(User);
     const user = await User.findOne(query1);
-   
-    const studentIndex = user.students.findIndex((item) => item === studentEmail);
-    
+    console.log('user: ', user);
+    const studentIndex = user.students.findIndex(
+      (item) => item === studentEmail
+    );
+    console.log('studentIndex: ', studentIndex);
     let message;
     if (studentIndex !== -1) {
       message = 'Student has already been added to your students list!';
-      res.status(200).json({message: message, user: user});
-    }
-    else{
-    
+      res.status(200).json({ message: message, user: user });
+    } else {
+      console.log('new error gecildi');
       // create a query object to search for the user by email
       const query2 = { email: studentEmail };
       // retrieve the user object by searching for the email field
       const student = await User.findOne(query2);
-      const newvalues = {$push:{students: student.email}}
-      
-      const updatedUser = await User.findOneAndUpdate(query1, newvalues, { new: true });  // search for the user by email
-      
+      const newvalues = { $push: { students: student.email } };
+      console.log('new values: ', newvalues);
+      const updatedUser = await User.findOneAndUpdate(query1, newvalues, {
+        new: true,
+      }); // search for the user by email
+      console.log('update user: ', updateUser);
       message = 'Student added to your students list!';
       res.status(200).json({ message: message, user: updatedUser });
     }
@@ -141,31 +142,35 @@ const updateSkillLevel = async (req, res) => {
 }
 
 const addToEventsList = async (req, res) => {
-  
-  const {event, email} = req.body
-  
+  console.log('addToEventsArray was called!');
+  const { event, email } = req.body;
+  console.log(req.body.event.eventtitle);
+  console.log('event and email in addToEventsArray: ', event, email);
   try {
     // search for a user with the specified email and an eventsList field that contains an element with a matching eventtitle field
     const query = { email };
     const user = await User.findOne(query);
-   
+    console.log('user: ', user);
     // check if the event object is already in the eventsList array
     /*const newvalues = {$push:{eventsList: event}}
     console.log("new values: ", newvalues)*/
-    const eventIndex = user.eventsList.findIndex((item) => item.eventtitle === event.eventtitle);
-    
+    const eventIndex = user.eventsList.findIndex(
+      (item) => item.eventtitle === event.eventtitle
+    );
+    console.log('eventIndex: ', eventIndex);
     let message;
     if (eventIndex !== -1) {
       message = 'Event has already been added to your events list!';
-      res.status(200).json({message: message, user: user});
-    }
-    else{
-   
+      res.status(200).json({ message: message, user: user });
+    } else {
+      console.log('new error gecildi');
       // add the event object to the eventsList array of the user
-      const newvalues = {$push:{eventsList: event}}
-      
-      const updatedUser = await User.findOneAndUpdate(query, newvalues, { new: true });  // search for the user by email
-      
+      const newvalues = { $push: { eventsList: event } };
+      console.log('new values: ', newvalues);
+      const updatedUser = await User.findOneAndUpdate(query, newvalues, {
+        new: true,
+      }); // search for the user by email
+      console.log('update user: ', updateUser);
       message = 'Event added to your events list!';
       res.status(200).json({ message: message, user: updatedUser });
     }
@@ -174,9 +179,10 @@ const addToEventsList = async (req, res) => {
   }
 };
 
-const loginUser = async (req, res) => { // async function bc it will communicate with the db
-  const {email, password} = req.body
-  
+const loginUser = async (req, res) => {
+  // async function bc it will communicate with the db
+  const { email, password } = req.body;
+  console.log('loginuser girildi');
   try {
     const user = await User.login(email, password);
     // create a token
@@ -220,4 +226,3 @@ const signupUser = async (req, res) => {
 
 
 module.exports = { signupUser, loginUser, searchUserByEmail, updateSkillLevel, getStudentUsers, updateUser,  addToEventsList, getUser, getSomeUsers}
-

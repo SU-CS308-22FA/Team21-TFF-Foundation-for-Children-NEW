@@ -6,10 +6,10 @@ import { useLocation } from 'react-router-dom';
 import { useParams} from 'react-router-dom';
 const UpdateEvent = () =>{
     const { user } = useAuthContext()
-    
+    //console.log("update event called")
     let location = useLocation();
     let eventData = location.state;
-    
+    //console.log(eventData)
     const[eventtitle, seteventtitle] = useState('');
     const[eventlocation, seteventlocation] = useState('');
     const[eventbody, seteventbody] = useState('');
@@ -24,7 +24,8 @@ const UpdateEvent = () =>{
     },[])
 
     const getEventDetails = async() => {
-        
+        //console.warn(params)
+        //console.log(eventData.eventlocation)
         seteventtitle(eventData.eventtitle);
         seteventlocation(eventData.eventlocation);
         seteventbody(eventData.eventbody);
@@ -40,7 +41,7 @@ const UpdateEvent = () =>{
         }
 
         const stuevent = {eventtitle,eventlocation,eventbody,eventquota}
-        
+        //console.log("in form: ", stuevent)
         const response = await fetch('/api/event/getevents/'+ eventData._id, {
             method: 'PATCH',
             body: JSON.stringify(stuevent),
@@ -63,7 +64,7 @@ const UpdateEvent = () =>{
             seteventquota("")
             setError(null)
             setEmptyFields([])
-            
+            //console.log("new event is added (json), ", json)
         }
     }
    
